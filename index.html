@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<title>Maxime Gonthier</title>
+</head>
+<body>
+	<div class=head>
+		<h1>Maxime GONTHIER</h1>
+		<p class=head>PhD in computer science since September 2023.</p>
+		<div id="navbar-bouton">
+	      <button>Menu</button>
+    </div>
+    <nav id="navbar-menu">
+      <ul>
+        <li><a class="navbar" href="#contact">Contact and information</a></li>
+        <li><a class="navbar" href="#research">Research interests</a></li>
+        <li><a class="navbar" href="#phd">PhD defense</a></li>
+        <li><a class="navbar" href="#papers">Publications</a></li>
+        <li><a class="navbar" href="#projects">Programming projects</a></li>
+        <li><a class="navbar" href="#teaching">Teaching</a></li>
+      </ul>
+    </nav>
+	</div>
+	
+	<div class="p1" id="contact">
+		<h2>Contact and information</h2>
+		<img id="photo" align="right" src="maxime.png" label="Profile picture of Maxime GONTHIER"/>
+		<p>I completed my PhD at <a href="http://www.ens-lyon.fr/">ENS Lyon</a> in the field of Computer Science. I worked in the <a href="http://www.ens-lyon.fr/LIP/ROMA/">ROMA team</a> at the LIP laboratory under the supervision of <a href="http://perso.ens-lyon.fr/loris.marchal/" label="Loris MARCHAL website">Loris Marchal</a> (ENS Lyon, CNRS) and in the <a href="https://www.inria.fr/fr/storm">STORM team</a> at <a href="https://www.inria.fr/fr/centre-inria-universite-bordeaux">INRIA Bordeaux</a> with the supervision of <a href="https://dept-info.labri.fr/~thibault/" label="link to the Samuel THIBAULT's website"> Samuel Thibault</a> (Université de Bordeaux, Inria).</p>
+		<table  class="contact-me">
+			<tr>
+				<td>Email: </td>
+				<td>maxime (dot) gonthier (at) ens-lyon.fr</td>
+			</tr>
+		</table>
+		<div id="downloads">
+			<ul>
+				<li><a href="CV_2023.pdf" label="Access to my resume" download>My resume</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="p1" id="research">
+		<h2>Research interests</h2>
+		<p>My research focuses on scheduling problems. I study more specifically the issue of scheduling task sharing data under memory constraint. To solve this problem I create algorithms and implement them in the StarPU runtime.</p>
+		<p>I also had the chance to collaborate with the Division of Scientific Computing at Uppsala University. During this collaboration I worked on the subject of batch scheduling of jobs needing large input files.</p>
+	</div>
+
+	<div class="p1" id="phd">
+		<h2>PhD defense</h2>
+		<p>
+			My PhD defense took place the September 25<sup>th</sup>, 2023 in the <a href="https://www.labri.fr/" alt="">LaBRI</a> in Bordeaux, France. The subject is <span class="bold-text">Scheduling Under Memory Constraint in Task-based Runtime Systems</span>.<br>
+			<span class="bold-text">Abstract:</span> Hardware accelerators, such as GPUs, now provide a large part of the computational power used for scientific simulations. GPUs come with their own limited memory and are connected to the main memory of the machine via a bus with limited bandwidth.  Scientific simulations often operate on very large data, to the point of not fitting in the limited GPU memory. In this case, one has to turn to out-of-core computing, where data movement quickly becomes a performance bottleneck. During this thesis, we worked on the problem of scheduling for a task-based runtime to improve data locality in an out-of-core setting, in order to reduce data movements. We designed strategies for both task scheduling and data eviction from limited memories. We implemented them in the StarPU runtime and compared them to existing scheduling techniques. Our strategies achieves significantly better performance when scheduling tasks on multiple GPUs with limited memory, as well as on multiple CPU cores with limited main memory.
+		</p>
+		<p>My PhD manuscrit is available <a href="http://perso.ens-lyon.fr/maxime.gonthier/manuscrit.pdf" label="Access to my Ph.D manuscrit" download>here</a>. A capture of my PhD defense is available:</p>
+		<p class="center-text">
+			<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/6lCvyj4qtcQ?si=ZESnkhbeYUaszu_q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+				<span class="italic-text">Your browser does not support this video :(</span>
+			</iframe>
+		</p>
+	</div>
+
+	<div class="p1" id="papers">
+		<h2>Publications</h2>
+		<table>
+			<thead class="bold-table">
+				<tr>
+					<th>Authors</th>
+					<th>Link</th>
+					<th>Year</th>
+					<th>Conference/Journal</th>
+					<th>Type of publication</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td data-label="Authors">Maxime GONTHIER, Loris MARCHAL, Samuel THIBAULT</td>
+				<td data-label="Link"><a href="https://inria.hal.science/hal-04146714v1" label="link to the report">A generic scheduler to foster data locality for GPU and out-of-core task-based applications</a></td>
+				<td data-label="Year">2023</td>
+				<td data-label="Conference/Journal">~</td>
+				<td data-label="Type of publication">Research report</td>
+			</tr>
+			<tr>
+				<td data-label="Authors">Maxime GONTHIER, Loris MARCHAL, Samuel THIBAULT</td>
+				<td data-label="Link"><a href="https://inria.hal.science/hal-04090595v1" label="link to the poster">Memory-Aware Scheduling Of Tasks Sharing Data On Multiple GPUs</a></td>
+				<td data-label="Year">2023</td>
+				<td data-label="Conference/Journal">ISC</td>
+				<td data-label="Type of publication">Poster</td>
+			</tr>
+			<tr>
+				<td data-label="Authors">Maxime GONTHIER, Loris MARCHAL, Samuel THIBAULT, Elisabeth LARSSON, Carl NETTELBLAD</td>
+				<td data-label="Link"><a href=" https://hal.inria.fr/hal-03993118v1/document " label="link to the article"> Locality-aware batch scheduling of I/O intensive workloads</a></td>
+				<td data-label="Year">2023</td>
+				<td data-label="Conference/Journal">~</td>
+				<td data-label="Type of Publication">Research report</td>
+			</tr>
+			<tr>
+				<td data-label="Authors">Maxime GONTHIER, Loris MARCHAL, Samuel THIBAULT</td>
+				<td data-label="Link"><a href=" https://hal.inria.fr/hal-03623220/document " label="link to the article"> Taming data locality for task scheduling under memory constraint in runtime systems</a></td>
+				<td data-label="Year">2023</td>
+				<td data-label="Conference/Journal">Future Generation Computer Systems</td>
+				<td data-label="Type of publication">Journal</td>
+			</tr>
+			<tr>
+				<td data-label="Authors">Maxime GONTHIER, Loris MARCHAL, Samuel THIBAULT</td>
+				<td data-label="Link"><a href="https://hal.inria.fr/hal-03552243/document" label="link to the article">Memory-Aware Scheduling of Tasks Sharing Data on Multiple GPUs with Dynamic Runtime Systems</a></td>
+				<td data-label="Year">2022</td>
+				<td data-label="Conference/Journal">IPDPS</td>
+				<td data-label="Type of publication">Conference</td>
+			</tr>
+			<tr>
+				<td data-label="Authors">Maxime GONTHIER, Loris MARCHAL, Samuel THIBAULT</td>
+				<td data-label="Link"><a href="https://hal.inria.fr/hal-03144290v6/document" label="link to the article">Locality-Aware Scheduling of Independent Tasks for Runtime Systems (Extended Version)</a></td>
+				<td data-label="Year">2021</td>
+				<td data-label="Conference/Journal">~</td>
+				<td data-label="Type of publication">Research report</td>
+			</tr> 
+			<tr>
+				<td data-label="Authors">Maxime GONTHIER, Loris MARCHAL, Samuel THIBAULT</td>
+				<td data-label="Link"><a href="https://hal.science/hal-03290998v1/document" label="link to the article">Locality-Aware Scheduling of Independent Tasks for Runtime System</a></td>
+				<td data-label="Year">2021</td>
+				<td data-label="Conference/Journal">EuroPar</td>
+				<td data-label="Type of publication">Workshop</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="p1" id="projects">
+		<h2>Programming projects</h2>			
+		<p>Most of our research papers are associated with a source code in order to reproduce the presented results.</p>
+		<p>For instance, you can find our first algorithm developed to statically schedule task under memory constraint <a href="https://gitlab.inria.fr/starpu/locality-aware-scheduling/-/tree/coloc2021" label="EuroPar code">here</a> and our second algorithm that dynamically schedule tasks <a href=https://gitlab.inria.fr/starpu/locality-aware-scheduling/-/tree/IPDPS2021 label="IPDPS code">here</a>.</p>
+		<p>The code I developed during my research collaboration in Uppsala is a batch simulator as well as 4 schedulers and is available <a href="https://github.com/userccgrid/Locality-aware-batch-scheduling" label="Batch scheduling code">here.</a></p>
+		<p>I implemented into the <a href="https://gitlab.inria.fr/starpu/starpu" label="StarPU github">StarPU runtime</a> 5 new schedulers and a new eviction policy.</p>
+	</div>
+
+	<div class="p1" id="teaching">
+		<h2>Teaching</h2>
+		<div class="largetable">
+			<table class="teaching">
+				<thead class="bold-table">
+					<th>Year</th>
+					<th>Topic</th>
+					<th>Level</th>
+					<th>Location</th>
+				</thead>
+				<tr>
+					<td data-label="Year">2023</td>
+					<td data-label="Topic">Computer hardware architecture</td>
+					<td data-label="Level">L3</td>
+					<td data-label="Location"> Enseirb-Matmeca Bordeaux</td>
+				</tr>
+				<tr>
+					<td data-label="Year">2022</td>
+					<td data-label="Topic">Algorithmic</td>
+					<td data-label="Level">L3</td>
+					<td data-label="Location">Enseirb-Matmeca Bordeaux</td>
+				</tr>
+				<tr>
+					<td data-label="Year">2022</td>
+					<td data-label="Topic">Internship tutoring and member of the jury</td>
+					<td data-label="Level">M2</td>
+					<td data-label="Location">Enseirb-Matmeca Bordeaux</td>
+				</tr>
+				<tr>
+					<td data-label="Year">2022</td>
+					<td data-label="Topic">Network programming</td>
+					<td data-label="Level">M1</td>
+					<td data-label="Location">Enseirb-Matmeca Bordeaux</td>
+				</tr>
+				<tr>
+					<td data-label="Year">2022</td>
+					<td data-label="Topic">Internship tutoring</td>
+					<td data-label="Level">M1</td>
+					<td data-label="Location">Enseirb-Matmeca Bordeaux</td>
+				</tr>
+				<tr>
+					<td data-label="Year">2021</td>
+					<td data-label="Topic">Network Programming</td>
+					<td data-label="Level">M1</td>
+					<td data-label="Location">Enseirb-Matmeca Bordeaux </td>
+				</tr>
+				<tr>
+					<td data-label="Year">2020</td>
+					<td data-label="Topic">Systems</td>
+					<td data-label="Level">L1</td>
+					<td data-label="Location">Université Lyon 1</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<footer>
+		<span><a href="#">Top of the page</a></span><br>
+		<span class="italic-text">Last update : September 26<sup>th</sup>, 2023.</span>
+		<nav class="plan"><h3>Website's plan :</h3>
+		  <ul>
+            <li><a href="#contact">Contact and information</a></li>
+            <li><a href="#research">Research interests</a></li>
+            <li><a class="navbar" href="#phd">PhD defense</a></li>
+            <li><a href="#papers">Publications</a></li>
+            <li><a href="#projects">Programming projects</a></li>
+            <li><a href="#teaching">Teaching</a></li>
+          </ul>
+		</nav>
+	</footer>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
