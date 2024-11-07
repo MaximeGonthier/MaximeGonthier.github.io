@@ -25,7 +25,7 @@
 }
 
 /* Navbar declaration */
-#navbar-menu a, #downloads a, #navbar-bouton button{
+#navbar-menu a, .downloads a, #navbar-bouton button{
 	display: inline;
 	margin-left: auto;
 	margin-right: auto;
@@ -39,18 +39,18 @@
 	border-radius: 5px;
 	background-color: #439A8D;
 }
-a:hover, button:hover, #navbar-bouton button:hover, #navbar-menu a:hover, #downloads a:hover{
+a:hover, button:hover, #navbar-bouton button:hover, #navbar-menu a:hover, .downloads a:hover{
 	color: white;
 	background-color: #4CADA0;
 }
-#navbar-menu ul, #downloads ul {
+#navbar-menu ul, .downloads ul {
 	display: block;
 	list-style-type: none;
 	padding: 0;
 	margin: auto;
 	text-align: center;
 }
-#navbar-menu li, #downloads li{
+#navbar-menu li, .downloads li{
 	display: inline-flex;
 }
 #navbar-bouton {
@@ -58,7 +58,7 @@ a:hover, button:hover, #navbar-bouton button:hover, #navbar-menu a:hover, #downl
 	width: auto;
 	height: 40px;
 }
-#navbar-menu, #downloads {
+#navbar-menu, .downloads {
 	position: relative;
 	display: flex;
 	margin-left: auto;
@@ -90,6 +90,9 @@ a.download{
 	margin: 0px 0px 15px 15px;
 	border: 3px solid #4CADA0;
 	border-radius: 5px;
+}
+.hidden{
+	display: none;
 }
 
 
@@ -201,7 +204,7 @@ footer h3{
 	#navbar-menu a{
 		border-radius: 0;
 	}
-	#downloads li{
+	.downloads li{
 		margin-bottom: 10px;
 	}
 }
