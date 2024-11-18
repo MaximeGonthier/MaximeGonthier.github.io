@@ -1,9 +1,9 @@
 /* Variables */
 :root{
-	--btn: #4f92ea;
-	--btn-hover:  #69a1ea;
-	--header: #4f92ea;
-	--link: #4f92ea;
+	--btn: #4382d4;
+	--header: #4382d4;
+	--link: #4382d4;
+	--btn-hover:  #80ade7;
 	--border: #80ade7;
 	--background-color: #EBEBEA;
 }
@@ -114,11 +114,11 @@ body{
 	display: grid;
 }
 h1{
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 	text-align: center;
 	font-family: system-ui;
 	font-size: 65px;
-	color: --var(--header);
+	color: var(--header);
 }
 h2{
 	font-family: system-ui;
