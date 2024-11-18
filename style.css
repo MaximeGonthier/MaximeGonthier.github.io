@@ -1,3 +1,14 @@
+/* Variables */
+:root{
+	--btn: #4f92ea;
+	--btn-hover:  #69a1ea;
+	--header: #4f92ea;
+	--link: #4f92ea;
+	--border: #80ade7;
+	--background-color: #EBEBEA;
+}
+
+
 /* Text transformations */
 .italic-text{
 	font-style: italic;
@@ -35,13 +46,13 @@
 	font-size: 18px;
 	text-decoration: none;
 	color: white;
-	border: 1px solid #4CADA0;
+	border: 1px solid var(--border);
 	border-radius: 5px;
-	background-color: #439A8D;
+	background-color: var(--btn);
 }
 a:hover, button:hover, #navbar-bouton button:hover, #navbar-menu a:hover, .downloads a:hover{
 	color: white;
-	background-color: #4CADA0;
+	background-color: var(--btn-hover);;
 }
 #navbar-menu ul, .downloads ul {
 	display: block;
@@ -81,14 +92,14 @@ a.download{
 #photo{
 	float: right; 
 	margin: 0px 0px 15px 15px;
-	border: 3px solid #4CADA0;
+	border: 3px solid --var(border);
 	border-radius: 5px;
 	width: 150px;
 	height : auto;
 }
 .video{
 	margin: 0px 0px 15px 15px;
-	border: 3px solid #4CADA0;
+	border: 3px solid var(--border);
 	border-radius: 5px;
 }
 .hidden{
@@ -98,21 +109,21 @@ a.download{
 
 /* Mark declarations */ 
 body{
-	background-color: #EBEBEA;
+	background-color: var(--background-color);
 	margin: 20px 20%;
 	display: grid;
 }
 h1{
-	margin-bottom: 20px;
+	margin-bottom: 60px;
 	text-align: center;
 	font-family: system-ui;
 	font-size: 65px;
-	color: #4CADA0;
+	color: --var(--header);
 }
 h2{
 	font-family: system-ui;
 	font-size: 34px;
-	color: #439A8D;
+	color: var(--header);
 	margin-left: 10px;
 	padding-bottom: 5px;
 }
@@ -122,11 +133,11 @@ td, th{
 	text-align: top left;
 }
 a{
-	color: #439A8D;
+	color: var(--link);
 	text-decoration: none;
 }
 footer{
-	background-color: #E0E0DF;
+	background-color: var(--background-color);
 	text-align: center;
 	padding-top:30px;
 	padding-bottom: 50px;
@@ -162,7 +173,7 @@ footer h3{
 		width: 1px;
 	}
 	table tr {
-		border-bottom: 1px solid #439A8D;
+		border-bottom: 1px solid var(--border);
 		display: block;
 		margin: 15px 0px;
 	}
