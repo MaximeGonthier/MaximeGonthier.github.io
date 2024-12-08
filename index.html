@@ -18,8 +18,7 @@
         <li><a class="navbar" href="#research">Research interests</a></li>
         <li><a class="navbar" href="#phd">PhD defense</a></li>
         <li><a class="navbar" href="#papers">Publications</a></li>
-        <li><a class="navbar" href="#projects">Programming projects</a></li>
-		<li><a class="navbar" href="#developments">Technological developments</a></li>
+        <li><a class="navbar" href="#projects">Programming projects and technological developments</a></li>
         <li><a class="navbar" href="#teaching">Teaching</a></li>
       </ul>
     </nav>
@@ -237,22 +236,28 @@
 	</div>
 
 	<div class="p1" id="projects">
-		<h2>Programming projects</h2>			
+		<h2>Programming projects and technological developments</h2>			
 		<p>Most of our research papers are associated with a source code in order to reproduce the presented results.</p>
 		<p>For instance, you can find our first algorithm developed to statically schedule task under memory constraint <a href="https://gitlab.inria.fr/starpu/locality-aware-scheduling/-/tree/coloc2021" label="EuroPar code">here</a> and our second algorithm that dynamically schedule tasks <a href=https://gitlab.inria.fr/starpu/locality-aware-scheduling/-/tree/IPDPS2021 label="IPDPS code">here</a>.</p>
 		<p>The code I developed during my research collaboration in Uppsala is a batch simulator as well as 4 schedulers and is available <a href="https://github.com/userccgrid/Locality-aware-batch-scheduling" label="Batch scheduling code">here.</a></p>
 		<p>I implemented into the <a href="https://gitlab.inria.fr/starpu/starpu" label="StarPU github">StarPU runtime</a> 5 new schedulers and a new eviction policy.</p>
-	</div>
-
-	<div class="p1 hidden" id="developments">
-		<h2>Technological developments</h2>
 		<ol>
 			<h3><li>Data-Aware Reactive Task Scheduling pour StarPU (DARTS)</li></h3>
+			<table class="hidden">
+				<tbody>
+					<tr class="hidden">
+						<td data-label="Contribution">I design and implemented the most of the code. Samuel THIBAULT and Nathalie FURMENTO contribute to the debug of the code.</td>
+						<td data-label="duration">2 years of development</td>
+						<td data-label="Link"><a h ref="https://gitlab.inria.fr/starpu/starpu/-/blob/master/src/sched_policies/darts.c?ref_type=heads" label="link to the DARTS sources">Source code</a></td>
+						<td data-label="Aim">StarPU runtimes groups a set of </td>
+						<td data-label="Type of publication"></td>
+					</tr>
+				</tbody>
+			</table>
 			<h3><li>Hierarchical Fair Packing pour StarPU (HFP)</li></h3>
 			<h3><li>Outil de visualisations pour ordonnanceurs de StarPU</li></h3>
 			<h3><li>Simulateur de travaux sur supercalculateur</li></h3>
 			<h3><li>Simulateur de réplication et distributions de données (DynoStore D-Rex)</li></h3>
-
 		</ol>
 	</div>
 
@@ -327,8 +332,7 @@
             <li><a href="#research">Research interests</a></li>
             <li><a href="#phd">PhD defense</a></li>
             <li><a href="#papers">Publications</a></li>
-            <li><a href="#projects">Programming projects</a></li>
-			<li><a href="#developments">Technological developments</a></li>
+            <li><a href="#projects">Programming projects and technological developments</a></li>
             <li><a href="#teaching">Teaching</a></li>
           </ul>
 		</nav>
