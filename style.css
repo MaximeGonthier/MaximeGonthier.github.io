@@ -1,0 +1,226 @@
+/* Variables */
+:root{
+	--btn: #4382d4;
+	--header: #4382d4;
+	--link: #4382d4;
+	--btn-hover:  #80ade7;
+	--border: #80ade7;
+	--background-color: #EBEBEA;
+}
+
+
+/* Text transformations */
+.italic-text{
+	font-style: italic;
+}
+.bold-text{
+	font-weight: bold;
+}
+.center-text{
+	text-align: center;
+}
+.bold-table{
+	font-style: semibold;
+	font-size: 22px;
+	text-align: left;
+}
+
+/* Head declarations */
+.head{
+	position: sticky;
+	padding-bottom: 30px;
+	text-align: center;
+}
+.head p{
+	font-size: 22px;
+}
+
+/* Navbar declaration */
+#navbar-menu a, .downloads a, #navbar-bouton button{
+	display: inline;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 25px;
+	flex-grow: 1;
+	text-align: center;
+	font-size: 18px;
+	text-decoration: none;
+	color: white;
+	border: 1px solid var(--border);
+	border-radius: 5px;
+	background-color: var(--btn);
+}
+a:hover, button:hover, #navbar-bouton button:hover, #navbar-menu a:hover, .downloads a:hover{
+	color: white;
+	background-color: var(--btn-hover);;
+}
+#navbar-menu ul, .downloads ul {
+	display: block;
+	list-style-type: none;
+	padding: 0;
+	margin: auto;
+	text-align: center;
+}
+#navbar-menu li, .downloads li{
+	display: inline-flex;
+}
+#navbar-bouton {
+	display: none;
+	width: auto;
+	height: 40px;
+}
+#navbar-menu, .downloads {
+	position: relative;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+/* Sections */
+.p1{
+	display: block;
+	font-size: 20px;
+	/*font-family: ;*/
+}
+
+a.download{
+	white-space: nowrap;
+	flex-grow: 1;
+}
+
+#photo{
+	float: right; 
+	margin: 0px 0px 15px 15px;
+	border: 3px solid --var(border);
+	border-radius: 5px;
+	width: 150px;
+	height : auto;
+}
+.video{
+	margin: 0px 0px 15px 15px;
+	border: 3px solid var(--border);
+	border-radius: 5px;
+}
+.hidden{
+	display: none;
+}
+
+
+/* Mark declarations */ 
+body{
+	background-color: var(--background-color);
+	margin: 20px 20%;
+	display: grid;
+}
+h1{
+	margin-bottom: 40px;
+	text-align: center;
+	font-family: system-ui;
+	font-size: 65px;
+	color: var(--header);
+}
+h2{
+	font-family: system-ui;
+	font-size: 34px;
+	color: var(--header);
+	margin-left: 10px;
+	padding-bottom: 5px;
+}
+
+td, th{
+	padding: 0px 10px 10px 10px;
+	text-align: top left;
+}
+a{
+	color: var(--link);
+	text-decoration: none;
+}
+footer{
+	background-color: var(--background-color);
+	text-align: center;
+	padding-top:30px;
+	padding-bottom: 50px;
+}
+footer h3{
+	font-family: system-ui;
+	margin: 0px;
+	margin: 1% 0% 0% 0%;
+}
+.plan, .plan ul{
+	margin: 0% 1%;
+	padding-left: 0;
+	text-align: left;
+	list-style-type: none;
+}
+
+
+@media (max-width: 768px) {
+	body{
+		margin: 0px 8px;
+	}
+	h1{
+		font-size: 50px;
+	}
+	table thead {
+		border: none;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+	table tr {
+		border-bottom: 1px solid var(--border);
+		display: block;
+		margin: 15px 0px;
+	}
+	table td {
+		display: block;
+		font-size: 15px;
+		text-align: right;
+		padding: 8px 2px 8px 2px;
+	}
+	table td::before {
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		font-size: 18px;
+	}
+	table td:last-child {
+		border-bottom: 0;
+	}
+	.video{
+		width: 270px;
+		height: auto;
+	}
+	#photo{
+		width: 90px;
+	}
+	#navbar-bouton {
+		display: flex;
+	}
+	#navbar-menu{
+		display: none;
+		text-align: left;
+	}
+	#navbar-menu ul{
+		flex-grow: 1;
+	}
+	#navbar-menu li{
+		display: flex;
+	}
+	#navbar-menu a{
+		border-radius: 0;
+	}
+	.downloads li{
+		margin-bottom: 10px;
+	}
+}
+@media (min-width: 1080px) {
+	body{
+		margin: 52px 40px;
+	}
+}
