@@ -12,16 +12,17 @@
 		<div id="navbar-bouton">
 	      <button>Menu</button>
     </div>
-    <nav id="navbar-menu">
-      <ul>
-        <li><a class="navbar" href="#contact">Contact and information</a></li>
-        <li><a class="navbar" href="#research">Research interests</a></li>
-        <li><a class="navbar" href="#phd">PhD defense</a></li>
-        <li><a class="navbar" href="#papers">Publications</a></li>
-        <li><a class="navbar" href="#projects">Programming projects and technological developments</a></li>
-        <li><a class="navbar" href="#teaching">Teaching</a></li>
-      </ul>
-    </nav>
+	<nav id="navbar-menu">
+		<ul>
+			<li><a class="navbar" href="#contact">Contact and information</a></li>
+			<li><a class="navbar" href="#research">Research interests</a></li>
+			<li><a class="navbar" href="#phd">PhD defense</a></li>
+			<li><a class="navbar" href="#papers">Publications</a></li>
+			<li><a class="navbar" href="#projects">Programming projects and technological developments</a></li>
+			<li><a class="navbar" href="#teaching">Teaching</a></li>
+			<li><a class="navbar" href="#mentoring">Mentoring</a></li>
+		</ul>
+		</nav>
 	</div>
 	
 	<div class="p1" id="contact">
@@ -30,7 +31,7 @@
 		<p>I am currently working as a Postdoc at the <a href="https://labs.globus.org/">Globus Labs</a> (<a href="https://www.uchicago.edu/">University of Chicago</a>) and at the <a href="https://www.anl.gov/">Argonne National Laboratory</a>. My work is under the supervision of <a href="https://www.anl.gov/profile/ian-t-foster">Ian Foster</a> and <a href="https://cs.uchicago.edu/people/kyle-chard/">Kyle Chard</a>.</p>
 
 		<p>I completed my PhD at <a href="http://www.ens-lyon.fr/">ENS Lyon</a> in the field of Computer Science. I worked in the <a href="http://www.ens-lyon.fr/LIP/ROMA/">ROMA team</a> at the LIP laboratory under the supervision of <a href="http://perso.ens-lyon.fr/loris.marchal/" label="Loris MARCHAL website">Loris Marchal</a> (ENS Lyon, CNRS) and in the <a href="https://www.inria.fr/fr/storm">STORM team</a> at <a href="https://www.inria.fr/fr/centre-inria-universite-bordeaux">INRIA Bordeaux</a> with the supervision of <a href="https://dept-info.labri.fr/~thibault/" label="link to the Samuel THIBAULT's website"> Samuel Thibault</a> (Université de Bordeaux, Inria).</p>
-		<table  class="contact-me">
+		<table  class="contact-me center">
 			<tr>
 				<td>Email: </td>
 				<td>mgonthier (at) uchicago (dot) edu</td>
@@ -67,7 +68,7 @@
 
 	<div class="p1" id="papers">
 		<h2>Publications</h2>
-		<table>
+		<table class="center">
 			<thead class="bold-table">
 				<tr>
 					<th>Authors</th>
@@ -88,7 +89,8 @@
 			<tr>
 				<td data-label="Authors">Maxime GONTHIER, Loris MARCHAL, Samuel THIBAULT</MARquee>
 				</td>
-				<td data-label="Link"><a href="https://inria.hal.science/hal-04146714/document" label="link to the conference">generic scheduler to foster data locality for GPU and out-of-core task-based applications</a></td>
+				<td data-label="Link"><a href="https://inria.hal.science/hal-04146714/document
+					[S2]" label="link to the conference">generic scheduler to foster data locality for GPU and out-of-core task-based applications</a></td>
 				<td data-label="Year">2024</td>
 				<td data-label="Conference/Journal">Journal of Parallel and Distributed Computing (JPDC)</td>
 				<td data-label="Type of publication">Submitted article</td>
@@ -208,7 +210,7 @@
 		<p>For instance, you can find our first algorithm developed to statically schedule task under memory constraint <a href="https://gitlab.inria.fr/starpu/locality-aware-scheduling/-/tree/coloc2021" label="EuroPar code">here</a> and our second algorithm that dynamically schedule tasks <a href=https://gitlab.inria.fr/starpu/locality-aware-scheduling/-/tree/IPDPS2021 label="IPDPS code">here</a>.</p>
 		<p>The code I developed during my research collaboration in Uppsala is a batch simulator as well as 4 schedulers and is available <a href="https://github.com/userccgrid/Locality-aware-batch-scheduling" label="Batch scheduling code">here.</a></p>
 		<p>I implemented into the <a href="https://gitlab.inria.fr/starpu/starpu" label="StarPU github">StarPU runtime</a> 5 new schedulers and a new eviction policy.</p>
-		<ol>
+		<ol class="hidden">
 			<h3><li>Data-Aware Reactive Task Scheduling pour StarPU (DARTS)</li></h3>
 			<table class="hidden">
 				<tbody>
@@ -230,7 +232,7 @@
 	<div class="p1" id="teaching">
 		<h2>Teaching</h2>
 		<div class="largetable">
-			<table class="teaching">
+			<table class="teaching center">
 				<thead class="bold-table">
 					<th>Year</th>
 					<th>Topic</th>
@@ -289,23 +291,10 @@
 		</div>
 	</div>
 
-	<div class="p1 hidden" id="mentoring">
+
+	<div class="p1 " id="mentoring">
 		<h2>Mentoring</h2>
-		<table class="teaching">
-			<thead class="bold-table">
-				<th>Student name</th>
-				<th>Mentoring duration</th>
-				<th>Location</th>
-				<th>Topic</th>
-			</thead>
-			<tbody>
-				<tr>
-					<td data-label="Year"></td>
-					<td data-label="Topic"></td> 	
-					<td data-label="Location"></td>
-					<td data-label="Topic"></td>
-				</tr>
-			</tbody>
+		<table id="mentoring-table" class="teaching center">
 		</table>
 	</div>
 	
@@ -313,15 +302,16 @@
 		<span><a href="#">Top of the page</a></span><br>
 		<span class="italic-text">Last update : December 14<sup>th</sup>, 2024.</span>
 		<nav class="plan"><h3>Website's plan :</h3>
-		  <ul>
-            <li><a href="#contact">Contact and information</a></li>
-            <li><a href="#research">Research interests</a></li>
-            <li><a href="#phd">PhD defense</a></li>
-            <li><a href="#papers">Publications</a></li>
-            <li><a href="#projects">Programming projects and technological developments</a></li>
-            <li><a href="#teaching">Teaching</a></li>
-          </ul>
-		</nav>
+			<ul>
+			  <li><a href="#contact">Contact and information</a></li>
+			  <li><a href="#research">Research interests</a></li>
+			  <li><a href="#phd">PhD defense</a></li>
+			  <li><a href="#papers">Publications</a></li>
+			  <li><a href="#projects">Programming projects and technological developments</a></li>
+			  <li><a href="#teaching">Teaching</a></li>
+			  <li><a href="#mentoring">Mentoring</a></li>
+			</ul>
+		  </nav>
 	</footer>
 
 	<script type="text/javascript" src="script.js"></script>
