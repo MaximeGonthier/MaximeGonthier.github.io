@@ -6,6 +6,7 @@
 	--link: #4f92ea;
 	--border: #80ade7;
 	--background-color: #EBEBEA;
+	--font-family-head: cursive;
 }
 
 
@@ -29,7 +30,12 @@
 .head{
 	position: sticky;
 	padding-bottom: 30px;
-	text-align: center;
+	text-align: center; 
+}
+.head h1{
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	/* var(--font-family-head); */
+	color: var(--header);
 }
 .head p{
 	font-size: 22px;
@@ -105,6 +111,10 @@ a.download{
 .hidden{
 	display: none;
 }
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
 
 
 /* Mark declarations */ 
@@ -127,7 +137,10 @@ h2{
 	margin-left: 10px;
 	padding-bottom: 5px;
 }
-
+p{
+	margin-left: 15%;
+	margin-right: 15%;
+}
 td, th{
 	padding: 0px 10px 10px 10px;
 	text-align: top left;
