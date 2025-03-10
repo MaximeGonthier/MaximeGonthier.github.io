@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class=head>
-		<h1>Maxime GONTHIER</h1>
+		<h1>Maxime Gonthier</h1>
 		<div id="navbar-bouton">
 	    	<button>Menu</button>
     	</div>
@@ -18,17 +18,19 @@
 			<li><a class="navbar" href="#research">Research interests</a></li>
 			<li><a class="navbar" href="#phd">PhD defense</a></li>
 			<li><a class="navbar" href="#papers">Publications</a></li>
-			<li><a class="navbar" href="#projects">Programming projects and technological developments</a></li>
 			<li><a class="navbar" href="#teaching">Teaching</a></li>
-			<li><a class="navbar" href="#mentoring">Mentoring</a></li>
+			  <li><a class="navbar" href="#award">Awards</a></li>
+			  <li><a class="navbar" href="#mentorship">Co-supervision</a></li>
+			  <li><a class="navbar" href="#software">Software developments</a></li>
 		</ul>
 		</nav>
 	</div>
 	
 	<div class="p1" id="contact">
-		<h2>Contact and information</h2>
+		<br>
+		<br>
 		<img id="photo" align="left" src="maxime.png" label="Profile picture of Maxime GONTHIER"/>
-		<p>I am a postdoctoral fellow at <a href="https://labs.globus.org/">Globus Labs</a> (<a href="https://www.uchicago.edu/">University of Chicago</a>) and at <a href="https://www.anl.gov/">Argonne National Laboratory</a>. My work is under the supervision of <a href="https://www.anl.gov/profile/ian-t-foster">Ian Foster</a> and <a href="https://cs.uchicago.edu/people/kyle-chard/">Kyle Chard</a>.</p>
+		<p>I am currently a postdoctoral fellow at <a href="https://labs.globus.org/">Globus Labs</a> (<a href="https://www.uchicago.edu/">University of Chicago</a>) and at <a href="https://www.anl.gov/">Argonne National Laboratory</a>. My work is under the supervision of <a href="https://www.anl.gov/profile/ian-t-foster">Ian Foster</a> and <a href="https://cs.uchicago.edu/people/kyle-chard/">Kyle Chard</a>.</p>
 
 		<p>I completed my PhD at <a href="http://www.ens-lyon.fr/">ENS Lyon</a> in 2023. I worked in the <a href="http://www.ens-lyon.fr/LIP/ROMA/">ROMA team</a> at the LIP laboratory under the supervision of <a href="http://perso.ens-lyon.fr/loris.marchal/" label="Loris MARCHAL website">Loris Marchal</a> (ENS Lyon, CNRS) and in the <a href="https://www.inria.fr/fr/storm">STORM team</a> at <a href="https://www.inria.fr/fr/centre-inria-universite-bordeaux">INRIA Bordeaux</a> under the supervision of <a href="https://dept-info.labri.fr/~thibault/" label="link to the Samuel THIBAULT's website"> Samuel Thibault</a> (Université de Bordeaux, Inria).</p>
 		<table  class="contact-me center">
@@ -36,36 +38,37 @@
 				<td>Email: </td>
 				<td>mgonthier (at) uchicago (dot) edu</td>
 			</tr>
+<!--
+			<tr>
+				<td>Google Scholar: </td>
+				<td>https://scholar.google.com/citations?user=Y-BmF8gAAAAJ&hl=fr</td>
+			</tr>
+			<tr>
+				<td>UChicago: </td>
+				<td>https://computerscience.uchicago.edu/people/maxime-gonthier/</td>
+			</tr>
+-->
 		</table>
-
-		<div class="downloads hidden">
-			<ul>
-				<li><a href="attestation_ipdps2022.pdf" label="" download></a></li>
-			</ul>
-		</div>
-		<div class="downloads hidden">
-			<ul>
-				<li><a href="xtask.pdf" label="" download></a></li>
-			</ul>
-		</div>
 	</div>
 
+<br>
 	<div class="p1" id="research">
 		<h2>Research interests</h2>
-		<p>My research focuses on scheduling problems. During my Ph.D., I studied the challenge of scheduling task-sharing data under memory constraints. To address this issue, I developed innovative algorithms and implemented them in the StarPU runtime.</p>
+		<p>My research focuses on scheduling problems. During my Ph.D., I studied the challenge of scheduling tasks sharing data under memory constraints. To address this issue, we developed innovative algorithms and implemented them in the StarPU runtime.</p>
 
 		<p>I also had the opportunity to collaborate with the Division of Scientific Computing at Uppsala University, where I worked on batch scheduling for jobs that require large input files.</p>
 
-		<p>Since beginning my postdoctoral fellowship at the University of Chicago, I have broadened my research interests while continuing to focus on scheduling for high-performance computing (HPC). Notably, I work on mixed-criticality scheduling problems, study resilience in data storage, develop scheduling strategies to promote energy efficiency, and contribute to the development of HPC software.</p>
+		<p>Since the beginning of my postdoctoral fellowship at the University of Chicago, I have broadened my research interests while continuing to focus on scheduling for high-performance computing. Notably, I work on mixed-criticality scheduling problems, study resilience in data storage, develop scheduling strategies to promote energy efficiency, and contribute to the development of HPC software.</p>
 	</div>
 
+<br>
 	<div class="p1" id="phd">
 		<h2>PhD defense</h2>
 		<p>
-			My PhD defense took place the September 25<sup>th</sup>, 2023 at the <a href="https://www.labri.fr/" alt="">LaBRI</a> in Bordeaux, France. The subject is <span class="bold-text">Scheduling Under Memory Constraint in Task-based Runtime Systems</span>.<br>
+			My PhD defense took place on September 25<sup>th</sup>, 2023 at the <a href="https://www.labri.fr/" alt="">LaBRI</a> in Bordeaux, France. The title of the presentation was <span class="bold-text">Scheduling Under Memory Constraint in Task-based Runtime Systems</span>.<br>
 			<span class="bold-text">Abstract:</span> Hardware accelerators, such as GPUs, now provide a large part of the computational power used for scientific simulations. GPUs come with their own limited memory and are connected to the main memory of the machine via a bus with limited bandwidth.  Scientific simulations often operate on very large data, to the point of not fitting in the limited GPU memory. In this case, one has to turn to out-of-core computing, where data movement quickly becomes a performance bottleneck. During this thesis, we worked on the problem of scheduling for a task-based runtime to improve data locality in an out-of-core setting, in order to reduce data movements. We designed strategies for both task scheduling and data eviction from limited memories. We implemented them in the StarPU runtime and compared them to existing scheduling techniques. Our strategies achieves significantly better performance when scheduling tasks on multiple GPUs with limited memory, as well as on multiple CPU cores with limited main memory.
 		</p>
-		<p>My PhD manuscrit is available <a href="https://dumas.ccsd.cnrs.fr/THESES-ENS-LYON/tel-04260094v1" label="Access to my Ph.D manuscrit" download>here</a>. A capture of my PhD defense is available:</p>
+		<p>My PhD manuscrit is available <a href="https://dumas.ccsd.cnrs.fr/THESES-ENS-LYON/tel-04260094v1" label="Access to my Ph.D manuscrit" download>here</a>. A capture of my PhD defense is also available:</p>
 		<p class="center-text">
 			<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/6lCvyj4qtcQ?si=ZESnkhbeYUaszu_q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 				<span class="italic-text">Your browser does not support this video :(</span>
@@ -73,6 +76,7 @@
 		</p>
 	</div>
 
+<br>
 	<div class="p1" id="papers">
 		<h2>Publications</h2>
 		<table class="center">
@@ -130,7 +134,7 @@
 				<td data-label="Type of publication">Peer reviewed conference</td>
 			</tr>
 			<tr>
-				<td data-label="Authors">Haochen PAN, Ryan CHART, Sicheng ZHOU, Alok KAMATAR, Rafael VESCOVI, Valérie HAYOT-SASSON, André BAUER, Maxime GONTHIER, Kyle CHARD, Ian FOSTER</td>
+				<td data-label="Authors">Haochen PAN, Ryan CHARD, Sicheng ZHOU, Alok KAMATAR, Rafael VESCOVI, Valérie HAYOT-SASSON, André BAUER, Maxime GONTHIER, Kyle CHARD, Ian FOSTER</td>
 				<td data-label="Link"><a href="https://arxiv.org/abs/2407.11432" label="link to the conference">Octopus: Experiences with a Hybrid Event-Driven Architecture for Distributed Scientific Computing</a></td>
 				<td data-label="Year">2024</td>
 				<td data-label="Conference/Journal">Fault Tolerance for HPC at eXtreme Scales (FTXS) Workshop</td>
@@ -210,31 +214,7 @@
 		</table>
 	</div>
 
-	<div class="p1" id="projects">
-		<h2>Programming projects and technological developments</h2>			
-		<p>Most of our research papers are associated with a source code in order to reproduce the presented results.</p>
-		<p>For instance, you can find our first algorithm developed to statically schedule task under memory constraint <a href="https://gitlab.inria.fr/starpu/locality-aware-scheduling/-/tree/coloc2021" label="EuroPar code">here</a> and our second algorithm that dynamically schedule tasks <a href=https://gitlab.inria.fr/starpu/locality-aware-scheduling/-/tree/IPDPS2021 label="IPDPS code">here</a>.</p>
-		<p>The code I developed during my research collaboration in Uppsala is a batch simulator as well as 4 schedulers and is available <a href="https://github.com/userccgrid/Locality-aware-batch-scheduling" label="Batch scheduling code">here.</a></p>
-		<p>I implemented into the <a href="https://gitlab.inria.fr/starpu/starpu" label="StarPU github">StarPU runtime</a> 5 new schedulers and a new eviction policy.</p>
-		<ol class="hidden">
-			<h3><li>Data-Aware Reactive Task Scheduling pour StarPU (DARTS)</li></h3>
-			<table class="hidden">
-				<tbody>
-					<tr class="hidden">
-						<td data-label="Contribution">I design and implemented the most of the code. Samuel THIBAULT and Nathalie FURMENTO contribute to the debug of the code.</td>
-						<td data-label="duration">2 years of development</td>
-						<td data-label="Link"><a h ref="https://gitlab.inria.fr/starpu/starpu/-/blob/master/src/sched_policies/darts.c?ref_type=heads" label="link to the DARTS sources">Source code</a></td>
-						<td data-label="Aim">StarPU runtimes groups a set of </td>
-						<td data-label="Type of publication"></td>
-					</tr>
-				</tbody>
-			</table>
-			<h3><li>Hierarchical Fair Packing pour StarPU (HFP)</li></h3>
-			<h3><li>Outil de visualisations pour ordonnanceurs de StarPU</li></h3>
-			<h3><li>Simulateur de travaux sur supercalculateur</li></h3>
-		</ol>
-	</div>
-
+<br>
 	<div class="p1" id="teaching">
 		<h2>Teaching</h2>
 		<div class="largetable">
@@ -245,12 +225,6 @@
 					<th>Level</th>
 					<th>Location</th>
 				</thead>
-				<tr>
-					<td data-label="Year">2024</td>
-					<td data-label="Topic">Students tutoring</td>
-					<td data-label="Level">Ph. D students</td>
-					<td data-label="Location">University of Chicago</td>
-				</tr>
 				<tr>
 					<td data-label="Year">2023</td>
 					<td data-label="Topic">Computer hardware architecture</td>
@@ -296,93 +270,115 @@
 			</table>
 		</div>
 	</div>
-
-	<div class="p1 " id="mentoring">
-		<h2>Mentoring</h2>
-		<table id="mentoring-table" class="teaching center">
-		</table>
-	</div>
 	
-	<footer>
-		<span><a href="#">Top of the page</a></span><br>
-		<span class="italic-text">Last update : February 15<sup>th</sup>, 2024.</span>
-		<nav class="plan"><h3>Website's plan :</h3>
-			<ul>
-			  <li><a href="#contact">Contact and information</a></li>
-			  <li><a href="#research">Research interests</a></li>
-			  <li><a href="#phd">PhD defense</a></li>
-			  <li><a href="#papers">Publications</a></li>
-			  <li><a href="#projects">Programming projects and technological developments</a></li>
-			  <li><a href="#teaching">Teaching</a></li>
-			  <li><a href="#mentoring">Mentoring</a></li>
-			</ul>
-		  </nav>
-	</footer>
-	
-
-	<div class="p1 " id="awards">
-		<h2>Awards</h2>
-		<table id="mentoring-table" class="teaching center">
-		</table>
-	</div>
-	<footer>
-		<span><a href="#">Top of the page</a></span><br>
-		<span class="italic-text">Last update : February 15<sup>th</sup>, 2024.</span>
-		<nav class="plan"><h3>Website's plan :</h3>
-			<ul>
-			  <li><a href="#contact">Contact and information</a></li>
-			  <li><a href="#research">Research interests</a></li>
-			  <li><a href="#phd">PhD defense</a></li>
-			  <li><a href="#papers">Publications</a></li>
-			  <li><a href="#projects">Programming projects and technological developments</a></li>
-			  <li><a href="#teaching">Teaching</a></li>
-			  <li><a href="#mentoring">Mentoring</a></li>
-			</ul>
-		  </nav>
-	</footer>
-	
-  <!-- Visibility -->
-  <section id="visibility">
-    <h2>Talks</h2>
-    
-    <p>
-      <strong>Invited Presentations to Research Teams and International Workshops:</strong><br>
-      <strong>2024:</strong> Illinois Institute of Technology, Department of Computer Science (Chicago, USA); 17th Scheduling for Large-Scale Systems Workshop (Aussois, France, 
-      <a href="https://graal.ens-lyon.fr/~abenoit/aussois24/" target="_blank">https://graal.ens-lyon.fr/~abenoit/aussois24/</a>).<br>
-      <strong>2023:</strong> 15th JLESC Workshop (Bordeaux, France, 
-      <a href="https://events.hifis.net/event/617/" target="_blank">https://events.hifis.net/event/617/</a>).<br>
-      <strong>2022:</strong> Uppsala University, Scientific Computing Division (Uppsala, Sweden); 15th Scheduling for Large-Scale Systems Workshop (Fréjus, France, 
-      <a href="https://scheduling2022.sciencesconf.org/" target="_blank">https://scheduling2022.sciencesconf.org/</a>).
-    </p>
-  </section>
-
-  <section id="other-info">
+<br>
+  <div id="award">
     <h2>Awards and grants</h2>
-    
-    <h3>Best paper</h3>
-       <p>
-      <strong>Best Paper Award at the 20th IEEE International Conference on e-Science [C2] - 2024</strong><br>
-      Out of 80 submitted articles, 30 were accepted, 3 were nominated for the best paper award, and only one received this distinction. More information can be found at 
-      <a href="https://www.escience-conference.org/2024/" target="_blank">https://www.escience-conference.org/2024/</a>.
-    </p>
-
-
-    <h3>France and Chicago Collaborating in the Sciences "FACCTS"</h3>
-    <p>
-      Funding of $14,000 awarded by the France Chicago Center in 2024 for a period of 2 years (see <em>Smart Scheduling in Serverless Environments: Unveiling the Role of Data in Performance and Resilience</em> at 
+    <ul>
+      <li>
+      <strong>Best paper award at the 20th IEEE International Conference on e-Science - 2024</strong><br>
+      <a href="https://www.escience-conference.org/2024/" target="_blank">https://www.escience-conference.org/2024/</a><br>
+    </li>
+    <li>
+      <strong>France Chicago Center</strong><br>Grant awarded by the France Chicago Center in 2024 for a period of 2 years (see <em>Smart Scheduling in Serverless Environments: Unveiling the Role of Data in Performance and Resilience</em> at 
       <a href="https://fcc.uchicago.edu/faccts-awards/" target="_blank">https://fcc.uchicago.edu/faccts-awards/</a>).<br>
-      This travel grant is intended to promote collaboration between researchers in France and Chicago. Although my postdoctoral position did not allow me to be the principal investigator on this project, I was the main University of Chicago member involved in defining and writing the proposal.<br>
+      This travel grant is intended to promote collaboration between researchers in France and Chicago.
       The project participants include Professors Ian Foster (University of Chicago and Argonne National Laboratory), Loris Marchal (CNRS and LIP), Kyle Chard (University of Chicago and Argonne), and Frédéric Vivien (INRIA and LIP).
-    </p>
+  </li>
     
-    <h3>Early Career Professionals Travel Grant</h3>
-    <p>
-      A travel grant of $600 (plus conference registration) awarded by SIGHPC in 2024.<br>
-      This grant is designed to help early career researchers attend conferences. More information is available at 
+    <li>
+      <strong>Early Career Professionals Travel Grant</strong><br>
+      Travel grant awarded by SIGHPC in 2024. This grant is designed to help early career researchers attend conferences.
       <a href="https://www.sighpc.org/opportunities/travel-grants" target="_blank">https://www.sighpc.org/opportunities/travel-grants</a>.
-    </p>
-  </section>
+  </li>
+      </ul>
+  </div>
+  
+  <br>
+ <br>
+<div id="mentorship">
+  <h2>Co-supervision of students and software developments</h2>
+  <p>
+    <strong>Alok Kamatar:</strong> <em>Core Hours and Carbon Credits: Incentivizing Sustainability in HPC</em>, PhD student at University of Chicago (Jan 2024–present). We developed models and tools for allocating carbon credits, surveyed HPC usage, and prototyped a game to promote energy efficiency. He also developed the <strong>HPC Scheduling Game</strong> (<a href="https://game.funcx.org/" target="_blank">https://game.funcx.org/</a>).
+  </p>
+  <p>
+    <strong>Dante D. Sanchez-Gallegos:</strong> <em>Building a Wide-Area Distribution System for the Management of Data Over Heterogeneous Storage</em>, PhD student at University of Madrid Carlos III (Jan 2024–present). Together, we built algorithms for erasure coding and data distribution. His work led to the creation of <strong>DynoStore</strong> (<a href="https://github.com/dynostore/dynostore" target="_blank">https://github.com/dynostore/dynostore</a>), which facilitates data transfers between storage systems.
+  </p>
+  <p>
+    <strong>Wenyi Wang:</strong> <em>Optimizing Fine-Grained Parallelism Through Dynamic Load Balancing on Multi-Socket Many-Core Systems</em>, PhD student at University of Chicago (Feb 2024–present). His research is about building a lock-free runtime system called <strong>XQueue</strong> (<a href="https://gitlab.com/pnookala/gnu-openmp/-/tree/xtask?ref_type=heads" target="_blank">https://gitlab.com/pnookala/gnu-openmp/-/tree/xtask?ref_type=heads</a>), which aims at reducing synchronization overhead for fine-grained task-based applications.
+  </p>
+  <p>
+    <strong>Greg Pauloski:</strong> <em>Programming the Continuum: Towards Better Techniques for Developing Distributed Science Applications</em>, PhD student at University of Chicago (Jan–Dec 2024). I contributed to the development of <strong>TaPS</strong> (<a href="https://github.com/proxystore/taps" target="_blank">https://github.com/proxystore/taps</a>), a task-based application suite.
+  </p>
+  <p>
+    <strong>Haochen Pan:</strong> <em>Building a Hybrid Event-Driven Architecture for Distributed Scientific Computing</em>, PhD student at the University of Chicago (Jan 2024–present). I've worked on this project aimed at enhancing resilience for scientific applications with the development of <strong>Octopus</strong> (<a href="https://github.com/globus-labs/diaspora-event-sdk" target="_blank">https://github.com/globus-labs/diaspora-event-sdk</a>), a cloud-edge communication software.
+  </p>
+  <p>
+    <strong>Shu Shi:</strong> <em>Multi-LLM Serving for HPC</em>, PhD student at University of Chicago (Nov 2024–present). We are developing scheduling solutions to optimize the placement and reuse of large language models on GPUs.
+  </p>
+  <p>
+    <strong>Sicheng Zhou:</strong> <em>Workload Resilience Across Task Hierarchies in Task-based Parallel Programming Frameworks</em>, undergraduate intern at University of Chicago (Mar–Jun 2024). Our collaboration on improving error management in task-based systems resulted in <strong>WRATH</strong> (<a href="https://github.com/ClaudiaCumberbatch/resilient_compute" target="_blank">https://github.com/ClaudiaCumberbatch/resilient_compute</a>), a tool for creating and dynamically reconfiguring compute pools.
+  </p>
+</div>
 
+<br>
+  <div id="software">
+    <h2>Software developments</h2>
+  <p>
+    <strong>Data-Aware Reactive Task Scheduling for StarPU (DARTS):</strong> 
+    <a href="https://gitlab.inria.fr/starpu/starpu/-/blob/master/src/sched_policies/darts.c?ref_type=heads" target="_blank">URL</a>. 
+    DARTS improves performance for memory-intensive task-based applications by exploiting data locality and a custom eviction policy. Integrated into StarPU 1.5.0.
+  </p>
+  <p>
+    <strong>Hierarchical Fair Packing for StarPU (HFP):</strong>
+    <a href="https://gitlab.inria.fr/starpu/starpu/-/blob/master/src/sched_policies/HFP.c?ref_type=heads" target="_blank">URL</a>. 
+    HFP is an offline scheduling strategy to enhance performance under memory constraints. Integrated in StarPU 1.5.0.
+  </p>
+  <p>
+    <strong>Visualization tool for StarPU schedulers:</strong> 
+    <a href="https://gitlab.inria.fr/starpu/starpu/-/tree/master/tools/darts?ref_type=heads" target="_blank">URL</a>. 
+    This tool visualizes task scheduling order and data loads (supporting outer product, GEMM, and Cholesky factorization) for StarPU's schedulers.
+  </p>
+  <p>
+    <strong>Batch simulator:</strong> 
+    <a href="https://github.com/MaximeGonthier/Locality-aware-batch-scheduling" target="_blank">URL 1</a> and 
+    <a href="https://github.com/MaximeGonthier/batch-simulator" target="_blank">URL 2</a>. 
+    This simulator collects job submission logs and incorporates scheduling policies for large scale simulations of batch scheduling.
+  </p>
+  <p>
+    <strong>Data replication and mapping simulator (D-Rex):</strong> 
+    <a href="https://github.com/dynostore/D-rex" target="_blank">URL</a>. 
+    This simulator models erasure coding, replicating data over heterogeneous storage nodes and simulating node failures.
+  </p>
+  </div>
+  
+  		<div class="downloads hidden">
+			<ul>
+				<li><a href="attestation_ipdps2022.pdf" label="" download></a></li>
+			</ul>
+		</div>
+		<div class="downloads hidden">
+			<ul>
+				<li><a href="xtask.pdf" label="" download></a></li>
+			</ul>
+		</div>
+  
+	<footer>
+		<span><a href="#">Top of the page</a></span><br>
+		<span class="italic-text">Last update : March 10<sup>th</sup>, 2025.</span>
+		<nav class="plan"><h3>Website's plan :</h3>
+			<ul>
+			  <li><a href="#contact">Contact and information</a></li>
+			  <li><a href="#research">Research interests</a></li>
+			  <li><a href="#phd">PhD defense</a></li>
+			  <li><a href="#papers">Publications</a></li>
+			  <li><a href="#teaching">Teaching</a></li>
+			  <li><a href="#award">Awards</a></li>
+			  <li><a href="#mentorship">Co-supervision</a></li>
+			  <li><a href="#software">Software developments</a></li>
+			</ul>
+		  </nav>
+	</footer>
 
 	<script type="text/javascript" src="script.js"></script>
 </body>
