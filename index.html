@@ -28,9 +28,9 @@
 	<div class="p1" id="contact">
 		<h2>Contact and information</h2>
 		<img id="photo" align="left" src="maxime.png" label="Profile picture of Maxime GONTHIER"/>
-		<p>I am currently working as a Postdoc at the <a href="https://labs.globus.org/">Globus Labs</a> (<a href="https://www.uchicago.edu/">University of Chicago</a>) and at the <a href="https://www.anl.gov/">Argonne National Laboratory</a>. My work is under the supervision of <a href="https://www.anl.gov/profile/ian-t-foster">Ian Foster</a> and <a href="https://cs.uchicago.edu/people/kyle-chard/">Kyle Chard</a>.</p>
+		<p>I am a postdoctoral fellow at <a href="https://labs.globus.org/">Globus Labs</a> (<a href="https://www.uchicago.edu/">University of Chicago</a>) and at <a href="https://www.anl.gov/">Argonne National Laboratory</a>. My work is under the supervision of <a href="https://www.anl.gov/profile/ian-t-foster">Ian Foster</a> and <a href="https://cs.uchicago.edu/people/kyle-chard/">Kyle Chard</a>.</p>
 
-		<p>I completed my PhD at <a href="http://www.ens-lyon.fr/">ENS Lyon</a> in the field of Computer Science. I worked in the <a href="http://www.ens-lyon.fr/LIP/ROMA/">ROMA team</a> at the LIP laboratory under the supervision of <a href="http://perso.ens-lyon.fr/loris.marchal/" label="Loris MARCHAL website">Loris Marchal</a> (ENS Lyon, CNRS) and in the <a href="https://www.inria.fr/fr/storm">STORM team</a> at <a href="https://www.inria.fr/fr/centre-inria-universite-bordeaux">INRIA Bordeaux</a> with the supervision of <a href="https://dept-info.labri.fr/~thibault/" label="link to the Samuel THIBAULT's website"> Samuel Thibault</a> (Université de Bordeaux, Inria).</p>
+		<p>I completed my PhD at <a href="http://www.ens-lyon.fr/">ENS Lyon</a> in 2023. I worked in the <a href="http://www.ens-lyon.fr/LIP/ROMA/">ROMA team</a> at the LIP laboratory under the supervision of <a href="http://perso.ens-lyon.fr/loris.marchal/" label="Loris MARCHAL website">Loris Marchal</a> (ENS Lyon, CNRS) and in the <a href="https://www.inria.fr/fr/storm">STORM team</a> at <a href="https://www.inria.fr/fr/centre-inria-universite-bordeaux">INRIA Bordeaux</a> under the supervision of <a href="https://dept-info.labri.fr/~thibault/" label="link to the Samuel THIBAULT's website"> Samuel Thibault</a> (Université de Bordeaux, Inria).</p>
 		<table  class="contact-me center">
 			<tr>
 				<td>Email: </td>
@@ -52,14 +52,17 @@
 
 	<div class="p1" id="research">
 		<h2>Research interests</h2>
-		<p>My research focuses on scheduling problems. I study more specifically the issue of scheduling task sharing data under memory constraint. To solve this problem I create algorithms and implement them in the StarPU runtime.</p>
-		<p>I also had the chance to collaborate with the Division of Scientific Computing at Uppsala University. During this collaboration I worked on the subject of batch scheduling of jobs needing large input files.</p>
+		<p>My research focuses on scheduling problems. During my Ph.D., I studied the challenge of scheduling task-sharing data under memory constraints. To address this issue, I developed innovative algorithms and implemented them in the StarPU runtime.</p>
+
+		<p>I also had the opportunity to collaborate with the Division of Scientific Computing at Uppsala University, where I worked on batch scheduling for jobs that require large input files.</p>
+
+		<p>Since beginning my postdoctoral fellowship at the University of Chicago, I have broadened my research interests while continuing to focus on scheduling for high-performance computing (HPC). Notably, I work on mixed-criticality scheduling problems, study resilience in data storage, develop scheduling strategies to promote energy efficiency, and contribute to the development of HPC software.</p>
 	</div>
 
 	<div class="p1" id="phd">
 		<h2>PhD defense</h2>
 		<p>
-			My PhD defense took place the September 25<sup>th</sup>, 2023 in the <a href="https://www.labri.fr/" alt="">LaBRI</a> in Bordeaux, France. The subject is <span class="bold-text">Scheduling Under Memory Constraint in Task-based Runtime Systems</span>.<br>
+			My PhD defense took place the September 25<sup>th</sup>, 2023 at the <a href="https://www.labri.fr/" alt="">LaBRI</a> in Bordeaux, France. The subject is <span class="bold-text">Scheduling Under Memory Constraint in Task-based Runtime Systems</span>.<br>
 			<span class="bold-text">Abstract:</span> Hardware accelerators, such as GPUs, now provide a large part of the computational power used for scientific simulations. GPUs come with their own limited memory and are connected to the main memory of the machine via a bus with limited bandwidth.  Scientific simulations often operate on very large data, to the point of not fitting in the limited GPU memory. In this case, one has to turn to out-of-core computing, where data movement quickly becomes a performance bottleneck. During this thesis, we worked on the problem of scheduling for a task-based runtime to improve data locality in an out-of-core setting, in order to reduce data movements. We designed strategies for both task scheduling and data eviction from limited memories. We implemented them in the StarPU runtime and compared them to existing scheduling techniques. Our strategies achieves significantly better performance when scheduling tasks on multiple GPUs with limited memory, as well as on multiple CPU cores with limited main memory.
 		</p>
 		<p>My PhD manuscrit is available <a href="https://dumas.ccsd.cnrs.fr/THESES-ENS-LYON/tel-04260094v1" label="Access to my Ph.D manuscrit" download>here</a>. A capture of my PhD defense is available:</p>
@@ -316,9 +319,9 @@
 		  </nav>
 	</footer>
 	
-<!--
+
 	<div class="p1 " id="awards">
-		<h2>Mentoring</h2>
+		<h2>Awards</h2>
 		<table id="mentoring-table" class="teaching center">
 		</table>
 	</div>
@@ -337,7 +340,49 @@
 			</ul>
 		  </nav>
 	</footer>
--->
+	
+  <!-- Visibility -->
+  <section id="visibility">
+    <h2>Talks</h2>
+    
+    <p>
+      <strong>Invited Presentations to Research Teams and International Workshops:</strong><br>
+      <strong>2024:</strong> Illinois Institute of Technology, Department of Computer Science (Chicago, USA); 17th Scheduling for Large-Scale Systems Workshop (Aussois, France, 
+      <a href="https://graal.ens-lyon.fr/~abenoit/aussois24/" target="_blank">https://graal.ens-lyon.fr/~abenoit/aussois24/</a>).<br>
+      <strong>2023:</strong> 15th JLESC Workshop (Bordeaux, France, 
+      <a href="https://events.hifis.net/event/617/" target="_blank">https://events.hifis.net/event/617/</a>).<br>
+      <strong>2022:</strong> Uppsala University, Scientific Computing Division (Uppsala, Sweden); 15th Scheduling for Large-Scale Systems Workshop (Fréjus, France, 
+      <a href="https://scheduling2022.sciencesconf.org/" target="_blank">https://scheduling2022.sciencesconf.org/</a>).
+    </p>
+  </section>
+
+  <section id="other-info">
+    <h2>Awards and grants</h2>
+    
+    <h3>Best paper</h3>
+       <p>
+      <strong>Best Paper Award at the 20th IEEE International Conference on e-Science [C2] - 2024</strong><br>
+      Out of 80 submitted articles, 30 were accepted, 3 were nominated for the best paper award, and only one received this distinction. More information can be found at 
+      <a href="https://www.escience-conference.org/2024/" target="_blank">https://www.escience-conference.org/2024/</a>.
+    </p>
+
+
+    <h3>France and Chicago Collaborating in the Sciences "FACCTS"</h3>
+    <p>
+      Funding of $14,000 awarded by the France Chicago Center in 2024 for a period of 2 years (see <em>Smart Scheduling in Serverless Environments: Unveiling the Role of Data in Performance and Resilience</em> at 
+      <a href="https://fcc.uchicago.edu/faccts-awards/" target="_blank">https://fcc.uchicago.edu/faccts-awards/</a>).<br>
+      This travel grant is intended to promote collaboration between researchers in France and Chicago. Although my postdoctoral position did not allow me to be the principal investigator on this project, I was the main University of Chicago member involved in defining and writing the proposal.<br>
+      The project participants include Professors Ian Foster (University of Chicago and Argonne National Laboratory), Loris Marchal (CNRS and LIP), Kyle Chard (University of Chicago and Argonne), and Frédéric Vivien (INRIA and LIP).
+    </p>
+    
+    <h3>Early Career Professionals Travel Grant</h3>
+    <p>
+      A travel grant of $600 (plus conference registration) awarded by SIGHPC in 2024.<br>
+      This grant is designed to help early career researchers attend conferences. More information is available at 
+      <a href="https://www.sighpc.org/opportunities/travel-grants" target="_blank">https://www.sighpc.org/opportunities/travel-grants</a>.
+    </p>
+  </section>
+
 
 	<script type="text/javascript" src="script.js"></script>
 </body>
