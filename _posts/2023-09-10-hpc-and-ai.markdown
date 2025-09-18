@@ -1,0 +1,30 @@
+---
+title:  "WANT @ NeurIPS 2023: workshop on Advancing Neural Neural Network Training"
+date:   2023-09-10 04:06:44 +0300
+categories: jekyll update
+---
+
+I am thrilled to share that I'm organizing a **NeurIPS Workshop on Advancing Neural Network Training, WANT@NeurIPS 2023**! Learn and share how to train neural networks at an unprecedented scale with your existing infrastructure! 
+
+**Key Info:**
+
+- Workshop Date: **December 16, 2023** (offline and online) 
+- Paper Submission Deadline: **October 6, 2023** (23:59 AOE) 
+- [Website](https://want-ai-hpc.github.io/)
+
+WANT@NeurIPS 2023 brings together researchers, practitioners, and enthusiasts passionate about efficient neural network training, including our invited speakers from Nvidia, Microsoft DeepSpeed, Colossal AI, Mosaic ML, Inria, and more. Whether you face resource constraints or are scaling up for large applications, your insights will enrich our discussions and community learning. 
+
+**Topics of Interest:**
+
+- Efficient model training with limited resources.
+- Scalable strategies for large-scale neural networks.
+- Applications of efficient training methods in real-world scenarios. 
+
+**Submission Format:** Full papers (up to 9 pages) or short papers (up to 4 pages), with unlimited references and appendix.  Submissions are not archived. Authors of accepted papers will have an opportunity to submit their (extended) work to the special journal issue. 
+
+**Stay Tuned:**
+- For updates and submission guidelines check our [website](https://want-ai-hpc.github.io/). 
+
+Looking forward to discussing your amazing research at WANT@NeurIPS! 
+
+P.S.: If you have any questions, feel free to ping us via **want.ai.hpc@gmail.com**! 

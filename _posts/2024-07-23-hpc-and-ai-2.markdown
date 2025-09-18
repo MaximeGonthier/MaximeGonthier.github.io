@@ -1,0 +1,20 @@
+---
+title:  "WANT @ ICML 2024"
+date:   2024-07-23 00:00:44 +0300
+categories: jekyll update
+---
+
+I am happy to share we're organizing a 2nd iteration of the **Workshop on Advancing Neural Network Training** at **ICML 2024**! 
+
+Join us to explore the latest advancements in computational efficiency, resource optimization, and scalability! Learn valuable tips and tricks from our incredible lineup of speakers and panelists, engage in stimulating discussions during our poster sessions!
+
+Don't miss the chance to have your voice heard—participate in our [poll](https://forms.gle/K3xaPt3DjANv9Hmk6) to help us gather important community insights.
+
+For more details, visit our [workshop website](https://want-ai-hpc.github.io/) and [corresponding ICML page](https://icml.cc/virtual/2024/workshop/29972). Check out [WANT accepted papers on OpenReview](https://openreview.net/group?id=ICML.cc/2024/Workshop/WANT#tab-your-consoles) for in-depth insights.
+
+Looking forward to seeing you there! 👩‍💻👨‍💻
+
+Many thanks to all co-organizers, area chairs, reviewers, and contributors for ensuring such an engaging program!
+
+
+P.S.: If you have any questions, feel free to ping us via **want.ai.hpc@gmail.com**! 
