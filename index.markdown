@@ -15,7 +15,7 @@ I am part of <a href="https://labs.globus.org/">Globus Labs</a> and work with th
 
 <h1 style="font-size: 36px">Selected publications</h1>
 
-<div class="row publications">
+<!-- <div class="row publications">
     <div class="col-sm-5 vcenter marginbottom">
         <img class="img-responsive pub-image" src="/assets/about/survey.png" alt="" />
     </div>
@@ -33,10 +33,8 @@ I am part of <a href="https://labs.globus.org/">Globus Labs</a> and work with th
 </div>
 
 <br/>
-<h1 style="font-size: 36px">Selected XXX</h1>
-<!-- < -->
-<!-- <div id="projects"> -->
-<div class="row projects">
+<h1 style="font-size: 36px">Selected XXX</h1> -->
+<!-- <div class="row projects">
     <div class="col col-sm-3 vcenter imgcol marginbottom">
         <img class="img-responsive proj-img" src="/assets/about/metasolver.png" alt=""/>
     </div>
@@ -50,3 +48,4 @@ I am part of <a href="https://labs.globus.org/">Globus Labs</a> and work with th
         </div>
     </div>
 </div>
+ -->
