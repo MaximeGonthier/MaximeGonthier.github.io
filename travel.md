@@ -246,7 +246,6 @@ const triggersNeeded = 2; // number of pins to click to win
     { country: "France", city: "Martel", coords: [44.889000, 1.709000], description: "Town with medieval streets and nearby prehistoric sites."},
     { country: "France", city: "Padirac (Gouffre de Padirac)", coords: [44.787800, 1.772800], description: "Famous chasm with underground river tours."},
     { country: "France", city: "La Fontaine du Berger", coords: [45.80098891379715, 2.9936857070736145], description: "Local fountain/spot (verify exact location if needed)."},
-
     { country: "France", city: "Carcassonne", coords: [43.213000, 2.351000], description: "Medieval fortified city with a spectacular citadel."},
     { country: "France", city: "Sigean", coords: [43.085800, 3.015500], description: "Small town near the Mediterranean, known for its wildlife park."},
     { country: "France", city: "Plage sauvage de la Vieille Nouvelle", coords: [43.002000, 3.038000], description: "Wild beach near Port-la-Nouvelle (great for long walks)."},
@@ -285,30 +284,108 @@ const triggersNeeded = 2; // number of pins to click to win
     { country: "France", city: "La Plagne", coords: [45.507500, 6.699300], description: "Large ski area in the Paradiski domain."},
     { country: "France", city: "Les Arcs (station de ski)", coords: [45.517200, 6.718600], description: "Well-known ski resort area (Les Arcs)."},
 
+    // Italy
+    { country: "Italy", city: "Naples", coords: [40.851775, 14.268124], description: ""},
+    { country: "Italy", city: "Pompei", coords: [40.750000, 14.486111], description: ""},
+    { country: "Italy", city: "Rome", coords: [41.9027835, 12.4963655], description: ""},
+    { country: "Italy", city: "Milan", coords: [45.4642035, 9.189982], description: ""},
+    { country: "Italy", city: "Bologna", coords: [44.494887, 11.342616], description: ""},
+    { country: "Italy", city: "Venice", coords: [45.440847, 12.315515], description: ""},
+    { country: "Italy", city: "Turin", coords: [45.070339, 7.686864], description: ""},
+    { country: "Italy", city: "Florence", coords: [43.769562, 11.255814], description: ""},
+    { country: "Italy", city: "Fiuggi", coords: [41.800240, 13.224269], description: ""},
+    { country: "Italy", city: "Verona", coords: [45.438384, 10.991621], description: ""},
+    { country: "Italy", city: "Seceda (Dolomites)", coords: [46.600275, 11.726103], description: ""},
+    { country: "Italy", city: "Vatican City", coords: [41.9039, 12.4529], description: ""},
 
-    // USA
+    // Japan
+    { country: "Japan", city: "Tokyo", coords: [35.68972, 139.69222], description: ""},
+    { country: "Japan", city: "Kyoto", coords: [35.01167, 135.76833], description: ""},
+    { country: "Japan", city: "Osaka", coords: [34.6937, 135.5023], description: ""},
+    { country: "Japan", city: "Yokohama", coords: [35.443707, 139.638031], description: ""},
+    { country: "Japan", city: "Fujiyoshida", coords: [35.48749, 138.80785], description: ""},
+    { country: "Japan", city: "Saitama", coords: [35.9081, 139.657], description: ""},
+
+    // Egypt
+    { country: "Egypt", city: "Abu Simbel", coords: [22.3372, 31.6258], description: "" },
+    { country: "Egypt", city: "Cairo", coords: [30.0444, 31.2357], description: "", subPlaces: [{ name: "Pyramids of Giza", coords: [29.9792, 31.1342], description: "" }, { name: "Great Sphinx of Giza", coords: [29.9753, 31.1376], description: "" }] },
+    { country: "Egypt", city: "Aswan", coords: [24.0889, 32.8998], description: "" },
+    { country: "Egypt", city: "Luxor", coords: [25.6872, 32.6396], description: "" },
+
+    // United States of America
     { country: "United States of America", city: "Chicago", coords: [41.8781, -87.6298], description: "", subPlaces: [{ name: "The Bean (Cloud Gate)", coords: [41.882629, -87.623474], description: "Cloud Gate sculpture in Millennium Park."}, { name: "Field Museum", coords: [41.866234, -87.617088], description: "Natural history museum on the Museum Campus."}, { name: "Adler Planetarium", coords: [41.86639, -87.60667], description: "Historic planetarium on the lakefront."}, { name: "Grant Park", coords: [41.876465, -87.621887], description: "Large park in the Loop (Millennium Park, Art Institute)."}, { name: "Hyde Park", coords: [41.7943, -87.5907], description: "Neighborhood home to the University of Chicago."}, { name: "Wicker Park", coords: [41.908802, -87.679596], description: "Trendy neighborhood for food, music, and nightlife."}, { name: "Logan Square", coords: [41.923122, -87.70929], description: "Vibrant neighborhood with restaurants and arts scene."}]},
+    { country: "United States of America", city: "Miami", coords: [25.7617, -80.1918], description: "" },
+    { country: "United States of America", city: "West Palm Beach", coords: [26.7153, -80.0534], description: "" },
+    { country: "United States of America", city: "Chokoloskee", coords: [25.8570, -81.3600], description: "" },
+    { country: "United States of America", city: "Everglades National Park", coords: [25.2866, -80.8987], description: "" },
+    { country: "United States of America", city: "Atlanta", coords: [33.7490, -84.3880], description: "" },
+    { country: "United States of America", city: "Baltimore", coords: [39.2904, -76.6122], description: "" },
+    { country: "United States of America", city: "New York City", coords: [40.7128, -74.0060], description: "" },
+    { country: "United States of America", city: "Boston", coords: [42.3601, -71.0589], description: "" },
+    { country: "United States of America", city: "Pigeon Forge", coords: [35.7884, -83.5546], description: "" },
+    { country: "United States of America", city: "Great Smoky Mountains National Park", coords: [35.6118, -83.4895], description: "" },
+    { country: "United States of America", city: "Knoxville", coords: [35.9606, -83.9207], description: "" },
+    { country: "United States of America", city: "Nashville", coords: [36.1627, -86.7816], description: "" },
+    { country: "United States of America", city: "Lemont", coords: [41.6764, -87.9839], description: "" },
+    { country: "United States of America", city: "Indiana Dunes National Park", coords: [41.6596, -87.0526], description: "" },
+    { country: "United States of America", city: "Gatlinburg", coords: [35.7143, -83.5102], description: "" },
+    { country: "United States of America", city: "Washington, D.C.", coords: [38.9072, -77.0369], description: "" },
+    { country: "United States of America", city: "Terre Haute", coords: [39.4667, -87.4139], description: "" },
+    { country: "United States of America", city: "Warren Dunes State Park", coords: [41.8736, -86.9040], description: "" },
+    { country: "United States of America", city: "New Buffalo", coords: [41.7867, -86.7226], description: "" },
+    { country: "United States of America", city: "Naperville", coords: [41.7508, -88.1535], description: "" },
+    { country: "United States of America", city: "Evanston", coords: [42.0451, -87.6877], description: "" },
+    { country: "United States of America", city: "Glencoe", coords: [42.1293, -87.7765], description: "" },
+    { country: "United States of America", city: "Winnetka", coords: [42.1084, -87.7229], description: "" },
+    { country: "United States of America", city: "Skokie", coords: [42.0324, -87.7416], description: "" },
+    { country: "United States of America", city: "Niles", coords: [42.0266, -87.8030], description: "" },
+    { country: "United States of America", city: "Milwaukee", coords: [43.0389, -87.9065], description: "" },
+    { country: "United States of America", city: "Madison", coords: [43.0731, -89.4012], description: "" },
+    { country: "United States of America", city: "Devil's Lake State Park", coords: [43.5056, -89.7445], description: "" },
+    { country: "United States of America", city: "Dubuque", coords: [42.5006, -90.6646], description: "" },
 
-/*    { country: "France", city: "Lyon", coords: [45.764, 4.8357], description: "Lived here during my studies!", highlight: true, subPlaces: [
-      { name: "ENS de Lyon", coords: [45.7333, 4.8244], description: "Where I studied.", special: true },
-      { name: "Vieux Lyon", coords: [45.7622, 4.8276], description: "Beautiful old town.", special: true }
-    ]},
-    { country: "France", city: "Paris", coords: [48.8566, 2.3522], description: "Weekend trip." },
-    { country: "United States of America", city: "Chicago", coords: [41.8781, -87.6298], description: "Currently working here as a PostDoc." },
-    { country: "Japan", city: "Tokyo", coords: [35.6762, 139.6503], description: "Cherry blossom season!" },
-    { country: "Greece", city: "Athens", coords: [37.9838, 23.7275], description: "January vacation after getting an accepted paper; felt calm and relieved. One of my favorite cities ever, the Parthenon is in my top 5." },
-    { country: "Spain", city: "Madrid", coords: [40.4168, -3.7038], description: "Visited Madrid, vibrant city full of culture." },
-    { country: "Spain", city: "Barcelona", coords: [41.3851, 2.1734], description: "Visited Barcelona, beautiful architecture and sea." },
-    { country: "Spain", city: "Bilbao", coords: [43.2630, -2.9349], description: "Visited Bilbao, loved the Guggenheim museum." },
-    { country: "United Kingdom", city: "London", coords: [51.5074, -0.1278], description: "Visited London, iconic landmarks and atmosphere." },
-    { country: "Sweden", city: "Stockholm", coords: [59.3293, 18.0686], description: "Visited Stockholm, beautiful archipelago." },
-    { country: "Sweden", city: "Uppsala", coords: [59.8586, 17.6389], description: "Visited Uppsala, historic city and university." },
-    { country: "USA", city: "New York City", coords: [40.7128, -74.0060], description: "Visited NYC, amazing energy and skyline." },
-    { country: "USA", city: "San Francisco", coords: [37.7749, -122.4194], description: "Visited San Francisco, loved the Golden Gate Bridge." },
-    { country: "USA", city: "Los Angeles", coords: [34.0522, -118.2437], description: "Visited LA, sunny city with Hollywood vibes." },
-    { country: "Japan", city: "Osaka", coords: [34.6937, 135.5023], description: "Visited Osaka, loved the street food and castle." },
-    { country: "Italy", city: "Rome", coords: [41.9028, 12.4964], description: "Visited Rome, amazing history and architecture." },
-    { country: "France", city: "Monaco", coords: [43.7384, 7.4246], description: "Yes I know it's not in France, but the country is not clickable on my map :/." },*/
+    { country: "United States of America", city: "Los Angeles", coords: [34.0522, -118.2437], description: "" },
+  { country: "United States of America", city: "San Francisco", coords: [37.7749, -122.4194], description: "" },
+  { country: "United States of America", city: "Sacramento", coords: [38.5816, -121.4944], description: "" },
+  { country: "United States of America", city: "Monterey", coords: [36.6002, -121.8947], description: "" },
+  { country: "United States of America", city: "San Diego", coords: [32.7157, -117.1611], description: "" },
+  { country: "United States of America", city: "Ventura", coords: [34.2805, -119.2945], description: "" },
+  { country: "United States of America", city: "Channel Islands National Park", coords: [33.9961, -119.7692], description: "" },
+  { country: "United States of America", city: "Joshua Tree National Park", coords: [33.8734, -115.9010], description: "" },
+  { country: "United States of America", city: "Joshua Tree", coords: [34.1347, -116.3131], description: "" },
+  { country: "United States of America", city: "Indio", coords: [33.7206, -116.2156], description: "" },
+  { country: "United States of America", city: "Dallas", coords: [32.7767, -96.7970], description: "" },
+  { country: "United States of America", city: "Seattle", coords: [47.6062, -122.3321], description: "" },
+  { country: "United States of America", city: "Portland", coords: [45.5152, -122.6784], description: "" },
+  { country: "United States of America", city: "Olympic National Park", coords: [47.8021, -123.6044], description: "" },
+  { country: "United States of America", city: "Mount Rainier National Park", coords: [46.8523, -121.7603], description: "" },
+  { country: "United States of America", city: "Berkeley", coords: [37.8715, -122.2730], description: "" },
+  { country: "United States of America", city: "Mount St. Helens", coords: [46.1991, -122.1889], description: "" },
+  { country: "United States of America", city: "Olympia", coords: [47.0379, -122.9007], description: "" },
+  { country: "United States of America", city: "Ruby Beach", coords: [47.7152, -124.4150], description: "" },
+  { country: "United States of America", city: "Hoquiam", coords: [46.9804, -123.8893], description: "" },
+  { country: "United States of America", city: "Port Angeles", coords: [48.1181, -123.4307], description: "" },
+
+  { country: "United States of America", city: "Yellowstone National Park", coords: [44.4280, -110.5885], description: "" },
+  { country: "United States of America", city: "Grand Teton National Park", coords: [43.7904, -110.6818], description: "" },
+  { country: "United States of America", city: "Billings", coords: [45.7833, -108.5007], description: "" },
+  { country: "United States of America", city: "Island Park", coords: [44.4183, -111.3669], description: "" },
+  { country: "United States of America", city: "Driggs", coords: [43.7230, -111.1116], description: "" },
+  { country: "United States of America", city: "Salt Lake City", coords: [40.7608, -111.8910], description: "" },
+  { country: "United States of America", city: "Moab", coords: [38.5733, -109.5498], description: "" },
+  { country: "United States of America", city: "Arches National Park", coords: [38.7331, -109.5925], description: "" },
+  { country: "United States of America", city: "Canyonlands National Park", coords: [38.3269, -109.8783], description: "" },
+  { country: "United States of America", city: "Grand Canyon National Park", coords: [36.1069, -112.1129], description: "" },
+  { country: "United States of America", city: "Zion National Park", coords: [37.2982, -113.0263], description: "" },
+  { country: "United States of America", city: "Petrified Forest National Park", coords: [34.9090, -109.8068], description: "" },
+  { country: "United States of America", city: "Phoenix", coords: [33.4484, -112.0740], description: "" },
+  { country: "United States of America", city: "Las Vegas", coords: [36.1699, -115.1398], description: "" },
+  { country: "United States of America", city: "Hoover Dam", coords: [36.0156, -114.7377], description: "" },
+  { country: "United States of America", city: "Hurricane", coords: [37.1753, -113.2899], description: "" },
+  { country: "United States of America", city: "Cameron", coords: [35.8661, -111.4088], description: "" },
+  { country: "United States of America", city: "Valle", coords: [35.6583, -112.1366], description: "" },
+  { country: "United States of America", city: "Sedona", coords: [34.8697, -111.7609], description: "" },
+  { country: "United States of America", city: "Flagstaff", coords: [35.1983, -111.6513], description: "" },
   ];
 
   const visitedCountries = [...new Set(visitedPlaces.map(p => p.country))];
@@ -393,7 +470,7 @@ const redIcon = L.icon({
     }).addTo(countryMap);
 
     countryMap.fitBounds(countryLayer.getBounds());
-    const markers = L.markerClusterGroup();
+    const markers = L.markerClusterGroup(); // Grouping markers by clusters
 
 countryPlaces.forEach(place => {
   const hasSubPlaces = place.subPlaces && place.subPlaces.length > 0;
@@ -409,7 +486,6 @@ countryPlaces.forEach(place => {
       showCityMap(place);
       pushScrollTarget("city-map-container");
     }
-
   });
 
   markers.addLayer(marker);
