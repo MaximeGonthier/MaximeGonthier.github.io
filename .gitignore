@@ -1,1 +1,5 @@
-*.pdf
+vendor/bundle/*
+.bundle/*
+_site/*
+Gemfile.lock
+vendor/*

@@ -511,6 +511,48 @@ footer {
   text-align: center;
 }
 
+.experience-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* more space between image and text */
+  margin-bottom: 1.5rem;
+}
+
+.experience-picture {
+  max-width: 110px; /* larger image */
+  max-height: 110px;
+  object-fit: contain;
+}
+
+.experience-details {
+  flex: 1;
+  font-size: 1.1rem; /* larger text */
+  line-height: 1.6; /* more spacing for readability */
+}
+
+.experience-details strong {
+  font-size: 1.2rem; /* make titles slightly bigger */
+}
+
+.leaflet-marker-icon .red-pin {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e53935;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.leaflet-marker-icon .blue-pin {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #1976d2;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start

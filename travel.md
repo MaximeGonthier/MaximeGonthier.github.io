@@ -9,9 +9,15 @@ permalink: /travel/
 
 <p>On the first layer, countries in <span style="color:red;">red</span> are the ones I have visited. Clicking on one of them will bring you to a map with pins marking the cities/locations I’ve explored in that country. 📍</p>
 
-<p>Clicking on red pins zooms in one more time and shows you cool places I’ve been to in that city. 🏙️ Each pin (blue or red) has a small personalized note reflecting my experience with that place or something fun about it!</p>
+<p>Clicking on red pins zooms in one more time and shows you cool places I’ve been to in that city. Each pin (blue or red) has a small personalized note reflecting my experience with that place or something fun about it! You can use the back button to scroll back to the previous layer.</p>
 
-<div id="world-map" style="height: 640px; border-radius: 10px; margin-bottom: 1rem;"></div>
+<p>Little game! If you click on the 10 special locations, you'll get a picture of Fifi (my cat) to download 🐱 (I know, what a prize!). There are clues on the left side of the page to help you find the locations you need to find. When you click on one of the special location, the clue will turn green to let you know. Good luck!</p>
+
+
+<div id="world-map-container">
+  <div id="world-map" style="height: 640px; border-radius: 10px; margin-bottom: 1rem;"></div>
+</div>
+
 <div id="country-map-container"></div>
 <div id="city-map-container"></div>
 
@@ -21,6 +27,18 @@ permalink: /travel/
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 
+<div id="clues" style="
+    position: fixed;
+    left: 10px;
+    top: 100px;
+    width: 120px;  /* max width for the container */
+    z-index: 1000;
+">
+  <ul style="max-width: 220px; word-wrap: break-word; white-space: normal; padding-left: 1rem;">
+    <li id="clue-1">A place with adzefe fez fzefzf</li>
+    <li id="clue-2">Vieux Lyon</li>
+  </ul>
+</div>
 <button id="scroll-back" style="
     position: fixed;
     top: 50%;
@@ -35,7 +53,7 @@ permalink: /travel/
 <script>
 
   // Stack to track previous ranks
-let scrollHistory = ["world-map-container"];
+let scrollHistory = ["world-map-container"]; // matches the container ID
 
 // Call this function whenever scrolling down to a new rank
 function pushScrollTarget(sectionId) {
@@ -62,12 +80,15 @@ backButton.addEventListener("click", () => {
   }
 });
 
+let triggersClicked = new Set();
+const triggersNeeded = 2; // number of pins to click to win
+
   // Places I have visited
   const visitedPlaces = [
-{ country: "France", city: "Lyon", coords: [45.764, 4.8357], description: "Lived here during my studies!", highlight: true, subPlaces: [
-{ name: "ENS de Lyon", coords: [45.7333, 4.8244], description: "Where I studied." },
-{ name: "Vieux Lyon", coords: [45.7622, 4.8276], description: "Beautiful old town." }
-]},
+  { country: "France", city: "Lyon", coords: [45.764, 4.8357], description: "Lived here during my studies!", highlight: true, special: false, subPlaces: [
+      { name: "ENS de Lyon", coords: [45.7333, 4.8244], description: "Where I studied.", special: true },
+      { name: "Vieux Lyon", coords: [45.7622, 4.8276], description: "Beautiful old town.", special: true }
+    ]},
     { country: "France", city: "Paris", coords: [48.8566, 2.3522], description: "Weekend trip." },
     { country: "United States of America", city: "Chicago", coords: [41.8781, -87.6298], description: "Currently working here as a PostDoc." },
     { country: "Japan", city: "Tokyo", coords: [35.6762, 139.6503], description: "Cherry blossom season!" },
@@ -175,33 +196,99 @@ countryPlaces.forEach(place => {
   const hasSubPlaces = place.subPlaces && place.subPlaces.length > 0;
   const iconToUse = hasSubPlaces ? redIcon : defaultIcon;
 
-  const marker = L.marker(place.coords, { icon: iconToUse })
-    .bindPopup(`<b>${place.city}</b><br>${place.description}`);
+  const marker = L.marker(place.coords, { icon: iconToUse });
+  // Show description on hover (tooltip)
+  marker.bindTooltip(`<b>${place.city}</b><br>${place.description}`, { permanent: false, direction: 'top', offset: [0, -40] } );
 
-  if (hasSubPlaces) marker.on('click', () => { showCityMap(place);   pushScrollTarget("city-map-container"); });
+  // Click handler for subPlaces or special trigger
+  marker.on('click', () => {
+    if (hasSubPlaces) {
+      showCityMap(place);
+      pushScrollTarget("city-map-container");
+    }
+
+  });
 
   markers.addLayer(marker);
 });
  countryMap.addLayer(markers);
-    document.getElementById("country-map-container").scrollIntoView({ behavior: "smooth" });
+   // document.getElementById("country-map-container").scrollIntoView({ behavior: "smooth" });
 
   }
   
-  function showCityMap(place) {
-document.getElementById("city-map-container").innerHTML = `
-<h3 style="margin-top: 1rem;">${place.city}</h3>
-<div id="city-map" style="height: 640px; border-radius: 1px;"></div>`;
+function showCityMap(place) {
+  document.getElementById("city-map-container").innerHTML = `
+    <h3 style="margin-top: 1rem;">${place.city}</h3>
+    <div id="city-map" style="height: 640px; border-radius: 1px;"></div>
+  `;
 
   const cityMap = L.map("city-map").setView(place.coords, 13);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
   }).addTo(cityMap);
 
-  place.subPlaces.forEach(sub => {
-  L.marker(sub.coords).addTo(cityMap).bindPopup(`<b>${sub.name}</b><br>${sub.description}`);
+  // Marker cluster for city
+  const cityMarkers = L.markerClusterGroup();
+
+  place.subPlaces.forEach((sub, index) => {
+    const marker = L.marker(sub.coords)
+      .bindTooltip(`<b>${sub.name}</b><br>${sub.description}`, { permanent: false, direction: 'top', offset: [-13.8, -11] })
+
+    // If special, add game logic
+    if (sub.special) {
+      marker.on('click', () => {
+        // 1️⃣ Confetti
+        if (!triggersClicked.has(sub.name)) {
+          triggersClicked.add(sub.name);
+          if (window.confetti) {
+            confetti({ particleCount: 100, spread: 60, origin: { y: 0.6 } });
+          }
+
+          // 2️⃣ Highlight clue
+          const clueEl = document.getElementById(`clue-${index + 1}`);
+          if (clueEl) {
+            clueEl.style.backgroundColor = "#d4edda"; // light green
+            clueEl.style.color = "#155724"; // dark green text
+            clueEl.innerHTML = "✔️ " + clueEl.textContent;
+          }
+
+          // 3️⃣ Check if all special pins are clicked
+          const allSpecial = place.subPlaces.filter(p => p.special).length;
+          if (triggersClicked.size >= allSpecial) {
+            showWin();
+          }
+        }
+      });
+    }
+
+    cityMarkers.addLayer(marker);
   });
 
-
-  document.getElementById("city-map-container").scrollIntoView({ behavior: "smooth" });
+  cityMap.addLayer(cityMarkers);
+  pushScrollTarget("city-map-container");
 }
+
+
+function showWin() {
+  // Confetti
+  if (window.confetti) {
+    confetti({ particleCount: 200, spread: 70, origin: { y: 0.6 } });
+  }
+
+  // Show cat picture
+  const prizeSection = document.getElementById("prize-section");
+  prizeSection.innerHTML = `
+    <h2>🎉 You found all the secret pins! 🎉</h2>
+    <img src="/assets/fifi1.jpeg" style="width:400px; border-radius:10px;"/>
+    <p>Here is Fifi, my cat, celebrating with you! 🐱</p>
+  `;
+
+  // Scroll smoothly to prize section
+  prizeSection.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
 </script>
+<div id="prize-section" style="margin-top:2rem;"></div>
+
+<!-- Add confetti library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
