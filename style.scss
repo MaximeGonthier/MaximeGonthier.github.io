@@ -609,6 +609,19 @@ footer {
     cursor: pointer;
     overflow: visible;
   }
+
+  // On phones the heading wraps, so the tall inline figure would spill onto the
+  // lines above/below. Give the line more room and trim the figure's overhang.
+  @include mobile {
+    font-size: 28px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+
+    .desk-guy {
+      height: 1.35em;
+      vertical-align: -0.28em;
+    }
+  }
 }
 
 /* Idle desk guy: typing hands + flickering screen */
