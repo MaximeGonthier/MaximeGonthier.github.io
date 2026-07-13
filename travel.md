@@ -600,7 +600,9 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     { country: "Italy", city: "Fiuggi", coords: [41.800240, 13.224269], description: ""},
     { country: "Italy", city: "Verona", coords: [45.438384, 10.991621], description: ""},
     { country: "Italy", city: "Seceda (Dolomites)", coords: [46.600275, 11.726103], description: ""},
-    { country: "Italy", city: "Vatican City", coords: [41.9039, 12.4529], description: ""},
+
+    // Vatican City (its own country; too small for the world GeoJSON, so shown as a red circle)
+    { country: "Vatican City", city: "Vatican City", coords: [41.9039, 12.4529], description: ""},
 
     // Japan
     { country: "Japan", city: "Tokyo", coords: [35.68972, 139.69222], description: ""},
@@ -793,6 +795,7 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     "Thailand":                 [15.2, 101.0],
     "United Kingdom":           [54.0, -2.4],
     "United States of America": [39.5, -98.35],
+    "Vatican City":             [41.9039, 12.4529],
     "Vietnam":                  [16.2, 107.8],
   };
 
