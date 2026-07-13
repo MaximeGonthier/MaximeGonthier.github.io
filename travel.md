@@ -50,9 +50,9 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
   }
   #clues .clue.found .reveal { display: none; }
   #score-flash { transition: color 0.4s; }
-</style>
 
-<div id="clues" style="
+  /* Clues panel — fixed sidebar on desktop */
+  #clues {
     position: fixed;
     left: 10px;
     top: 100px;
@@ -65,7 +65,53 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     font-size: 0.85rem;
-">
+  }
+
+  /* Toggle button — only shown on small screens */
+  #clues-toggle {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    /* On phones the sidebar would cover the map, so hide it behind a toggle
+       and turn it into a bottom sheet you can open and close. */
+    #clues {
+      left: 8px;
+      right: 8px;
+      top: auto;
+      bottom: 68px;
+      width: auto;
+      max-height: 55vh;
+      display: none;
+    }
+    #clues.clues-open {
+      display: block;
+    }
+    #clues-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      position: fixed;
+      left: 10px;
+      bottom: 16px;
+      z-index: 1100;
+      padding: 0.6rem 1rem;
+      background: #1a73e8;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      cursor: pointer;
+    }
+    #clues-toggle:active { background: #0b57c0; }
+  }
+</style>
+
+<button type="button" id="clues-toggle" aria-expanded="false" aria-controls="clues">Show clues</button>
+
+<div id="clues">
   <strong>Clues</strong>
   <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:#444; margin: 0.2rem 0 0.4rem;">
     <span>Found: <span id="clue-progress">0 / 10</span></span>
@@ -146,6 +192,18 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
 </button>
 
 <script>
+
+  // Mobile-only: toggle the clues panel open/closed so it doesn't cover the map.
+  (function () {
+    const toggle = document.getElementById("clues-toggle");
+    const clues = document.getElementById("clues");
+    if (!toggle || !clues) return;
+    toggle.addEventListener("click", () => {
+      const open = clues.classList.toggle("clues-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.textContent = open ? "Hide clues" : "Show clues";
+    });
+  })();
 
   // Stack to track previous ranks
 let scrollHistory = ["world-map-container"]; // matches the container ID
