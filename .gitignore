@@ -1,0 +1,7 @@
+vendor/bundle/*
+.claude/
+.bundle/*
+_site/*
+Gemfile.lock
+vendor/*
+.vs/
