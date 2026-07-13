@@ -51,13 +51,14 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
   #clues .clue.found .reveal { display: none; }
   #score-flash { transition: color 0.4s; }
 
-  /* Clues panel — fixed sidebar on desktop */
+  /* Clues panel — fixed sidebar, shown/hidden via the toggle (.clues-open).
+     JS opens it by default on desktop and leaves it collapsed on phones. */
   #clues {
     position: fixed;
     left: 10px;
-    top: 100px;
+    top: 108px;
     width: 240px;
-    max-height: 80vh;
+    max-height: 78vh;
     overflow-y: auto;
     z-index: 1000;
     background: rgba(255,255,255,0.92);
@@ -65,16 +66,36 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     font-size: 0.85rem;
-  }
-
-  /* Toggle button — only shown on small screens */
-  #clues-toggle {
     display: none;
   }
+  #clues.clues-open {
+    display: block;
+  }
+
+  /* Toggle button — always available, sits just above the panel */
+  #clues-toggle {
+    position: fixed;
+    left: 10px;
+    top: 70px;
+    z-index: 1100;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.9rem;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    cursor: pointer;
+  }
+  #clues-toggle:hover { background: #0b57c0; }
 
   @media (max-width: 768px) {
-    /* On phones the sidebar would cover the map, so hide it behind a toggle
-       and turn it into a bottom sheet you can open and close. */
+    /* On phones the panel becomes a bottom sheet and the button moves to the
+       bottom corner, so it never covers the map. */
     #clues {
       left: 8px;
       right: 8px;
@@ -82,30 +103,14 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
       bottom: 68px;
       width: auto;
       max-height: 55vh;
-      display: none;
-    }
-    #clues.clues-open {
-      display: block;
     }
     #clues-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      position: fixed;
       left: 10px;
+      top: auto;
       bottom: 16px;
-      z-index: 1100;
       padding: 0.6rem 1rem;
-      background: #1a73e8;
-      color: #fff;
-      border: none;
-      border-radius: 24px;
       font-size: 0.9rem;
-      font-weight: 600;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
-      cursor: pointer;
     }
-    #clues-toggle:active { background: #0b57c0; }
   }
 </style>
 
@@ -193,15 +198,20 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
 
 <script>
 
-  // Mobile-only: toggle the clues panel open/closed so it doesn't cover the map.
+  // Show/hide the clues panel. Open by default on desktop, collapsed on phones
+  // (where it would otherwise cover the map).
   (function () {
     const toggle = document.getElementById("clues-toggle");
     const clues = document.getElementById("clues");
     if (!toggle || !clues) return;
-    toggle.addEventListener("click", () => {
-      const open = clues.classList.toggle("clues-open");
+    function setOpen(open) {
+      clues.classList.toggle("clues-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       toggle.textContent = open ? "Hide clues" : "Show clues";
+    }
+    setOpen(window.matchMedia("(min-width: 769px)").matches);
+    toggle.addEventListener("click", () => {
+      setOpen(!clues.classList.contains("clues-open"));
     });
   })();
 
