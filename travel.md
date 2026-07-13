@@ -97,7 +97,7 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
       <span class="reveal" data-clue="4">+ hint (−3 pts)</span>
     </li>
     <li id="clue-5" class="clue">
-      <div class="hint hint-1">Known for its medieval leaning towerS (there is an S — no, it's not the one you're thinking of, I've never been there).</div>
+      <div class="hint hint-1">Known for its medieval leaning towerS (No it's not the one you're thinking of, I've never been there).</div>
       <div class="hint hint-2 hidden">Located in Emilia-Romagna.</div>
       <div class="hint hint-3 hidden">Famous for a spaghetti sauce that bears the same name.</div>
       <span class="reveal" data-clue="5">+ hint (−3 pts)</span>
