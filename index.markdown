@@ -68,99 +68,306 @@ does_not_need_title: true
     </p>
   </div>
 
-  <div class="hero-gpu">
-    <div class="gpu-playground" id="gpuPlayground">
+</section>
+
+<section class="hero-lab">
+  <div class="lab-chassis" id="gpuPlayground">
     <div class="chassis-bar" aria-hidden="true">
       <span class="chassis-leds"><i></i><i></i><i></i></span>
-      <span class="chassis-label">GPU Compute Node &middot; 01</span>
+      <span class="chassis-label">My Supercomputer</span>
       <span class="chassis-vents"></span>
     </div>
+
+    <div class="lab-body">
+      <div class="lab-active">
+        <div class="active-zone" id="activeZone"></div>
+      </div>
+
+      <aside class="lab-shop">
+        <h2 class="lab-heading">Shop</h2>
+        <div id="gpuShop"></div>
+      </aside>
+    </div>
+
     <div class="task-layer" id="taskLayer" aria-hidden="true"></div>
-    <div class="gpu-stage" id="gpuStage">
-      <svg class="gpu" id="gpuCard" viewBox="0 0 360 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive GPU">
-        <defs>
-          <linearGradient id="shroud" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#2b2f3a"/>
-            <stop offset="0.5" stop-color="#20242e"/>
-            <stop offset="1" stop-color="#15181f"/>
-          </linearGradient>
-          <linearGradient id="rgb" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#22d3ee"/>
-            <stop offset="0.5" stop-color="#a855f7"/>
-            <stop offset="1" stop-color="#f472b6"/>
-          </linearGradient>
-          <radialGradient id="hub" cx="0.5" cy="0.4" r="0.6">
-            <stop offset="0" stop-color="#5b6172"/>
-            <stop offset="1" stop-color="#23262f"/>
-          </radialGradient>
-        </defs>
-
-        <!-- PCB + PCIe connector -->
-        <rect x="24" y="150" width="300" height="40" rx="4" fill="#0e3b2e"/>
-        <g fill="#d4af37">
-          <rect x="40" y="184" width="14" height="14"/>
-          <rect x="60" y="184" width="14" height="14"/>
-          <rect x="80" y="184" width="14" height="14"/>
-          <rect x="100" y="184" width="14" height="14"/>
-          <rect x="130" y="184" width="40" height="14"/>
-          <rect x="186" y="184" width="60" height="14"/>
-        </g>
-
-        <!-- Shroud -->
-        <rect x="20" y="28" width="320" height="128" rx="12" fill="url(#shroud)" stroke="#3a3f4b" stroke-width="1.5"/>
-        <!-- RGB accent strip -->
-        <rect class="rgb-strip" x="26" y="32" width="308" height="7" rx="3.5" fill="url(#rgb)"/>
-        <!-- Heatsink hint between fans -->
-        <g stroke="#3a3f4b" stroke-width="2" opacity="0.5">
-          <line x1="180" y1="60" x2="180" y2="140"/>
-          <line x1="176" y1="60" x2="176" y2="140"/>
-          <line x1="184" y1="60" x2="184" y2="140"/>
-        </g>
-        <!-- Power connector -->
-        <rect x="296" y="44" width="36" height="14" rx="2" fill="#0d0f13" stroke="#3a3f4b"/>
-
-        <!-- Fan 1 -->
-        <g transform="translate(108,98)">
-          <circle r="50" fill="#14161c" stroke="#2c2f37" stroke-width="2"/>
-          <g class="fan">
-            <circle r="48" fill="none"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(0)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(51.43)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(102.86)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(154.29)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(205.71)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(257.14)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(308.57)"/>
-            <circle r="12" fill="url(#hub)" stroke="#3a3f4b"/>
-          </g>
-        </g>
-
-        <!-- Fan 2 -->
-        <g transform="translate(252,98)">
-          <circle r="50" fill="#14161c" stroke="#2c2f37" stroke-width="2"/>
-          <g class="fan fan-2">
-            <circle r="48" fill="none"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(0)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(51.43)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(102.86)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(154.29)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(205.71)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(257.14)"/>
-            <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(308.57)"/>
-            <circle r="12" fill="url(#hub)" stroke="#3a3f4b"/>
-          </g>
-        </g>
-      </svg>
-      <div class="gpu-burst" id="gpuBurst" aria-hidden="true"></div>
-    </div>
-    </div>
-    <div class="gpu-hud">
-      <button type="button" class="gpu-btn" id="feedBtn">Compute \o/</button>
-      <span class="gpu-stat"><span id="taskCount">0</span> tasks computed</span>
-    </div>
-    <p class="gpu-caption">Click in the box to spawn tasks, then hit compute to feed the GPU!</p>
   </div>
+
+  <div class="gpu-hud">
+    <button type="button" class="gpu-btn" id="feedBtn">Compute \o/</button>
+    <span class="gpu-stat">
+      <span id="taskBalance">0</span> tasks &middot; <span id="taskTotal">0</span> computed
+    </span>
+    <button type="button" class="gpu-btn gpu-btn--ghost" id="resetBtn">Reset</button>
+  </div>
+  <p class="gpu-caption">Hit compute to run a task on every machine, then spend the tasks in the shop to grow the cluster.</p>
 </section>
+
+<!-- Gradients shared by every machine (kept in one place so cloned machines don't duplicate ids). -->
+<svg class="lab-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shroud" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b2f3a"/>
+      <stop offset="0.5" stop-color="#20242e"/>
+      <stop offset="1" stop-color="#15181f"/>
+    </linearGradient>
+    <linearGradient id="rgb" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="0.5" stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#f472b6"/>
+    </linearGradient>
+    <radialGradient id="hub" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#5b6172"/>
+      <stop offset="1" stop-color="#23262f"/>
+    </radialGradient>
+    <linearGradient id="chipBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#39404f"/>
+      <stop offset="1" stop-color="#1c202a"/>
+    </linearGradient>
+    <linearGradient id="cabinet" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2b313d"/>
+      <stop offset="0.55" stop-color="#1b1f28"/>
+      <stop offset="1" stop-color="#12151b"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- Machine artwork; gpu.js clones these into the active zone as they're bought. -->
+<template id="tpl-cpu">
+  <svg class="machine-art cpu" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CPU">
+    <g fill="#d4af37">
+      <rect x="26" y="6" width="5" height="10" rx="1"/>
+      <rect x="40" y="6" width="5" height="10" rx="1"/>
+      <rect x="54" y="6" width="5" height="10" rx="1"/>
+      <rect x="68" y="6" width="5" height="10" rx="1"/>
+      <rect x="26" y="84" width="5" height="10" rx="1"/>
+      <rect x="40" y="84" width="5" height="10" rx="1"/>
+      <rect x="54" y="84" width="5" height="10" rx="1"/>
+      <rect x="68" y="84" width="5" height="10" rx="1"/>
+      <rect x="6" y="26" width="10" height="5" rx="1"/>
+      <rect x="6" y="40" width="10" height="5" rx="1"/>
+      <rect x="6" y="54" width="10" height="5" rx="1"/>
+      <rect x="6" y="68" width="10" height="5" rx="1"/>
+      <rect x="84" y="26" width="10" height="5" rx="1"/>
+      <rect x="84" y="40" width="10" height="5" rx="1"/>
+      <rect x="84" y="54" width="10" height="5" rx="1"/>
+      <rect x="84" y="68" width="10" height="5" rx="1"/>
+    </g>
+    <rect x="14" y="14" width="72" height="72" rx="7" fill="url(#chipBody)" stroke="#4a5060" stroke-width="1.5"/>
+    <rect x="27" y="27" width="46" height="46" rx="3" fill="#151922" stroke="#525a6b"/>
+    <!-- die traces -->
+    <g class="die-trace" stroke="#22d3ee" stroke-width="1.6" opacity="0.55">
+      <line x1="34" y1="38" x2="66" y2="38"/>
+      <line x1="34" y1="50" x2="58" y2="50"/>
+      <line x1="34" y1="62" x2="66" y2="62"/>
+    </g>
+    <circle cx="21" cy="21" r="2.4" fill="#5b6172"/>
+  </svg>
+</template>
+
+<template id="tpl-gpu">
+  <svg class="machine-art gpu" viewBox="0 0 360 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GPU">
+    <!-- PCB + PCIe connector -->
+    <rect x="24" y="150" width="300" height="40" rx="4" fill="#0e3b2e"/>
+    <g fill="#d4af37">
+      <rect x="40" y="184" width="14" height="14"/>
+      <rect x="60" y="184" width="14" height="14"/>
+      <rect x="80" y="184" width="14" height="14"/>
+      <rect x="100" y="184" width="14" height="14"/>
+      <rect x="130" y="184" width="40" height="14"/>
+      <rect x="186" y="184" width="60" height="14"/>
+    </g>
+
+    <!-- Shroud -->
+    <rect x="20" y="28" width="320" height="128" rx="12" fill="url(#shroud)" stroke="#3a3f4b" stroke-width="1.5"/>
+    <!-- RGB accent strip -->
+    <rect class="rgb-strip" x="26" y="32" width="308" height="7" rx="3.5" fill="url(#rgb)"/>
+    <!-- Heatsink hint between fans -->
+    <g stroke="#3a3f4b" stroke-width="2" opacity="0.5">
+      <line x1="180" y1="60" x2="180" y2="140"/>
+      <line x1="176" y1="60" x2="176" y2="140"/>
+      <line x1="184" y1="60" x2="184" y2="140"/>
+    </g>
+    <!-- Power connector -->
+    <rect x="296" y="44" width="36" height="14" rx="2" fill="#0d0f13" stroke="#3a3f4b"/>
+
+    <!-- Fan 1 -->
+    <g transform="translate(108,98)">
+      <circle r="50" fill="#14161c" stroke="#2c2f37" stroke-width="2"/>
+      <g class="fan">
+        <circle r="48" fill="none"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(0)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(51.43)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(102.86)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(154.29)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(205.71)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(257.14)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(308.57)"/>
+        <circle r="12" fill="url(#hub)" stroke="#3a3f4b"/>
+      </g>
+    </g>
+
+    <!-- Fan 2 -->
+    <g transform="translate(252,98)">
+      <circle r="50" fill="#14161c" stroke="#2c2f37" stroke-width="2"/>
+      <g class="fan fan-2">
+        <circle r="48" fill="none"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(0)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(51.43)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(102.86)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(154.29)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(205.71)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(257.14)"/>
+        <path class="blade" d="M0,0 C10,-16 30,-18 44,-6 C30,-2 14,4 4,10 C-2,6 -4,2 0,0 Z" transform="rotate(308.57)"/>
+        <circle r="12" fill="url(#hub)" stroke="#3a3f4b"/>
+      </g>
+    </g>
+  </svg>
+</template>
+
+<!-- A node is one drawer of a rack, pulled out so you can see its 4 GPUs + 1 CPU. -->
+<template id="tpl-node">
+  <svg class="machine-art node" viewBox="0 0 150 46" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Compute node: 4 GPUs and 1 CPU in a rack drawer">
+    <!-- drawer rails -->
+    <rect x="0" y="8" width="4" height="30" rx="1.5" fill="#2b313d"/>
+    <rect x="146" y="8" width="4" height="30" rx="1.5" fill="#2b313d"/>
+    <!-- drawer chassis + front handle -->
+    <rect x="4" y="3" width="142" height="40" rx="3" fill="url(#cabinet)" stroke="#454c5b" stroke-width="1.2"/>
+    <rect x="7" y="9" width="7" height="28" rx="1.5" fill="#333a47" stroke="#4a5262" stroke-width="0.8"/>
+    <circle class="node-led" cx="10.5" cy="14" r="1.6"/>
+    <circle cx="10.5" cy="19" r="1.6" fill="#2f6b4f"/>
+    <!-- open bay -->
+    <rect x="18" y="7" width="124" height="32" rx="2" fill="#0d1015"/>
+
+    <!-- the 1 CPU -->
+    <g transform="translate(22,14)">
+      <rect width="17" height="17" rx="2" fill="url(#chipBody)" stroke="#4a5060" stroke-width="0.8"/>
+      <rect x="3.5" y="3.5" width="10" height="10" rx="1" fill="#151922" stroke="#525a6b" stroke-width="0.6"/>
+      <g class="die-trace" stroke="#22d3ee" stroke-width="0.8" opacity="0.55">
+        <line x1="5" y1="7" x2="12" y2="7"/>
+        <line x1="5" y1="10.5" x2="10" y2="10.5"/>
+      </g>
+    </g>
+
+    <!-- the 4 GPUs, standing in their slots -->
+    <g transform="translate(46,11)">
+      <rect width="13" height="24" rx="1.5" fill="#20242e" stroke="#3a3f4b" stroke-width="0.8"/>
+      <rect class="rgb-strip" x="1.5" y="2" width="10" height="1.8" rx="0.9" fill="url(#rgb)"/>
+      <g class="mini-fan" transform="translate(6.5,13)">
+        <circle r="4" fill="#14161c" stroke="#2c2f37" stroke-width="0.7"/>
+        <g class="mini-blades">
+          <path d="M0,-3.2 L1.3,0 L0,3.2 L-1.3,0 Z" fill="#4a5060"/>
+          <path d="M-3.2,0 L0,-1.3 L3.2,0 L0,1.3 Z" fill="#4a5060"/>
+        </g>
+        <circle r="1" fill="url(#hub)"/>
+      </g>
+    </g>
+    <g transform="translate(70,11)">
+      <rect width="13" height="24" rx="1.5" fill="#20242e" stroke="#3a3f4b" stroke-width="0.8"/>
+      <rect class="rgb-strip" x="1.5" y="2" width="10" height="1.8" rx="0.9" fill="url(#rgb)"/>
+      <g class="mini-fan" transform="translate(6.5,13)">
+        <circle r="4" fill="#14161c" stroke="#2c2f37" stroke-width="0.7"/>
+        <g class="mini-blades">
+          <path d="M0,-3.2 L1.3,0 L0,3.2 L-1.3,0 Z" fill="#4a5060"/>
+          <path d="M-3.2,0 L0,-1.3 L3.2,0 L0,1.3 Z" fill="#4a5060"/>
+        </g>
+        <circle r="1" fill="url(#hub)"/>
+      </g>
+    </g>
+    <g transform="translate(94,11)">
+      <rect width="13" height="24" rx="1.5" fill="#20242e" stroke="#3a3f4b" stroke-width="0.8"/>
+      <rect class="rgb-strip" x="1.5" y="2" width="10" height="1.8" rx="0.9" fill="url(#rgb)"/>
+      <g class="mini-fan" transform="translate(6.5,13)">
+        <circle r="4" fill="#14161c" stroke="#2c2f37" stroke-width="0.7"/>
+        <g class="mini-blades">
+          <path d="M0,-3.2 L1.3,0 L0,3.2 L-1.3,0 Z" fill="#4a5060"/>
+          <path d="M-3.2,0 L0,-1.3 L3.2,0 L0,1.3 Z" fill="#4a5060"/>
+        </g>
+        <circle r="1" fill="url(#hub)"/>
+      </g>
+    </g>
+    <g transform="translate(118,11)">
+      <rect width="13" height="24" rx="1.5" fill="#20242e" stroke="#3a3f4b" stroke-width="0.8"/>
+      <rect class="rgb-strip" x="1.5" y="2" width="10" height="1.8" rx="0.9" fill="url(#rgb)"/>
+      <g class="mini-fan" transform="translate(6.5,13)">
+        <circle r="4" fill="#14161c" stroke="#2c2f37" stroke-width="0.7"/>
+        <g class="mini-blades">
+          <path d="M0,-3.2 L1.3,0 L0,3.2 L-1.3,0 Z" fill="#4a5060"/>
+          <path d="M-3.2,0 L0,-1.3 L3.2,0 L0,1.3 Z" fill="#4a5060"/>
+        </g>
+        <circle r="1" fill="url(#hub)"/>
+      </g>
+    </g>
+  </svg>
+</template>
+
+<!-- A cabinet is 5 node drawers stacked in a standing rack. -->
+<template id="tpl-cabinet">
+  <svg class="machine-art cabinet" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cabinet holding five compute nodes">
+    <rect x="4" y="4" width="72" height="112" rx="5" fill="url(#cabinet)" stroke="#454c5b" stroke-width="1.5"/>
+    <rect x="10" y="10" width="60" height="100" rx="2" fill="#0d1015"/>
+    <!-- five node drawers, each a squeezed-down echo of the node art -->
+    <g class="cabinet-drawers">
+      <g transform="translate(13,14)">
+        <rect width="54" height="14" rx="1.5" fill="#252b36" stroke="#3d4453"/>
+        <rect x="3" y="3" width="7" height="8" rx="1" fill="#151922" stroke="#3d4453" stroke-width="0.5"/>
+        <g fill="#20242e" stroke="#3a3f4b" stroke-width="0.5">
+          <rect x="14" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="23" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="32" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="41" y="3" width="7" height="8" rx="0.8"/>
+        </g>
+        <circle class="cabinet-led" cx="51" cy="7" r="1.6"/>
+      </g>
+      <g transform="translate(13,32)">
+        <rect width="54" height="14" rx="1.5" fill="#252b36" stroke="#3d4453"/>
+        <rect x="3" y="3" width="7" height="8" rx="1" fill="#151922" stroke="#3d4453" stroke-width="0.5"/>
+        <g fill="#20242e" stroke="#3a3f4b" stroke-width="0.5">
+          <rect x="14" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="23" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="32" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="41" y="3" width="7" height="8" rx="0.8"/>
+        </g>
+        <circle class="cabinet-led" cx="51" cy="7" r="1.6"/>
+      </g>
+      <g transform="translate(13,50)">
+        <rect width="54" height="14" rx="1.5" fill="#252b36" stroke="#3d4453"/>
+        <rect x="3" y="3" width="7" height="8" rx="1" fill="#151922" stroke="#3d4453" stroke-width="0.5"/>
+        <g fill="#20242e" stroke="#3a3f4b" stroke-width="0.5">
+          <rect x="14" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="23" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="32" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="41" y="3" width="7" height="8" rx="0.8"/>
+        </g>
+        <circle class="cabinet-led" cx="51" cy="7" r="1.6"/>
+      </g>
+      <g transform="translate(13,68)">
+        <rect width="54" height="14" rx="1.5" fill="#252b36" stroke="#3d4453"/>
+        <rect x="3" y="3" width="7" height="8" rx="1" fill="#151922" stroke="#3d4453" stroke-width="0.5"/>
+        <g fill="#20242e" stroke="#3a3f4b" stroke-width="0.5">
+          <rect x="14" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="23" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="32" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="41" y="3" width="7" height="8" rx="0.8"/>
+        </g>
+        <circle class="cabinet-led" cx="51" cy="7" r="1.6"/>
+      </g>
+      <g transform="translate(13,86)">
+        <rect width="54" height="14" rx="1.5" fill="#252b36" stroke="#3d4453"/>
+        <rect x="3" y="3" width="7" height="8" rx="1" fill="#151922" stroke="#3d4453" stroke-width="0.5"/>
+        <g fill="#20242e" stroke="#3a3f4b" stroke-width="0.5">
+          <rect x="14" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="23" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="32" y="3" width="7" height="8" rx="0.8"/>
+          <rect x="41" y="3" width="7" height="8" rx="0.8"/>
+        </g>
+        <circle class="cabinet-led" cx="51" cy="7" r="1.6"/>
+      </g>
+    </g>
+    <!-- caster feet -->
+    <rect x="12" y="116" width="10" height="4" rx="1.5" fill="#2b313d"/>
+    <rect x="58" y="116" width="10" height="4" rx="1.5" fill="#2b313d"/>
+  </svg>
+</template>
 
 <h1 style="margin:0px; font-size: 36px">About</h1>
 

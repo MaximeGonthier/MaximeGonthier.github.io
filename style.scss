@@ -570,22 +570,15 @@ footer {
 /*********************/
 
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2.5rem;
-  margin: 10px 0 50px;
+  margin: 10px 0 26px;
   text-align: left;
 
   @include mobile {
-    flex-direction: column;
     text-align: center;
-    gap: 1.5rem;
   }
 }
 
 .hero-text {
-  flex: 1 1 0;
   min-width: 0;
 }
 
@@ -743,22 +736,28 @@ footer {
   }
 }
 
-/* GPU stage */
-.hero-gpu {
-  flex: 0 0 auto;
+/* Compute-cluster game */
+.hero-lab {
+  margin: 0 0 50px;
   text-align: center;
 }
 
-/* Playground styled as a supercomputer / GPU-node chassis */
-.gpu-playground {
+/* Hidden sprite holding the gradients every machine shares */
+.lab-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* The machine room, styled as a supercomputer chassis */
+.lab-chassis {
   position: relative;
   width: 100%;
-  max-width: 440px;
   margin: 0 auto;
-  padding: 44px 20px 26px 80px;
+  padding: 44px 18px 26px;
   box-sizing: border-box;
-  cursor: crosshair;
-  transition: margin-bottom 0.6s ease;
+  text-align: left;
 
   border-radius: 14px;
   border: 1px solid #3a4150;
@@ -769,14 +768,10 @@ footer {
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
     inset 0 0 36px rgba(0, 0, 0, 0.55),
     0 14px 34px rgba(0, 0, 0, 0.28);
-
-  @include mobile {
-    padding-left: 62px;
-  }
 }
 
 /* Ventilation slits along the bottom of the chassis */
-.gpu-playground::after {
+.lab-chassis::after {
   content: "";
   position: absolute;
   left: 16px;
@@ -843,8 +838,192 @@ footer {
   opacity: 0.85;
 }
 
-.gpu-playground .gpu-stage {
-  margin-left: auto; /* push the GPU to the right, leaving a buffer gutter on the left */
+/* Two columns inside the chassis: the machine room, and the shop down the side */
+.lab-body {
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+/* Stretches to the shop's height so the machines can stand on the floor of it */
+.lab-active {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.lab-shop {
+  flex: 0 0 168px;
+  width: 168px;
+
+  @include mobile {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+.lab-heading {
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8b93a3;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Machines stand on the floor of the chassis, rows filling upward from it */
+.active-zone {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  align-content: flex-end;
+  gap: 10px 12px;
+  min-height: 96px;
+  overflow-y: auto;
+  padding-bottom: 2px;
+}
+
+.machine {
+  position: relative;
+  flex: 0 0 auto;
+  transition: transform 0.15s ease, filter 0.25s ease;
+
+  &:hover { transform: translateY(-3px); }
+}
+
+.machine-art {
+  display: block;
+  width: auto;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.4));
+}
+
+.machine--cpu     .machine-art { height: 54px; }
+.machine--gpu     .machine-art { height: 56px; }
+.machine--node    .machine-art { height: 46px; }
+.machine--cabinet .machine-art { height: 84px; }
+
+/* A machine flashes as it's dropped into the zone */
+.machine.just-bought {
+  animation: machine-pop 0.6s cubic-bezier(0.34, 1.5, 0.6, 1);
+}
+
+@keyframes machine-pop {
+  0%   { transform: translateY(10px) scale(0.5); opacity: 0; }
+  60%  { transform: translateY(-4px) scale(1.08); opacity: 1; }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Working: everything glows a little harder */
+.machine.computing .machine-art {
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 12px rgba(168, 85, 247, 0.7));
+}
+
+/* CPU: the die traces light up while it works */
+.cpu .die-trace {
+  transition: opacity 0.2s ease;
+}
+.machine.computing .cpu .die-trace {
+  animation: trace-flicker 0.35s steps(1) infinite;
+}
+
+@keyframes trace-flicker {
+  0%, 49%   { opacity: 1; stroke: #22d3ee; }
+  50%, 100% { opacity: 0.4; stroke: #a855f7; }
+}
+
+/* Node: its four mini GPU fans spin, and rev like the full-size card */
+.node .mini-blades {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: gpu-spin 2.4s linear infinite;
+}
+.node .mini-fan:nth-of-type(2n) .mini-blades { animation-direction: reverse; }
+.machine.computing .node .mini-blades { animation-duration: 0.3s; }
+
+/* Status LEDs: dim at idle, blinking under load */
+.node .node-led,
+.cabinet .cabinet-led {
+  fill: #5b6172;
+}
+.machine.computing .node .node-led,
+.machine.computing .cabinet .cabinet-led {
+  fill: #22d3ee;
+  animation: led-blink 0.4s steps(1) infinite;
+}
+.machine.computing .cabinet .cabinet-drawers g:nth-child(2n) .cabinet-led {
+  animation-duration: 0.55s;
+}
+
+/* Shop */
+.shop-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  font-family: $helveticaNeue;
+  border-radius: 6px;
+  border: 1px solid #3a4150;
+  background: linear-gradient(160deg, #262c38, #171b23);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+
+  &:last-child { margin-bottom: 0; }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: #22d3ee;
+    box-shadow: 0 4px 14px rgba(34, 211, 238, 0.22);
+  }
+  &:active:not(:disabled) { transform: translateY(0); }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+  }
+}
+
+.shop-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #e6eaf2;
+}
+
+/* What a composed machine is built from (nodes and cabinets) */
+.shop-made {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #22d3ee;
+  margin-top: 2px;
+}
+
+.shop-blurb {
+  display: block;
+  font-size: 11px;
+  color: #8b93a3;
+  margin-top: 1px;
+}
+
+.shop-price {
+  display: block;
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #facc15;
+  margin-top: 4px;
 }
 
 .task-layer {
@@ -910,21 +1089,29 @@ footer {
   margin-top: 14px;
 }
 
+/* Matches the outlined link-buttons used elsewhere on the site */
 .gpu-btn {
   font-family: $helveticaNeue;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(135deg, #a855f7, #22d3ee);
-  border: none;
-  border-radius: 999px;
-  padding: 9px 18px;
+  font-size: 15px;
+  color: $blue;
+  background: #fff;
+  border: 1px solid $blue;
+  border-radius: 4px;
+  padding: 6px 14px;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition: box-shadow 100ms ease-in-out;
 
-  &:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(168, 85, 247, 0.45); }
-  &:active { transform: translateY(0); }
+  &:hover { box-shadow: 0 0 15px #CCC; }
+}
+
+/* Same shape as the Compute button, but muted — it's the destructive one */
+.gpu-btn--ghost {
+  font-size: 13px;
+  color: $gray;
+  border-color: #ccc;
+  padding: 5px 11px;
+
+  &:hover { color: $darkerGray; border-color: $gray; }
 }
 
 .gpu-stat {
@@ -932,73 +1119,15 @@ footer {
   font-size: 14px;
   color: $gray;
 
-  #taskCount { color: $darkerGray; font-weight: 700; }
-}
-
-.gpu-stage {
-  position: relative;
-  width: 340px;
-  max-width: 80vw;
-  perspective: 900px;
-  cursor: crosshair;
-  user-select: none;
-}
-
-.gpu {
-  width: 100%;
-  height: auto;
-  display: block;
-  position: relative;
-  z-index: 1;
-  transform-style: preserve-3d;
-  transition: transform 0.18s ease-out;
-  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.28));
-}
-
-/* Pixel-art flames over the GPU; revealed at level 1, grow per bar (scale set in JS) */
-.gpu-flames {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-  overflow: visible;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  image-rendering: pixelated;
-  shape-rendering: crispEdges;
-}
-
-.gpu-flames .flames-scale {
-  transform: scale(var(--flame-scale, 1));
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
-  transition: transform 0.5s cubic-bezier(0.34, 1.4, 0.6, 1);
-}
-
-.gpu-flames .flame-col {
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
-  animation: flame-bob 0.4s steps(1) infinite;
-}
-
-@keyframes flame-bob {
-  0%, 49%   { transform: translateY(0); }
-  50%, 100% { transform: translateY(-8px); }
-}
-
-.gpu-flames .flame-tip {
-  animation: flame-tip 0.34s steps(1) infinite;
-}
-
-@keyframes flame-tip {
-  0%, 55%   { opacity: 1; }
-  56%, 100% { opacity: 0; }
+  #taskBalance,
+  #taskTotal { color: $darkerGray; font-weight: 700; }
 }
 
 .gpu .rgb-strip {
   filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.8));
+}
+.node .rgb-strip {
+  filter: drop-shadow(0 0 3px rgba(168, 85, 247, 0.8));
 }
 
 /* Spinning fans */
@@ -1011,18 +1140,12 @@ footer {
   animation-duration: 2.1s;
   animation-direction: reverse;
 }
-.gpu.boost .fan {
-  animation-duration: 0.35s;
-}
-
-/* Active state while consuming tasks: fans rev, glow intensifies, strip pulses */
-.gpu.computing .fan {
+/* Working: fans rev and the RGB strip pulses */
+.machine.computing .gpu .fan {
   animation-duration: 0.3s;
 }
-.gpu.computing {
-  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.28)) drop-shadow(0 0 18px rgba(168, 85, 247, 0.75));
-}
-.gpu.computing .rgb-strip {
+.machine.computing .gpu .rgb-strip,
+.machine.computing .node .rgb-strip {
   animation: rgb-pulse 0.5s ease-in-out infinite;
 }
 
@@ -1041,14 +1164,6 @@ footer {
 }
 
 /* Click sparks */
-.gpu-burst {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: visible;
-  z-index: 2;
-}
-
 .spark {
   position: absolute;
   width: 8px;
@@ -1075,11 +1190,14 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   .gpu .fan,
-  .gpu.computing .rgb-strip,
+  .node .mini-blades,
+  .machine.computing .gpu .rgb-strip,
+  .machine.computing .cpu .die-trace,
+  .machine.computing .node .node-led,
+  .machine.computing .cabinet .cabinet-led,
+  .machine.just-bought,
   .task-core,
   .chassis-leds i,
-  .gpu-flames .flame-col,
-  .gpu-flames .flame-tip,
   .desk-guy #arms,
   .desk-guy #screen { animation: none; }
 }
