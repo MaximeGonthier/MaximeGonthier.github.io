@@ -617,6 +617,21 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     // Monaco (its own country; too small for the world GeoJSON, so shown as a red circle)
     { country: "Monaco", city: "Monaco", coords: [43.7384, 7.4246], description: ""},
 
+    // La Réunion (French overseas island; too small/far for the world GeoJSON, so shown as a red circle)
+    { country: "La Réunion", city: "Saint-Pierre", coords: [-21.3393, 55.4781], description: ""},
+    { country: "La Réunion", city: "Saint-Denis", coords: [-20.8823, 55.4504], description: ""},
+    { country: "La Réunion", city: "Saint-Louis", coords: [-21.2860, 55.4110], description: ""},
+    { country: "La Réunion", city: "L'Étang-Salé", coords: [-21.2650, 55.3660], description: ""},
+    { country: "La Réunion", city: "Saint-Benoît", coords: [-21.0343, 55.7130], description: ""},
+    { country: "La Réunion", city: "Bras-Panon", coords: [-21.0000, 55.6790], description: ""},
+    { country: "La Réunion", city: "Saint-Leu", coords: [-21.1700, 55.2890], description: ""},
+    { country: "La Réunion", city: "Boucan Canot", coords: [-21.0230, 55.2270], description: ""},
+    { country: "La Réunion", city: "Saint-Paul", coords: [-21.0096, 55.2707], description: ""},
+    { country: "La Réunion", city: "La Possession", coords: [-20.9240, 55.3350], description: ""},
+    { country: "La Réunion", city: "La Rivière", coords: [-21.2670, 55.4280], description: ""},
+    { country: "La Réunion", city: "La Plaine-des-Palmistes", coords: [-21.1330, 55.6350], description: ""},
+    { country: "La Réunion", city: "Piton de la Fournaise", coords: [-21.2440, 55.7080], description: ""},
+
     // Japan
     { country: "Japan", city: "Tokyo", coords: [35.68972, 139.69222], description: ""},
     { country: "Japan", city: "Kyoto", coords: [35.01167, 135.76833], description: ""},
@@ -789,6 +804,7 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     "Ireland":                  [53.4, -8.0],
     "Italy":                    [42.8, 12.6],
     "Japan":                    [36.5, 138.0],
+    "La Réunion":               [-21.1151, 55.5364],
     "Latvia":                   [56.9, 24.6],
     "Malaysia":                 [3.9, 102.3],
     "Mexico":                   [23.6, -102.5],
