@@ -44,12 +44,12 @@ does_not_need_title: true
 <h1 style="margin:0px; font-size: 36px">Resume</h1>
 
 <div class="resume-actions">
-  <a class="resume-btn" href="/CV_july_2026.pdf" download>⬇ Download PDF</a>
+  <a class="resume-btn" href="/CV.pdf" download>⬇ Download PDF</a>
   <a class="resume-btn secondary" href="/CV_july_2026.pdf" target="_blank" rel="noopener">Open in new tab</a>
 </div>
 
-<object class="resume-viewer" data="/CV_july_2026.pdf#view=FitH" type="application/pdf">
-  <iframe class="resume-viewer" src="/CV_july_2026.pdf#view=FitH" title="Resume PDF"></iframe>
+<object class="resume-viewer" data="/CV.pdf#view=FitH" type="application/pdf">
+  <iframe class="resume-viewer" src="/CV.pdf#view=FitH" title="Resume PDF"></iframe>
   <p>Your browser can't display the embedded PDF.
-     <a href="/CV_july_2026.pdf" download>Download it instead</a>.</p>
+     <a href="/CV.pdf" download>Download it instead</a>.</p>
 </object>
