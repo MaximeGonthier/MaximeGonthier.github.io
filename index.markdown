@@ -68,38 +68,38 @@ does_not_need_title: true
     </p>
   </div>
 
-</section>
-
-<section class="hero-lab">
-  <div class="lab-chassis" id="gpuPlayground">
-    <div class="chassis-bar" aria-hidden="true">
-      <span class="chassis-leds"><i></i><i></i><i></i></span>
-      <span class="chassis-label">My Supercomputer</span>
-      <span class="chassis-vents"></span>
-    </div>
-
-    <div class="lab-body">
-      <div class="lab-active">
-        <div class="active-zone" id="activeZone"></div>
+  <div class="hero-lab">
+    <div class="lab-chassis" id="gpuPlayground">
+      <div class="chassis-bar" aria-hidden="true">
+        <span class="chassis-leds"><i></i><i></i><i></i></span>
+        <span class="chassis-label">My Supercomputer</span>
+        <span class="chassis-vents"></span>
       </div>
 
-      <aside class="lab-shop">
-        <h2 class="lab-heading">Shop</h2>
-        <div id="gpuShop"></div>
-      </aside>
+      <div class="lab-body">
+        <div class="lab-active">
+          <div class="active-zone" id="activeZone"></div>
+        </div>
+
+        <aside class="lab-shop">
+          <h2 class="lab-heading">Shop</h2>
+          <div id="gpuShop"></div>
+        </aside>
+      </div>
+
+      <div class="task-layer" id="taskLayer" aria-hidden="true"></div>
     </div>
 
-    <div class="task-layer" id="taskLayer" aria-hidden="true"></div>
+    <div class="gpu-hud">
+      <button type="button" class="gpu-btn" id="feedBtn">Compute \o/</button>
+      <span class="gpu-stat">
+        <span id="taskBalance">0</span> tasks &middot; <span id="taskTotal">0</span> computed
+      </span>
+      <button type="button" class="gpu-btn gpu-btn--ghost" id="resetBtn">Reset</button>
+    </div>
+    <p class="gpu-caption">Hit compute to run a task on every machine, then spend the tasks in the shop to grow the cluster.</p>
   </div>
 
-  <div class="gpu-hud">
-    <button type="button" class="gpu-btn" id="feedBtn">Compute \o/</button>
-    <span class="gpu-stat">
-      <span id="taskBalance">0</span> tasks &middot; <span id="taskTotal">0</span> computed
-    </span>
-    <button type="button" class="gpu-btn gpu-btn--ghost" id="resetBtn">Reset</button>
-  </div>
-  <p class="gpu-caption">Hit compute to run a task on every machine, then spend the tasks in the shop to grow the cluster.</p>
 </section>
 
 <!-- Gradients shared by every machine (kept in one place so cloned machines don't duplicate ids). -->
