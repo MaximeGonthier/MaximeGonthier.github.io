@@ -1,9 +1,13 @@
 // Interactive compute cluster on the homepage hero.
 //  - you start with a single CPU in the active zone
 //  - "Compute" fires one round: every active machine gets fed its batch of tasks
-//    (CPU 1, GPU 5, rack 21), revs up, and banks them
-//  - tasks are the currency: spend them in the shop to add machines, which makes
-//    the next round bigger. Shop prices climb 15% per copy bought.
+//    (CPU 1, GPU 5, node 21, cabinet 105), revs up, and banks them
+//  - tasks are the currency, but they only buy CPUs and GPUs, and prices climb
+//    15% per copy bought
+//  - nodes and cabinets are not for sale: you assemble them from hardware you
+//    already own (4 GPUs + 1 CPU, then 5 nodes), which consumes the parts
+//  - the machine room holds a fixed number of cells, so once it is full the only
+//    way to keep growing is to assemble — a node is smaller than its five parts
 // Progress is kept in localStorage. Kept external so kramdown/SmartyPants can't mangle the JS.
 (function () {
   var chassis   = document.getElementById('gpuPlayground');
@@ -20,27 +24,28 @@
   var colors = ['#22d3ee', '#a855f7', '#f472b6', '#38bdf8', '#facc15', '#34d399', '#fb7185'];
 
   var KINDS = ['cpu', 'gpu', 'node', 'cabinet'];
+  // Only CPUs and GPUs are sold for tasks. Nodes and cabinets have no price at
+  // all: the only way to get one is to assemble it out of hardware you already
+  // own, which consumes the parts.
   var ITEMS = {
     cpu:     { label: 'CPU',     rate: 1, base: 20 },
     gpu:     { label: 'GPU',     rate: 5, base: 50 },
     node:    { label: 'Node',    parts: { gpu: 4, cpu: 1 } },
     cabinet: { label: 'Cabinet', parts: { node: 5 } }
   };
-  var GROWTH = 1.15;   // each copy of an item costs 15% more than the last
+  var GROWTH = 1.15;   // each copy of a purchasable item costs 15% more than the last
 
-  // A node is literally 4 GPUs + 1 CPU, and a cabinet 5 nodes — so both their price
-  // and their throughput are just the sum of their parts. Resolved in KINDS order,
-  // which puts every part in place before whatever is built out of it.
+  // A node is literally 4 GPUs + 1 CPU, and a cabinet 5 nodes, so an assembled
+  // machine computes exactly what its parts did. Resolved in KINDS order, which
+  // puts every part in place before whatever is built out of it.
   KINDS.forEach(function (kind) {
     var item = ITEMS[kind];
     if (item.parts) {
       item.rate = 0;
-      item.base = 0;
       var madeOf = [];
       Object.keys(item.parts).forEach(function (part) {
         var n = item.parts[part];
         item.rate += ITEMS[part].rate * n;
-        item.base += ITEMS[part].base * n;
         madeOf.push(n + '× ' + ITEMS[part].label);
       });
       item.madeOf = madeOf.join(' + ');
@@ -48,6 +53,14 @@
     item.blurb = item.rate + (item.rate === 1 ? ' task' : ' tasks') + ' / round';
   });
   var STORE_KEY = 'mg-lab-v1';
+
+  // The machine room is a fixed-size box, so the rack has a finite footprint.
+  // Each machine takes up roughly its own width in cells (a cell is about the
+  // width of a CPU); the budget is what fits in the zone before it overflows.
+  // Assembling always frees cells — 4 GPUs + 1 CPU take 9, the node takes 3 —
+  // so it is the way out when the room fills up.
+  var CELLS = { cpu: 1, gpu: 2, node: 3, cabinet: 2 };
+  var CAPACITY = 24;
 
   // At most this many task circles fly per round — a cluster of racks would
   // otherwise spawn hundreds of nodes. Machines past the budget still pay out.
@@ -97,34 +110,113 @@
     return Math.ceil(ITEMS[kind].base * Math.pow(GROWTH, state.bought[kind]));
   }
 
+  // ---- Room capacity ----
+  function usedCells() {
+    var n = 0;
+    KINDS.forEach(function (k) { n += CELLS[k] * state.owned[k]; });
+    return n;
+  }
+  function fits(kind) {
+    return usedCells() + CELLS[kind] <= CAPACITY;
+  }
+
+  // How many of each part are still missing before `kind` can be assembled.
+  function missingParts(kind) {
+    var missing = [];
+    var parts = ITEMS[kind].parts || {};
+    Object.keys(parts).forEach(function (part) {
+      var short = parts[part] - state.owned[part];
+      if (short > 0) {
+        missing.push(short + ' more ' + ITEMS[part].label + (short > 1 ? 's' : ''));
+      }
+    });
+    return missing;
+  }
+
+  // What can still be done once the rack is full? Assembling shrinks the room
+  // (9 cells of parts become a 3-cell node), so it is the usual way out — but a
+  // room full of hardware that can't be combined has no way forward but Reset.
+  function fullRoomHint() {
+    var buildable = KINDS.filter(function (k) {
+      return ITEMS[k].parts && missingParts(k).length === 0;
+    });
+    if (buildable.length) {
+      var k = buildable[0];
+      return 'The machine room is full. Assemble ' + ITEMS[k].madeOf + ' into a ' +
+             ITEMS[k].label + ' to free up space.';
+    }
+    return 'The machine room is full and nothing can be assembled yet. ' +
+           'Scrap a machine with its × to free up a slot.';
+  }
+
+  // A short message over the chassis: used when a purchase can't go through.
+  var toastTimer = null;
+  function toast(message) {
+    var el = document.getElementById('labToast');
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'lab-toast';
+      el.id = 'labToast';
+      el.setAttribute('role', 'status');
+      chassis.appendChild(el);
+    }
+    el.textContent = message;
+    // Restart the fade even if a message is already on screen.
+    el.classList.remove('show');
+    void el.offsetWidth;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove('show'); }, 3200);
+  }
+
   // ---- Rendering ----
   function renderCounters() {
     balanceEl.textContent = state.balance;
     totalEl.textContent = state.lifetime;
+    var meter = document.getElementById('rackMeter');
+    if (meter) meter.textContent = usedCells() + '/' + CAPACITY;
   }
 
   function renderShop() {
     KINDS.forEach(function (kind) {
+      var item = ITEMS[kind];
+      var craft = !!item.parts;
       var btn = shopEl.querySelector('.shop-item[data-kind="' + kind + '"]');
       if (!btn) {
         btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'shop-item';
+        btn.className = 'shop-item' + (craft ? ' shop-item--craft' : '');
         btn.dataset.kind = kind;
         btn.innerHTML =
-          '<span class="shop-name">' + ITEMS[kind].label + '</span>' +
-          (ITEMS[kind].madeOf ? '<span class="shop-made">' + ITEMS[kind].madeOf + '</span>' : '') +
-          '<span class="shop-blurb">' + ITEMS[kind].blurb + '</span>' +
+          '<span class="shop-name">' + item.label + '</span>' +
+          (item.madeOf ? '<span class="shop-made">' + item.madeOf + '</span>' : '') +
+          '<span class="shop-blurb">' + item.blurb + '</span>' +
           '<span class="shop-price"></span>';
-        btn.addEventListener('click', function () { buy(kind); });
+        btn.addEventListener('click', function () {
+          if (craft) { assemble(kind); } else { purchase(kind); }
+        });
         shopEl.appendChild(btn);
       }
-      var cost = price(kind);
-      btn.querySelector('.shop-price').textContent = cost + ' tasks';
-      btn.disabled = state.balance < cost;
-      btn.title = state.balance < cost
-        ? 'Need ' + (cost - state.balance) + ' more tasks'
-        : 'Buy a ' + ITEMS[kind].label + ' for ' + cost + ' tasks';
+
+      var priceEl = btn.querySelector('.shop-price');
+      if (craft) {
+        var missing = missingParts(kind);
+        priceEl.textContent = 'Assemble';
+        btn.disabled = missing.length > 0;
+        btn.title = missing.length
+          ? 'Need ' + missing.join(' and ')
+          : 'Assemble ' + item.madeOf + ' into a ' + item.label + ' — frees up rack space';
+      } else {
+        var cost = price(kind);
+        var room = fits(kind);
+        priceEl.textContent = cost + ' tasks';
+        btn.disabled = state.balance < cost || !room;
+        btn.title = !room
+          ? 'The machine room is full'
+          : state.balance < cost
+            ? 'Need ' + (cost - state.balance) + ' more tasks'
+            : 'Buy a ' + item.label + ' for ' + cost + ' tasks';
+      }
     });
   }
 
@@ -134,7 +226,42 @@
     el.className = 'machine machine--' + kind;
     el.dataset.kind = kind;
     if (tpl) el.appendChild(tpl.content.cloneNode(true));
+
+    // Every machine can be scrapped. Without it a rack full of parts that don't
+    // combine (say 6 GPUs and 4 nodes, no CPU) would be a dead end.
+    var scrap = document.createElement('button');
+    scrap.type = 'button';
+    scrap.className = 'machine-scrap';
+    scrap.textContent = '×';
+    scrap.title = 'Scrap this ' + ITEMS[kind].label + ' to free rack space';
+    scrap.setAttribute('aria-label', 'Scrap this ' + ITEMS[kind].label);
+    scrap.addEventListener('click', function (e) {
+      e.stopPropagation();
+      scrapMachine(kind);
+    });
+    el.appendChild(scrap);
     return el;
+  }
+
+  function totalMachines() {
+    var n = 0;
+    KINDS.forEach(function (k) { n += state.owned[k]; });
+    return n;
+  }
+
+  function scrapMachine(kind) {
+    if (state.owned[kind] <= 0) return;
+    if (totalMachines() <= 1) {
+      toast('That is your last machine — keep at least one or nothing computes.');
+      return;
+    }
+    state.owned[kind]--;
+    renderZone();
+    renderShop();
+    renderCounters();
+    save();
+    toast('Scrapped a ' + ITEMS[kind].label + '. ' + CELLS[kind] +
+          (CELLS[kind] > 1 ? ' cells' : ' cell') + ' freed.');
   }
 
   // Machines are grouped by kind rather than by purchase order — a tidy machine room.
@@ -153,10 +280,39 @@
     }
   }
 
-  function buy(kind) {
+  // CPUs and GPUs are bought with tasks, and only while the room has space for them.
+  function purchase(kind) {
+    if (!fits(kind)) {
+      toast(fullRoomHint());
+      return;
+    }
     var cost = price(kind);
-    if (state.balance < cost) return;
+    if (state.balance < cost) {
+      toast('Not enough tasks: a ' + ITEMS[kind].label + ' costs ' + cost +
+            ' and you have ' + state.balance + '.');
+      return;
+    }
     state.balance -= cost;
+    state.bought[kind]++;
+    state.owned[kind]++;
+    renderZone(kind);
+    renderShop();
+    renderCounters();
+    save();
+  }
+
+  // Nodes and cabinets are never sold: they are built from parts already in the
+  // room, which are consumed. The result is smaller than what went into it, so
+  // this is also how you make room once the rack is full.
+  function assemble(kind) {
+    var parts = ITEMS[kind].parts;
+    var missing = missingParts(kind);
+    if (missing.length) {
+      toast('Not enough hardware: you need ' + missing.join(' and ') +
+            ' to assemble a ' + ITEMS[kind].label + '.');
+      return;
+    }
+    Object.keys(parts).forEach(function (part) { state.owned[part] -= parts[part]; });
     state.bought[kind]++;
     state.owned[kind]++;
     renderZone(kind);

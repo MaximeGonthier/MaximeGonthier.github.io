@@ -87,6 +87,7 @@ does_not_need_title: true
       <div class="chassis-bar" aria-hidden="true">
         <span class="chassis-leds"><i></i><i></i><i></i></span>
         <span class="chassis-label">My Supercomputer</span>
+        <span class="chassis-meter">rack <span id="rackMeter">1/24</span></span>
         <span class="chassis-vents"></span>
       </div>
 
@@ -111,7 +112,7 @@ does_not_need_title: true
       </span>
       <button type="button" class="gpu-btn gpu-btn--ghost" id="resetBtn">Reset</button>
     </div>
-    <p class="gpu-caption">Hit compute to run a task on every machine, then spend the tasks in the shop to grow the cluster.</p>
+    <p class="gpu-caption">Hit compute to earn tasks, buy CPUs and GPUs, then assemble them into nodes and cabinets to fit more compute in the rack.</p>
   </div>
 
 </section>
