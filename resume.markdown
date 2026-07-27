@@ -16,7 +16,7 @@ does_not_need_title: true
   .resume-btn {
     display: inline-block;
     padding: 0.55rem 1.1rem;
-    background: #1a73e8;
+    background: var(--accent);
     color: #fff;
     border-radius: 6px;
     text-decoration: none;
@@ -24,18 +24,18 @@ does_not_need_title: true
     font-size: 0.95rem;
     transition: background 0.2s;
   }
-  .resume-btn:hover { background: #0b57c0; color: #fff; }
+  .resume-btn:hover { background: var(--accent-hover); color: #fff; }
   .resume-btn.secondary {
     background: transparent;
-    color: #1a73e8;
-    border: 1px solid #1a73e8;
+    color: var(--accent);
+    border: 1px solid var(--accent);
   }
-  .resume-btn.secondary:hover { background: rgba(26,115,232,0.08); color: #0b57c0; }
+  .resume-btn.secondary:hover { background: var(--accent-soft); color: var(--accent-hover); }
   .resume-viewer {
     width: 100%;
     height: 85vh;
     min-height: 500px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
@@ -45,7 +45,7 @@ does_not_need_title: true
 
 <div class="resume-actions">
   <a class="resume-btn" href="/CV.pdf" download>⬇ Download PDF</a>
-  <a class="resume-btn secondary" href="/CV_july_2026.pdf" target="_blank" rel="noopener">Open in new tab</a>
+  <a class="resume-btn secondary" href="/CV.pdf" target="_blank" rel="noopener">Open in new tab</a>
 </div>
 
 <object class="resume-viewer" data="/CV.pdf#view=FitH" type="application/pdf">

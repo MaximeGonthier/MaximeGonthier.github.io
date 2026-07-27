@@ -10,6 +10,56 @@
 
 // Syntax highlighting @import is at the bottom of this file
 
+/****************/
+/* THEME TOKENS */
+/****************/
+
+// One accent (the red that was already in the masthead) drives every link,
+// button and highlight on the site. Dark mode only re-points these variables,
+// so components never need to know which theme is active.
+// Light is the default: dark is opt-in via the header toggle, which sets
+// data-theme="dark" on <html> and remembers the choice in localStorage.
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --surface-alt: #f1f1f1;
+  --text: #333333;
+  --heading: #222222;
+  --muted: #666666;
+  --border: #e2e2e2;
+  --border-strong: #cccccc;
+
+  --accent: #aa0000;
+  --accent-hover: #7d0000;
+  --accent-soft: rgba(170, 0, 0, 0.08);
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="dark"] {
+  --bg: #14161b;
+  --surface: #1b1f27;
+  --surface-alt: #1b1f27;
+  --text: #c9cfda;
+  --heading: #eef1f6;
+  --muted: #949cab;
+  --border: #2c313c;
+  --border-strong: #3a4150;
+
+  // The pure red goes muddy on a dark background; this keeps the same hue
+  // while staying above the 4.5:1 contrast ratio.
+  --accent: #ff6b6b;
+  --accent-hover: #ff9a9a;
+  --accent-soft: rgba(255, 107, 107, 0.14);
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+html {
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 /**************/
 /* BASE RULES */
 /**************/
@@ -19,10 +69,11 @@ html {
 }
 
 body {
-	background: $white;
+  background: var(--bg);
   font: 16px/1.4 $helvetica;
-  color: $darkGray;
+  color: var(--text);
   text-align: justify;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .containermy {
@@ -34,7 +85,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
-  color: $darkerGray;
+  color: var(--heading);
   font-weight: bold;
 
   line-height: 1.7;
@@ -63,7 +114,7 @@ h3 {
 
 h4 {
   font-size: 18px;
-  color: $gray;
+  color: var(--muted);
 }
 
 p {
@@ -71,11 +122,11 @@ p {
 }
 
 a {
-  color: $blue;
+  color: var(--accent);
   text-decoration: none;
-	cursor: pointer;
+  cursor: pointer;
   &:hover, &:active {
-    color: $blue;
+    color: var(--accent-hover);
   }
 }
 
@@ -119,17 +170,17 @@ img {
 
 .date {
   font-style: italic;
-  color: $gray;
+  color: var(--muted);
 }
 
 // Specify the color of the selection
 ::-moz-selection {
-  color: $black;
-  background: $lightGray;
+  color: var(--heading);
+  background: var(--accent-soft);
 }
 ::selection {
-  color: $black;
-  background: $lightGray;
+  color: var(--heading);
+  background: var(--accent-soft);
 }
 
 // Nicolas Gallagher's micro clearfix hack
@@ -158,7 +209,7 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 1px solid var(--border);
 
   @include mobile {
     text-align: center;
@@ -198,7 +249,7 @@ img {
 
 .site-name {
   margin: 0;
-  color: $darkGray;
+  color: var(--heading);
   cursor: pointer;
   font-family: $helveticaNeue;
   font-weight: 300;
@@ -208,7 +259,7 @@ img {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $gray;
+  color: var(--muted);
   font-size: 16px;
 
   @include mobile {
@@ -231,14 +282,16 @@ nav {
 
   a {
     margin-left: 20px;
-    color: $darkGray;
+    color: var(--heading);
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
 
+    &:hover { color: var(--accent); }
+
     @include mobile {
       margin: 0 10px;
-      color: $blue;
+      color: var(--accent);
     }
   }
 }
@@ -298,7 +351,7 @@ nav {
   }
 
   .links a {
-    border: 1px solid #4183C4;
+    border: 1px solid var(--accent);
     //border: 1px solid #CCC;
     padding: 5px;
     margin: 2px 0px;
@@ -317,7 +370,7 @@ nav {
     //background-color: #4183C4;
     //color: #FFF;
     text-decoration: none;
-    box-shadow: 0px 0px 15px #CCC;
+    box-shadow: 0 0 15px var(--shadow);
   }
 
   .publications article .inner > :last-child {
@@ -343,7 +396,7 @@ nav {
 
   .publications .title {
     // text-align: left;
-    color: #800;
+    color: var(--accent);
     font-size: 19px;
     font-weight: bold;
     line-height: 1.2;
@@ -438,7 +491,7 @@ nav {
 
   .projects .title {
     // text-align: left;
-    color: #900;
+    color: var(--accent);
     font-size: 21px;
     font-weight: bold;
     line-height: 1.2;
@@ -475,7 +528,7 @@ nav {
 
 .posts > .post {
   padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 1px solid var(--border);
 }
 
 .posts > .post:last-child {
@@ -486,9 +539,9 @@ nav {
 .post {
   blockquote {
     margin: 1.8em .8em;
-    border-left: 2px solid $gray;
+    border-left: 2px solid var(--border-strong);
     padding: 0.1em 1em;
-    color: $gray;
+    color: var(--muted);
     font-size: 22px;
     font-style: italic;
   }
@@ -505,9 +558,9 @@ nav {
 
 .wrapper-footer {
   margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background-color: var(--surface-alt);
 }
 
 footer {
@@ -725,7 +778,7 @@ footer {
 .visitor-count {
   margin: 16px 0 0;
   font-size: 14px;
-  color: $gray;
+  color: var(--muted);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -736,7 +789,7 @@ footer {
 
   #visitorCountNumber {
     font-weight: 700;
-    color: $darkerGray;
+    color: var(--heading);
   }
 
   .visitor-eye {
@@ -1112,34 +1165,34 @@ footer {
 .gpu-btn {
   font-family: $helveticaNeue;
   font-size: 14px;
-  color: $blue;
-  background: #fff;
-  border: 1px solid $blue;
+  color: var(--accent);
+  background: var(--surface);
+  border: 1px solid var(--accent);
   border-radius: 4px;
   padding: 5px 12px;
   cursor: pointer;
   transition: box-shadow 100ms ease-in-out;
 
-  &:hover { box-shadow: 0 0 15px #CCC; }
+  &:hover { box-shadow: 0 0 15px var(--shadow); }
 }
 
 /* Same shape as the Compute button, but muted — it's the destructive one */
 .gpu-btn--ghost {
   font-size: 12px;
-  color: $gray;
-  border-color: #ccc;
+  color: var(--muted);
+  border-color: var(--border-strong);
   padding: 4px 10px;
 
-  &:hover { color: $darkerGray; border-color: $gray; }
+  &:hover { color: var(--heading); border-color: var(--muted); }
 }
 
 .gpu-stat {
   font-family: $helveticaNeue;
   font-size: 13px;
-  color: $gray;
+  color: var(--muted);
 
   #taskBalance,
-  #taskTotal { color: $darkerGray; font-weight: 700; }
+  #taskTotal { color: var(--heading); font-weight: 700; }
 }
 
 .gpu .rgb-strip {
@@ -1205,7 +1258,7 @@ footer {
   line-height: 1.5;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: $gray;
+  color: var(--muted);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1220,6 +1273,417 @@ footer {
   .chassis-leds i,
   .desk-guy #arms,
   .desk-guy #screen { animation: none; }
+}
+
+/*****************/
+/* THEME TOGGLE  */
+/*****************/
+
+.theme-toggle {
+  margin-left: 20px;
+  padding: 4px 9px;
+  font-family: $helveticaNeue;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--heading);
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: border-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  // Only one of the two glyphs is ever shown: the sun offers light mode.
+  .theme-toggle-dark  { display: inline; }
+  .theme-toggle-light { display: none; }
+
+  @include mobile {
+    margin-left: 10px;
+  }
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  .theme-toggle-dark  { display: none; }
+  .theme-toggle-light { display: inline; }
+}
+
+/*******************/
+/* HERO: TAG CHIPS */
+/*******************/
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+
+  @include mobile {
+    justify-content: center;
+  }
+
+  li {
+    font-size: 12px;
+    line-height: 1;
+    padding: 5px 9px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+}
+
+/* Responsive 16:9 video, replaces the old fixed 560×315 iframe */
+.video-embed {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 20px auto 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px var(--shadow);
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+/*******************/
+/* EXPERIENCE PAGE */
+/*******************/
+
+.page-title {
+  margin: 0 0 6px;
+  font-size: 36px;
+}
+
+/* Anchor links to the sections further down the page */
+.section-nav {
+  float: none;
+  margin: 0 0 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+
+  a {
+    margin: 0;
+    padding: 5px 11px;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+  }
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 46px 0 18px;
+  padding-bottom: 8px;
+  font-size: 26px;
+  border-bottom: 2px solid var(--accent);
+  scroll-margin-top: 20px;
+}
+
+.sub-heading {
+  margin: 22px 0 10px;
+  font-size: 17px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.side-note {
+  font-size: 14px;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* Timeline: a spine down the left, one card per position */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 26px;
+  position: relative;
+
+  /* the spine itself */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(var(--accent), var(--border));
+  }
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 30px;
+
+  /* the dot sitting on the spine */
+  &::before {
+    content: "";
+    position: absolute;
+    left: -26px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+
+  &:last-child { margin-bottom: 8px; }
+}
+
+.tl-when {
+  display: block;
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.tl-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.tl-logos {
+  flex: 0 0 96px;
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 2px;
+
+  @include mobile {
+    flex-direction: row;
+    width: auto;
+    flex: 0 0 auto;
+  }
+}
+
+.tl-logo {
+  max-width: 96px;
+  max-height: 54px;
+  object-fit: contain;
+}
+
+.tl-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+}
+
+.tl-role {
+  margin: 0 0 2px;
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.tl-where {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text);
+
+  strong { font-weight: 700; }
+}
+
+.tl-team {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.tl-what {
+  margin: 8px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* Teaching table */
+.table-scroll {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: left;
+
+  th, td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  th {
+    font-family: $helveticaNeue;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 2px solid var(--border-strong);
+    white-space: nowrap;
+  }
+
+  td:first-child { font-weight: 600; color: var(--heading); }
+
+  tbody tr:hover { background: var(--accent-soft); }
+}
+
+.tag-ongoing {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 6px;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+}
+
+/* Supervision */
+.people-list {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  text-align: left;
+
+  li {
+    padding: 10px 0 10px 14px;
+    border-left: 2px solid var(--border);
+    margin-bottom: 8px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    transition: border-color 0.15s ease;
+
+    &:hover { border-left-color: var(--accent); }
+  }
+}
+
+.people-aff {
+  font-size: 12.5px;
+  color: var(--muted);
+
+  &::before { content: "· "; }
+}
+
+/* Service cards */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+  text-align: left;
+
+  .sub-heading { margin-top: 0; }
+
+  ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+.service-card {
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+/* Awards */
+.award-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+
+  li {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14.5px;
+    line-height: 1.55;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 2px;
+    }
+  }
+
+  li:last-child { border-bottom: 0; }
+}
+
+.award-year {
+  flex: 0 0 52px;
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--accent);
+  padding-top: 3px;
+}
+
+.award-amount {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+
+  &::before { content: "· "; }
+}
+
+/* Dark mode: most institution logos are black-on-transparent, so they need a
+   light plate to stay readable. Same for the white-background paper figures. */
+:root[data-theme="dark"] {
+  .tl-logo,
+  .experience-picture {
+    background: #fff;
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  .pub-image {
+    background: #fff;
+    border-radius: 6px;
+  }
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS

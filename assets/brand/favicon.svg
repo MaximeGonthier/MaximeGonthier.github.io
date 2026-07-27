@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Maxime Gonthier">
+  <rect width="64" height="64" rx="14" fill="#aa0000"/>
+  <g fill="none" stroke="#fff" stroke-width="3.5">
+    <rect x="18" y="18" width="28" height="28" rx="3"/>
+  </g>
+  <rect x="26.5" y="26.5" width="11" height="11" fill="#fff"/>
+  <g fill="#fff">
+    <rect x="24" y="11" width="3.5" height="7"/>
+    <rect x="36.5" y="11" width="3.5" height="7"/>
+    <rect x="24" y="46" width="3.5" height="7"/>
+    <rect x="36.5" y="46" width="3.5" height="7"/>
+    <rect x="11" y="24" width="7" height="3.5"/>
+    <rect x="11" y="36.5" width="7" height="3.5"/>
+    <rect x="46" y="24" width="7" height="3.5"/>
+    <rect x="46" y="36.5" width="7" height="3.5"/>
+  </g>
+</svg>

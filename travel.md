@@ -25,22 +25,22 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
   #clues .hint { margin: 0.1rem 0; }
   #clues .hint-2, #clues .hint-3 {
     font-style: italic;
-    color: #555;
+    color: var(--muted);
     padding-left: 0.45rem;
-    border-left: 2px solid #ccc;
+    border-left: 2px solid var(--border-strong);
     font-size: 0.82rem;
   }
   #clues .hidden { display: none; }
   #clues .reveal {
     display: inline-block;
     margin-top: 0.15rem;
-    color: #1a73e8;
+    color: var(--accent);
     cursor: pointer;
     font-size: 0.75rem;
     text-decoration: underline;
     user-select: none;
   }
-  #clues .reveal:hover { color: #0b57c0; }
+  #clues .reveal:hover { color: var(--accent-hover); }
   #clues .clue.found {
     background-color: #d4edda;
     color: #155724;
@@ -61,7 +61,7 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
     max-height: 78vh;
     overflow-y: auto;
     z-index: 1000;
-    background: rgba(255,255,255,0.92);
+    background: var(--surface);
     padding: 0.6rem 0.8rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -82,7 +82,7 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
     align-items: center;
     gap: 0.4rem;
     padding: 0.5rem 0.9rem;
-    background: #1a73e8;
+    background: var(--accent);
     color: #fff;
     border: none;
     border-radius: 24px;
@@ -91,7 +91,7 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
     box-shadow: 0 2px 10px rgba(0,0,0,0.25);
     cursor: pointer;
   }
-  #clues-toggle:hover { background: #0b57c0; }
+  #clues-toggle:hover { background: var(--accent-hover); }
 
   @media (max-width: 768px) {
     /* On phones the panel becomes a bottom sheet and the button moves to the

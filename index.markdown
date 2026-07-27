@@ -53,9 +53,23 @@ does_not_need_title: true
       </svg>
     </h1>
     <p class="hero-bio">
-      I'm a post-doctoral fellow at <a href="">INRIA Bordeaux</a>, part of the <a href="">TADAAM</a> team. I work on scheduling, data locality, GPUs and energy-aware computing. I hope to make <strong>HPC systems and Cloud computing</strong> run fast, green and while using fewer computing resources.
-      KeyWords: Scheduling, Data Locality, GPUs, Energy/Carbon-Aware Scheduling, HPC Users Incentives, Erasure Coding, Parallel Algorithms, Deadline-Aware Scheduling, LLM scheduling, IO clustering, Data Intensive Computing
+      I'm a post-doctoral fellow at <a href="https://www.inria.fr/en/inria-centre-university-bordeaux">Inria Bordeaux</a>, in the <a href="https://team.inria.fr/tadaam/">TADAAM</a> team, where I work on scheduling, data locality, GPUs and energy-aware computing.
+      My goal is to make <strong>HPC systems and Cloud computing</strong> run fast and green, while using fewer computing resources.
     </p>
+
+    <ul class="hero-tags" aria-label="Research keywords">
+      <li>Scheduling</li>
+      <li>Data locality</li>
+      <li>GPUs</li>
+      <li>Energy &amp; carbon-aware scheduling</li>
+      <li>HPC user incentives</li>
+      <li>Erasure coding</li>
+      <li>Parallel algorithms</li>
+      <li>Deadline-aware scheduling</li>
+      <li>LLM scheduling</li>
+      <li>I/O clustering</li>
+      <li>Data-intensive computing</li>
+    </ul>
     <div class="hero-socials">
       <a href="https://github.com/MaximeGonthier" title="GitHub" aria-label="GitHub"><i class="svg-icon github"></i></a>
       <a href="https://www.linkedin.com/in/maxime-gonthier-198b96195" title="LinkedIn" aria-label="LinkedIn"><i class="svg-icon linkedin"></i></a>
@@ -371,7 +385,7 @@ does_not_need_title: true
 
 <h1 style="margin:0px; font-size: 36px">About</h1>
 
-- Before working at INRIA Bordeaux, I was a post-doctoral fellow at the <a href="https://www.uchicago.edu/">University of Chicago</a> and <a href="https://www.anl.gov/">Argonne Nationnal Lab</a>. 
+- Before working at INRIA Bordeaux, I was a post-doctoral fellow at the <a href="https://www.uchicago.edu/">University of Chicago</a> and <a href="https://www.anl.gov/">Argonne National Laboratory</a>. 
 I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with the supervision of <a href="https://www.anl.gov/profile/ian-t-foster">Ian Foster</a> and <a href="https://cs.uchicago.edu/people/kyle-chard/">Kyle Chard</a>.
 - I received my <a href="https://theses.hal.science/tel-04260094/file/GONTHIER_Maxime_2023ENSL0061.pdf">PhD</a> at <a href="http://www.ens-lyon.fr/">ENS Lyon</a> in 2023. I worked in the <a href="http://www.ens-lyon.fr/LIP/ROMA/">ROMA team</a> at the LIP laboratory under the supervision of <a href="http://perso.ens-lyon.fr/loris.marchal/" label="Loris MARCHAL website">Loris Marchal</a> (ENS Lyon, CNRS) and in the <a href="https://www.inria.fr/fr/storm">STORM team</a> at <a href="https://www.inria.fr/fr/centre-inria-universite-bordeaux">INRIA Bordeaux</a> under the supervision of <a href="https://dept-info.labri.fr/~thibault/" label="link to the Samuel THIBAULT's website"> Samuel Thibault</a> (Université de Bordeaux, Inria).
 
@@ -403,9 +417,9 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
     <div class="col-sm-7 vcenter" style="margin-right: -4px; text-align: justify;">
         <p class="title">A scheduler to foster data locality for GPU and out-of-core task-based linear algebra applications</p>
         <p class="authors">Maxime Gonthier, Loris Marchal, Samuel Thibault</p>
-        <p class="conf">JPDC 2025 (extended work) - IPDPS 2022 (orginal work)</p>
+        <p class="conf">JPDC 2025 (extended work) - IPDPS 2022 (original work)</p>
         <p class="description">
-            We propose a scheduler for task-based runtimes that improves data locality for out-of-core linear algebra computations in order to reduce data movement, with a data-aware strategy for both task scheduling and data eviction from limited memories. Implemented in StarPU, it achieves comparable performance to existing schedulers when memory is not a constraint, and significantly better performance when application input data exceeds memory, on both GPUs and CPU cores. The proposed scheduler is available on the main branch of StarPU and will be realesed with StarPU 1.5. You can use it right now by selecting the "darts" scheduler.
+            We propose a scheduler for task-based runtimes that improves data locality for out-of-core linear algebra computations in order to reduce data movement, with a data-aware strategy for both task scheduling and data eviction from limited memories. Implemented in StarPU, it achieves comparable performance to existing schedulers when memory is not a constraint, and significantly better performance when application input data exceeds memory, on both GPUs and CPU cores. The proposed scheduler is available on the main branch of StarPU and will be released with StarPU 1.5. You can use it right now by selecting the "darts" scheduler.
         </p>
         <div class="links">
             <a href="https://www.sciencedirect.com/science/article/pii/S0743731525001376">Paper</a>
@@ -455,10 +469,13 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
 <p>My PhD defense took place on September 25<sup>th</sup>, 2023 at the <a href="https://www.labri.fr/" alt="">LaBRI</a> in Bordeaux, France. The title of the presentation was <span class="bold-text">Scheduling Under Memory Constraint in Task-based Runtime Systems</span>.<br>
 <span class="bold-text">Abstract:</span> Hardware accelerators, such as GPUs, now provide a large part of the computational power used for scientific simulations. GPUs come with their own limited memory and are connected to the main memory of the machine via a bus with limited bandwidth.  Scientific simulations often operate on very large data, to the point of not fitting in the limited GPU memory. In this case, one has to turn to out-of-core computing, where data movement quickly becomes a performance bottleneck. During this thesis, we worked on the problem of scheduling for a task-based runtime to improve data locality in an out-of-core setting, in order to reduce data movements. We designed strategies for both task scheduling and data eviction from limited memories. We implemented them in the StarPU runtime and compared them to existing scheduling techniques. Our strategies achieves significantly better performance when scheduling tasks on multiple GPUs with limited memory, as well as on multiple CPU cores with limited main memory.
 </p>
-<p>My PhD manuscrit is available <a href="https://dumas.ccsd.cnrs.fr/THESES-ENS-LYON/tel-04260094v1" label="Access to my Ph.D manuscrit" download>here</a>. A capture of my PhD defense is also available:</p>
-<p class="center-text"><iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/6lCvyj4qtcQ?si=ZESnkhbeYUaszu_q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-                <span class="italic-text">Your browser does not support this video :(</span>
-            </iframe>
+<p>My PhD manuscript is available <a href="https://dumas.ccsd.cnrs.fr/THESES-ENS-LYON/tel-04260094v1" label="Access to my PhD manuscript" download>here</a>. A capture of my PhD defense is also available:</p>
+<div class="video-embed">
+  <iframe src="https://www.youtube.com/embed/6lCvyj4qtcQ?si=ZESnkhbeYUaszu_q" title="Recording of my PhD defense" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy">
+    <span class="italic-text">Your browser does not support this video :(</span>
+  </iframe>
+</div>
+
 <script src="/assets/js/gpu.js"></script>
 <script src="/assets/js/desk-guy.js"></script>
 <script>
@@ -478,7 +495,7 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
       .catch(function () {
         // Keep the line visible even if the request is blocked/offline
         // (e.g. an ad-blocker), just show a neutral placeholder.
-        el.textContent = '—';
+        el.textContent = '?';
       });
   })();
 </script>
