@@ -98,22 +98,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 34px;
+  font-size: 36px;
   a {
     color: inherit;
   }
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 30px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 21.5px;
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 19px;
   color: var(--muted);
 }
 
@@ -253,14 +253,14 @@ img {
   cursor: pointer;
   font-family: $helveticaNeue;
   font-weight: 300;
-  font-size: 28px;
+  font-size: 30px;
   letter-spacing: 1px;
 }
 
 .site-description {
   margin: -5px 0 0 0;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 17px;
 
   @include mobile {
     margin: 3px 0;
@@ -271,13 +271,13 @@ nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
   font-family: $helveticaNeue;
-  font-size: 18px;
+  font-size: 19px;
 
   @include mobile {
     float: none;
     margin-top: 9px;
     display: block;
-    font-size: 16px;
+    font-size: 17px;
   }
 
   a {
@@ -384,20 +384,27 @@ nav {
   }
 }
 
-    @media (min-width: 768px) {
+  /* The image and the text used to be inline-blocks summing to exactly 100%,
+     with the whitespace between them cancelled by an inline margin-right: -4px.
+     A space character scales with the font size, so that hack broke as soon as
+     the base size changed. Flex has no whitespace and needs no magic offset. */
+  @media (min-width: 768px) {
+    .publications.row {
+      display: flex;
+      align-items: center;
+    }
 
-  [class*="vcenter"] {
-      display: inline-block;
-     vertical-align: middle;
-     float: none;
+    .publications [class*="vcenter"] {
+      display: block;
+      float: none;
+    }
   }
-}
 
 
   .publications .title {
     // text-align: left;
     color: var(--accent);
-    font-size: 19px;
+    font-size: 20.5px;
     font-weight: bold;
     line-height: 1.2;
     margin-top: 0;
@@ -409,25 +416,25 @@ nav {
     font-style: italic;
     margin-bottom: 0.0em;
     margin-top: 0px;
-    font-size: 11pt;
+    font-size: 12pt;
   }
   .publications .conf {
     // color: green;
     // font-style: italic;
-    font-size: 11pt;
+    font-size: 12pt;
     margin-bottom: 1em;
     margin-top: 0px;
     text-decoration: underline;
-    font-size: 11pt;
+    font-size: 12pt;
    // color: #090;
   }
   .publications .conf1 {
     // color: green;
     // font-style: italic;
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 1em;
     margin-top: 0px;
-    font-size: 11pt;
+    font-size: 12pt;
    // color: #090;
   }
   .publications .description {
@@ -435,7 +442,7 @@ nav {
     // font-style: italic;
     margin-bottom: 0.6em;
     margin-top: 0px;
-    font-size: 11pt;
+    font-size: 12pt;
   }
 
 /* Projects */
@@ -492,7 +499,7 @@ nav {
   .projects .title {
     // text-align: left;
     color: var(--accent);
-    font-size: 21px;
+    font-size: 22.5px;
     font-weight: bold;
     line-height: 1.2;
     margin-top: 0;
@@ -508,7 +515,7 @@ nav {
 
   .features article .projectTitle {
     // text-align: left;
-    font-size: 21px;
+    font-size: 22.5px;
     font-weight: bold;
     line-height: 1.2;
     margin-top: 0;
@@ -542,7 +549,7 @@ nav {
     border-left: 2px solid var(--border-strong);
     padding: 0.1em 1em;
     color: var(--muted);
-    font-size: 22px;
+    font-size: 23.5px;
     font-style: italic;
   }
 
@@ -552,7 +559,7 @@ nav {
 
   .read-more {
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
@@ -656,7 +663,7 @@ footer {
 }
 
 .hero-greeting {
-  font-size: 32px;
+  font-size: 34px;
   margin: 0 0 10px;
   line-height: 1.2;
 
@@ -673,7 +680,7 @@ footer {
   // On phones the heading wraps, so the tall inline figure would spill onto the
   // lines above/below. Give the line more room and trim the figure's overhang.
   @include mobile {
-    font-size: 28px;
+    font-size: 30px;
     line-height: 1.5;
     margin-bottom: 16px;
 
@@ -737,7 +744,7 @@ footer {
 }
 
 .hero-bio {
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   margin: 0 0 18px;
   max-width: 34em;
@@ -777,7 +784,7 @@ footer {
 
 .visitor-count {
   margin: 16px 0 0;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--muted);
   display: flex;
   align-items: center;
@@ -793,7 +800,7 @@ footer {
   }
 
   .visitor-eye {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1;
     opacity: 0.75;
   }
@@ -892,7 +899,7 @@ footer {
 
 .chassis-label {
   font-family: "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #8b93a3;
@@ -939,7 +946,7 @@ footer {
 
 .lab-heading {
   font-family: "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -1068,7 +1075,7 @@ footer {
 
 .shop-name {
   display: block;
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 700;
   color: #e6eaf2;
 }
@@ -1076,7 +1083,7 @@ footer {
 /* What a composed machine is built from (nodes and cabinets) */
 .shop-made {
   display: block;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   color: #22d3ee;
   margin-top: 2px;
@@ -1084,7 +1091,7 @@ footer {
 
 .shop-blurb {
   display: block;
-  font-size: 10px;
+  font-size: 11px;
   color: #8b93a3;
   margin-top: 1px;
 }
@@ -1092,7 +1099,7 @@ footer {
 .shop-price {
   display: block;
   font-family: "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   color: #facc15;
   margin-top: 3px;
@@ -1137,7 +1144,7 @@ footer {
   left: 0;
   margin: -8px 0 0 8px;
   font-family: $helveticaNeue;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: #a855f7;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
@@ -1164,7 +1171,7 @@ footer {
 /* Matches the outlined link-buttons used elsewhere on the site */
 .gpu-btn {
   font-family: $helveticaNeue;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--accent);
   background: var(--surface);
   border: 1px solid var(--accent);
@@ -1178,7 +1185,7 @@ footer {
 
 /* Same shape as the Compute button, but muted — it's the destructive one */
 .gpu-btn--ghost {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   border-color: var(--border-strong);
   padding: 4px 10px;
@@ -1188,7 +1195,7 @@ footer {
 
 .gpu-stat {
   font-family: $helveticaNeue;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
 
   #taskBalance,
@@ -1254,7 +1261,7 @@ footer {
 
 .gpu-caption {
   margin: 10px 0 0;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
   letter-spacing: 0.6px;
   text-transform: uppercase;
@@ -1283,7 +1290,7 @@ footer {
   margin-left: 20px;
   padding: 4px 9px;
   font-family: $helveticaNeue;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1;
   color: var(--heading);
   background: transparent;
@@ -1329,7 +1336,7 @@ footer {
   }
 
   li {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1;
     padding: 5px 9px;
     border: 1px solid var(--border);
@@ -1366,7 +1373,7 @@ footer {
 
 .page-title {
   margin: 0 0 6px;
-  font-size: 36px;
+  font-size: 38px;
 }
 
 /* Anchor links to the sections further down the page */
@@ -1376,7 +1383,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  font-size: 13px;
+  font-size: 14px;
 
   a {
     margin: 0;
@@ -1402,21 +1409,21 @@ footer {
   gap: 12px;
   margin: 46px 0 18px;
   padding-bottom: 8px;
-  font-size: 26px;
+  font-size: 28px;
   border-bottom: 2px solid var(--accent);
   scroll-margin-top: 20px;
 }
 
 .sub-heading {
   margin: 22px 0 10px;
-  font-size: 17px;
+  font-size: 18px;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 1.2px;
 }
 
 .side-note {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--muted);
   text-align: left;
 }
@@ -1463,7 +1470,7 @@ footer {
 .tl-when {
   display: block;
   font-family: "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.6px;
   color: var(--muted);
   margin-bottom: 6px;
@@ -1510,13 +1517,13 @@ footer {
 
 .tl-role {
   margin: 0 0 2px;
-  font-size: 19px;
+  font-size: 20.5px;
   line-height: 1.35;
 }
 
 .tl-where {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text);
 
   strong { font-weight: 700; }
@@ -1524,13 +1531,13 @@ footer {
 
 .tl-team {
   margin: 2px 0 0;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--muted);
 }
 
 .tl-what {
   margin: 8px 0 0;
-  font-size: 14.5px;
+  font-size: 15.5px;
   line-height: 1.6;
 }
 
@@ -1543,7 +1550,7 @@ footer {
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 15px;
   text-align: left;
 
   th, td {
@@ -1554,7 +1561,7 @@ footer {
 
   th {
     font-family: $helveticaNeue;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--muted);
@@ -1571,7 +1578,7 @@ footer {
   display: inline-block;
   margin-left: 4px;
   padding: 1px 6px;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--accent);
@@ -1590,7 +1597,7 @@ footer {
     padding: 10px 0 10px 14px;
     border-left: 2px solid var(--border);
     margin-bottom: 8px;
-    font-size: 14.5px;
+    font-size: 15.5px;
     line-height: 1.55;
     transition: border-color 0.15s ease;
 
@@ -1599,10 +1606,83 @@ footer {
 }
 
 .people-aff {
-  font-size: 12.5px;
+  font-size: 13.5px;
   color: var(--muted);
 
   &::before { content: "· "; }
+}
+
+/* Publications page */
+.pub-list {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  text-align: left;
+}
+
+.pub-item {
+  padding: 12px 0 12px 16px;
+  margin-bottom: 6px;
+  border-left: 2px solid var(--border);
+  transition: border-color 0.15s ease;
+
+  &:hover { border-left-color: var(--accent); }
+}
+
+.pub-title {
+  margin: 0 0 3px;
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--heading);
+}
+
+.pub-authors {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--muted);
+
+  strong { color: var(--text); }
+}
+
+.pub-venue {
+  margin: 3px 0 0;
+  font-size: 14.5px;
+  font-style: italic;
+}
+
+.pub-award {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  vertical-align: 2px;
+  white-space: nowrap;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+}
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 7px;
+
+  a {
+    font-size: 12.5px;
+    padding: 3px 9px;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    color: var(--muted);
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover { color: var(--accent); border-color: var(--accent); }
+  }
 }
 
 /* Service cards */
@@ -1618,7 +1698,7 @@ footer {
   ul {
     margin: 0;
     padding-left: 18px;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
   }
 }
@@ -1642,7 +1722,7 @@ footer {
     gap: 16px;
     padding: 12px 0;
     border-bottom: 1px solid var(--border);
-    font-size: 14.5px;
+    font-size: 15.5px;
     line-height: 1.55;
 
     @include mobile {
@@ -1657,13 +1737,13 @@ footer {
 .award-year {
   flex: 0 0 52px;
   font-family: "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--accent);
   padding-top: 3px;
 }
 
 .award-amount {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   white-space: nowrap;
 

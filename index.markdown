@@ -396,7 +396,7 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
         <!-- TODO: replace with the publication image -->
         <img class="img-responsive pub-image" src="/assets/about/carbon_credit_img.png" alt="Core Hours and Carbon Credits: Incentivizing Sustainability in HPC" />
     </div>
-    <div class="col-sm-7 vcenter" style="margin-right: -4px; text-align: justify;">
+    <div class="col-sm-7 vcenter" style="text-align: justify;">
         <p class="title">Core Hours and Carbon Credits: Incentivizing Sustainability in HPC</p>
         <p class="authors">Alok Kamatar, Maxime Gonthier, Valerie Hayot-Sasson, André Bauer, Marcin Copik, Raul Castro Fernandez, Torsten Hoefler, Kyle Chard, Ian Foster</p>
         <p class="conf">SC 2025</p>
@@ -414,7 +414,7 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
     <div class="col-sm-5 vcenter marginbottom">
         <img class="img-responsive pub-image" src="/assets/about/jpdc*.png" alt="A scheduler to foster data locality for GPU and out-of-core task-based linear algebra applications" />
     </div>
-    <div class="col-sm-7 vcenter" style="margin-right: -4px; text-align: justify;">
+    <div class="col-sm-7 vcenter" style="text-align: justify;">
         <p class="title">A scheduler to foster data locality for GPU and out-of-core task-based linear algebra applications</p>
         <p class="authors">Maxime Gonthier, Loris Marchal, Samuel Thibault</p>
         <p class="conf">JPDC 2025 (extended work) - IPDPS 2022 (original work)</p>
@@ -432,7 +432,7 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
     <div class="col-sm-5 vcenter marginbottom">
         <img class="img-responsive pub-image" src="/assets/about/drex_illustration.png" alt="D-Rex: Heterogeneity-Aware Reliability Framework and Adaptive Algorithms for Distributed Storage" />
     </div>
-    <div class="col-sm-7 vcenter" style="margin-right: -4px; text-align: justify;">
+    <div class="col-sm-7 vcenter" style="text-align: justify;">
         <p class="title">D-Rex: Heterogeneity-Aware Reliability Framework and Adaptive Algorithms for Distributed Storage</p>
         <p class="authors">Maxime Gonthier, Dante D. Sanchez-Gallegos, Haochen Pan, Bogdan Nicolae, Sicheng Zhou, Hai Duc Nguyen, Valerie Hayot-Sasson, Greg Pauloski, Jesus Carretero, Kyle Chard, Ian Foster</p>
         <p class="conf">ICS 2025</p>
@@ -450,7 +450,7 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
     <div class="col-sm-5 vcenter marginbottom">
         <img class="img-responsive pub-image" src="/assets/about/deadlineschedulingimg.png" alt="Deadline-Aware Scheduling of Mixed-Criticality Tasks" />
     </div>
-    <div class="col-sm-7 vcenter" style="margin-right: -4px; text-align: justify;">
+    <div class="col-sm-7 vcenter" style="text-align: justify;">
         <p class="title">Deadline-Aware Scheduling of Mixed-Criticality Tasks</p>
         <p class="authors">Maxime Gonthier, Kyle Chard, Ian Foster, Loris Marchal, Frédéric Vivien</p>
         <p class="conf">ICPP 2025</p>

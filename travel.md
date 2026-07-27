@@ -28,7 +28,7 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
     color: var(--muted);
     padding-left: 0.45rem;
     border-left: 2px solid var(--border-strong);
-    font-size: 0.82rem;
+    font-size: 0.88rem;
   }
   #clues .hidden { display: none; }
   #clues .reveal {
@@ -36,7 +36,7 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
     margin-top: 0.15rem;
     color: var(--accent);
     cursor: pointer;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     text-decoration: underline;
     user-select: none;
   }
@@ -65,7 +65,7 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
     padding: 0.6rem 0.8rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    font-size: 0.85rem;
+    font-size: 0.92rem;
     display: none;
   }
   #clues.clues-open {
@@ -86,7 +86,7 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
     color: #fff;
     border: none;
     border-radius: 24px;
-    font-size: 0.85rem;
+    font-size: 0.92rem;
     font-weight: 600;
     box-shadow: 0 2px 10px rgba(0,0,0,0.25);
     cursor: pointer;
@@ -109,7 +109,7 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
       top: auto;
       bottom: 16px;
       padding: 0.6rem 1rem;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
   }
 </style>
@@ -118,7 +118,7 @@ On the first layer, countries in <span style="color:red;">red</span> are the one
 
 <div id="clues">
   <strong>Clues</strong>
-  <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:#444; margin: 0.2rem 0 0.4rem;">
+  <div style="display:flex; justify-content:space-between; font-size: 0.84rem; color:#444; margin: 0.2rem 0 0.4rem;">
     <span>Found: <span id="clue-progress">0 / 10</span></span>
     <span>Score: <span id="score-flash">100</span></span>
   </div>

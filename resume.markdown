@@ -21,7 +21,7 @@ does_not_need_title: true
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: background 0.2s;
   }
   .resume-btn:hover { background: var(--accent-hover); color: #fff; }
