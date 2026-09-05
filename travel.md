@@ -858,9 +858,12 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
 
   // Create world map
   const worldMap = L.map("world-map", { worldCopyJump: true }).setView([20, 0], 2);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: "abcd",
+  // Esri's light grey canvas: keyless (CARTO now watermarks unauthenticated
+  // tiles) and muted enough for the red hatch/pins to stand out. Native tiles
+  // stop at z16, so let Leaflet upscale them past that rather than go blank.
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+    attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, DeLorme, NAVTEQ',
+    maxNativeZoom: 16,
     maxZoom: 19,
   }).addTo(worldMap);
   
@@ -988,9 +991,12 @@ const defaultIcon = L.icon({
       <div id="country-map" style="height: 640px; border-radius: 1px;"></div>`;
 
     const countryMap = L.map("country-map");
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
+    // Esri's light grey canvas: keyless (CARTO now watermarks unauthenticated
+    // tiles) and muted enough for the red hatch/pins to stand out. Native tiles
+    // stop at z16, so let Leaflet upscale them past that rather than go blank.
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+      attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, DeLorme, NAVTEQ',
+      maxNativeZoom: 16,
       maxZoom: 19,
     }).addTo(countryMap);
 
