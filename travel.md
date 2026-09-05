@@ -448,16 +448,22 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     { country: "Sweden", city: "Järvsö", coords: [61.7159, 16.1693], description: ""},
 
     { country: "Greece", city: "Athens", coords: [37.9838, 23.7275], description: ""},
+
     { country: "Croatia", city: "Split", coords: [43.5081, 16.4402], description: ""},
     { country: "Croatia", city: "Solin", coords: [43.5367, 16.4509], description: ""},
+
     { country: "Hungary", city: "Budapest", coords: [47.4979, 19.0402], description: ""},
     { country: "Hungary", city: "Veszprém", coords: [47.0933, 17.9115], description: ""},
+
     { country: "Slovakia", city: "Bratislava", coords: [48.1486, 17.1077], description: ""},
+
     { country: "Czech Republic", city: "Valtice", coords: [48.7500, 16.7500], description: ""},
+
     { country: "Austria", city: "Vienna", coords: [48.2082, 16.3738], description: ""},
     { country: "Austria", city: "Hallstatt", coords: [47.5623, 13.6491], description: ""},
     { country: "Austria", city: "Werfenweng", coords: [47.4667, 13.2500], description: ""},
     { country: "Austria", city: "Salzburg", coords: [47.8095, 13.0550], description: ""},
+
     { country: "Switzerland", city: "Geneva", coords: [46.2044, 6.1432], description: ""},
     { country: "Switzerland", city: "Lugano", coords: [46.0037, 8.9511], description: ""},
     { country: "Switzerland", city: "Morcote", coords: [45.9608, 8.7894], description: ""},
@@ -646,10 +652,29 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     { country: "Egypt", city: "Aswan", coords: [24.0889, 32.8998], description: "" },
     { country: "Egypt", city: "Luxor", coords: [25.6872, 32.6396], description: "" },
 
+    // South Africa
+    { country: "South Africa", city: "Cape Town", coords: [-33.9249, 18.4241], description: ""},
+    { country: "South Africa", city: "Trawal", coords: [-31.9167, 18.6167], description: ""},
+    { country: "South Africa", city: "Vioolsdrif", coords: [-28.7667, 17.6167], description: ""},
+
+    // Namibia
+    { country: "Namibia", city: "Windhoek", coords: [-22.5609, 17.0658], description: ""},
+    { country: "Namibia", city: "Waterberg Plateau", coords: [-20.4667, 17.2333], description: ""},
+    { country: "Namibia", city: "Etosha National Park", coords: [-18.8556, 16.3292], description: ""},
+    { country: "Namibia", city: "Outjo", coords: [-20.1167, 16.1500], description: ""},
+    { country: "Namibia", city: "Swakopmund", coords: [-22.6792, 14.5272], description: ""},
+    { country: "Namibia", city: "Sandwich Harbour", coords: [-23.3833, 14.4667], description: ""},
+    { country: "Namibia", city: "Sesriem", coords: [-24.4864, 15.7967], description: ""},
+    { country: "Namibia", city: "Deadvlei", coords: [-24.7592, 15.2925], description: ""},
+    { country: "Namibia", city: "Hobas", coords: [-27.6167, 17.6833], description: ""},
+
     // Southeast Asia
     { country: "Thailand", city: "Bangkok", coords: [13.7563, 100.5018], description: ""},
+
     { country: "Cambodia", city: "Siem Reap", coords: [13.3633, 103.8564], description: ""},
+
     { country: "Singapore", city: "Singapore", coords: [1.3521, 103.8198], description: ""},
+    
     { country: "Malaysia", city: "Kuala Lumpur", coords: [3.1390, 101.6869], description: ""},
     { country: "Malaysia", city: "Kota Kinabalu", coords: [5.9804, 116.0735], description: ""},
 
@@ -810,6 +835,7 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     "Mexico":                   [23.6, -102.5],
     "Monaco":                   [43.7384, 7.4246],
     "Morocco":                  [31.8, -7.0],
+    "Namibia":                  [-22.0, 17.2],
     "Nepal":                    [28.3, 84.0],
     "Netherlands":              [52.2, 5.5],
     "Norway":                   [61.0, 9.0],
@@ -818,6 +844,7 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     "Portugal":                 [39.5, -8.0],
     "Singapore":                [1.35, 103.82],
     "Slovakia":                 [48.7, 19.5],
+    "South Africa":             [-29.0, 24.7],
     "Spain":                    [40.2, -3.7],
     "Sweden":                   [62.0, 15.0],
     "Switzerland":              [46.8, 8.2],
