@@ -417,6 +417,12 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     { country: "China", city: "Zhangjiajie National Park", coords: [29.315700, 110.434400], description: ""},
     { country: "China", city: "Huangshan (Yellow Mountain)", coords: [30.134000, 118.161100], description: ""},
     { country: "China", city: "Tianmen Mountain", coords: [29.050800, 110.479200], description: ""},
+    { country: "China", city: "Beijing", coords: [39.904200, 116.407400], description: ""},
+    { country: "China", city: "Shanghai", coords: [31.230400, 121.473700], description: ""},
+    { country: "China", city: "Hangzhou", coords: [30.274100, 120.155100], description: ""},
+    { country: "China", city: "Xi'an", coords: [34.341600, 108.939800], description: ""},
+    { country: "China", city: "Datong", coords: [40.090300, 113.291300], description: ""},
+    { country: "China", city: "Yanmenguan Pass", coords: [39.316700, 112.866700], description: ""},
 
     // Morocco
     { country: "Morocco", city: "Fez", coords: [34.018100, -5.007800], description: ""},
