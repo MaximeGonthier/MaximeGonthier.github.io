@@ -477,9 +477,57 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
   </iframe>
 </div>
 
+<p>Execution of a Cholesky factorization using StarPU under two schedulers, DMDAS and DARTS. Use the buttons to switch between them:</p>
+<div class="video-switch">
+  <div class="video-switch__buttons">
+    <button type="button" class="video-switch__btn" data-cholesky-src="/assets/about/cholesky_dmdas.mp4" aria-pressed="true">DMDAS</button>
+    <button type="button" class="video-switch__btn" data-cholesky-src="/assets/about/cholesky_darts.mp4" aria-pressed="false">DARTS</button>
+  </div>
+  <div class="video-switch__frame">
+    <video id="choleskyVideo" src="/assets/about/cholesky_dmdas.mp4" controls loop playsinline preload="metadata">
+      <span class="italic-text">Your browser does not support this video :(</span>
+    </video>
+  </div>
+  <p class="video-switch__caption">Animations made by <a href="https://dept-info.labri.fr/~thibault/" label="link to the Samuel THIBAULT's website">Samuel Thibault</a>. Both runs last the same time, so switching keeps the playback position.</p>
+</div>
+
 <script src="/assets/js/gpu.js"></script>
 <script src="/assets/js/desk-guy.js"></script>
 <script>
+  // Cholesky capture switcher. Both runs have the same length, so the playback
+  // position (and play/pause state) carries over when swapping schedulers —
+  // that way the two are compared at the same point of the execution.
+  (function () {
+    var video = document.getElementById('choleskyVideo');
+    if (!video) return;
+    var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-cholesky-src]'));
+    var current = video.getAttribute('src');
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var src = btn.getAttribute('data-cholesky-src');
+        if (src === current) return;
+        current = src;
+
+        var time = video.currentTime;
+        var wasPlaying = !video.paused && !video.ended;
+
+        video.addEventListener('loadedmetadata', function restore() {
+          video.removeEventListener('loadedmetadata', restore);
+          video.currentTime = Math.min(time, video.duration || time);
+          if (wasPlaying) { video.play(); }
+        });
+
+        video.setAttribute('src', src);
+        video.load();
+
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+        });
+      });
+    });
+  })();
+
   // Discreet visitor counter backed by the free counterapi.dev service.
   (function () {
     var el = document.getElementById('visitorCountNumber');
