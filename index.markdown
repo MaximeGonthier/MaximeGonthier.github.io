@@ -480,11 +480,11 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
 <p>Execution of a Cholesky factorization using StarPU under two schedulers, DMDAS and DARTS. Use the buttons to switch between them:</p>
 <div class="video-switch">
   <div class="video-switch__buttons">
-    <button type="button" class="video-switch__btn" data-cholesky-src="/assets/about/cholesky_dmdas.mp4" aria-pressed="true">DMDAS</button>
-    <button type="button" class="video-switch__btn" data-cholesky-src="/assets/about/cholesky_darts.mp4" aria-pressed="false">DARTS</button>
+    <button type="button" class="video-switch__btn" data-cholesky-src="/assets/about/cholesky_dmdas.mp4" data-cholesky-poster="/assets/about/cholesky_dmdas_poster.png" aria-pressed="true">DMDAS</button>
+    <button type="button" class="video-switch__btn" data-cholesky-src="/assets/about/cholesky_darts.mp4" data-cholesky-poster="/assets/about/cholesky_darts_poster.png" aria-pressed="false">DARTS</button>
   </div>
   <div class="video-switch__frame">
-    <video id="choleskyVideo" src="/assets/about/cholesky_dmdas.mp4" controls loop playsinline preload="metadata">
+    <video id="choleskyVideo" src="/assets/about/cholesky_dmdas.mp4" poster="/assets/about/cholesky_dmdas_poster.png" controls loop playsinline preload="metadata">
       <span class="italic-text">Your browser does not support this video :(</span>
     </video>
   </div>
@@ -508,6 +508,7 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
         var src = btn.getAttribute('data-cholesky-src');
         if (src === current) return;
         current = src;
+        video.setAttribute('poster', btn.getAttribute('data-cholesky-poster'));
 
         var time = video.currentTime;
         var wasPlaying = !video.paused && !video.ended;
