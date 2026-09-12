@@ -480,11 +480,13 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
 <p>Execution of a Cholesky factorization using StarPU under two schedulers, DMDAS and DARTS. Use the buttons to switch between them:</p>
 <div class="video-switch">
   <div class="video-switch__buttons">
-    <button type="button" class="video-switch__btn" data-cholesky-src="/assets/about/cholesky_dmdas.mp4" data-cholesky-poster="/assets/about/cholesky_dmdas_poster.png" aria-pressed="true">DMDAS</button>
-    <button type="button" class="video-switch__btn" data-cholesky-src="/assets/about/cholesky_darts.mp4" data-cholesky-poster="/assets/about/cholesky_darts_poster.png" aria-pressed="false">DARTS</button>
+    <button type="button" class="video-switch__btn" data-cholesky-mp4="/assets/about/cholesky_dmdas.mp4" data-cholesky-webm="/assets/about/cholesky_dmdas.webm" data-cholesky-poster="/assets/about/cholesky_dmdas_poster.png" aria-pressed="true">DMDAS</button>
+    <button type="button" class="video-switch__btn" data-cholesky-mp4="/assets/about/cholesky_darts.mp4" data-cholesky-webm="/assets/about/cholesky_darts.webm" data-cholesky-poster="/assets/about/cholesky_darts_poster.png" aria-pressed="false">DARTS</button>
   </div>
   <div class="video-switch__frame">
-    <video id="choleskyVideo" src="/assets/about/cholesky_dmdas.mp4" poster="/assets/about/cholesky_dmdas_poster.png" controls loop playsinline preload="metadata">
+    <video id="choleskyVideo" poster="/assets/about/cholesky_dmdas_poster.png" controls loop playsinline preload="metadata">
+      <source src="/assets/about/cholesky_dmdas.mp4" type='video/mp4; codecs="avc1.64001F"'>
+      <source src="/assets/about/cholesky_dmdas.webm" type='video/webm; codecs="vp9"'>
       <span class="italic-text">Your browser does not support this video :(</span>
     </video>
   </div>
@@ -497,18 +499,20 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
   // Cholesky capture switcher. Both runs have the same length, so the playback
   // position (and play/pause state) carries over when swapping schedulers —
   // that way the two are compared at the same point of the execution.
+  // Each run exists as H.264 MP4 and VP9 WebM: some browsers (e.g. Opera on
+  // Linux) ship without H.264, so fall back to WebM when MP4 can't be decoded.
   (function () {
     var video = document.getElementById('choleskyVideo');
     if (!video) return;
-    var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-cholesky-src]'));
-    var current = video.getAttribute('src');
+    var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-cholesky-mp4]'));
+    var useWebm = video.canPlayType('video/mp4; codecs="avc1.64001F"') === '' &&
+                  video.canPlayType('video/webm; codecs="vp9"') !== '';
+    var current = buttons.filter(function (b) { return b.getAttribute('aria-pressed') === 'true'; })[0];
 
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var src = btn.getAttribute('data-cholesky-src');
-        if (src === current) return;
-        current = src;
-        video.setAttribute('poster', btn.getAttribute('data-cholesky-poster'));
+        if (btn === current) return;
+        current = btn;
 
         var time = video.currentTime;
         var wasPlaying = !video.paused && !video.ended;
@@ -519,7 +523,8 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
           if (wasPlaying) { video.play(); }
         });
 
-        video.setAttribute('src', src);
+        video.setAttribute('poster', btn.getAttribute('data-cholesky-poster'));
+        video.setAttribute('src', btn.getAttribute(useWebm ? 'data-cholesky-webm' : 'data-cholesky-mp4'));
         video.load();
 
         buttons.forEach(function (b) {
