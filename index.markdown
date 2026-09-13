@@ -480,11 +480,11 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
 <p>Execution of a Cholesky factorization using StarPU under two schedulers, DMDAS and DARTS. Use the buttons to switch between them:</p>
 <div class="video-switch">
   <div class="video-switch__buttons">
-    <button type="button" class="video-switch__btn" data-cholesky-mp4="/assets/about/cholesky_dmdas.mp4" data-cholesky-webm="/assets/about/cholesky_dmdas.webm" data-cholesky-poster="/assets/about/cholesky_dmdas_poster.png" aria-pressed="true">DMDAS</button>
-    <button type="button" class="video-switch__btn" data-cholesky-mp4="/assets/about/cholesky_darts.mp4" data-cholesky-webm="/assets/about/cholesky_darts.webm" data-cholesky-poster="/assets/about/cholesky_darts_poster.png" aria-pressed="false">DARTS</button>
+    <button type="button" class="video-switch__btn" data-cholesky-mp4="/assets/about/cholesky_dmdas.mp4" data-cholesky-webm="/assets/about/cholesky_dmdas.webm" aria-pressed="true">DMDAS</button>
+    <button type="button" class="video-switch__btn" data-cholesky-mp4="/assets/about/cholesky_darts.mp4" data-cholesky-webm="/assets/about/cholesky_darts.webm" aria-pressed="false">DARTS</button>
   </div>
   <div class="video-switch__frame">
-    <video id="choleskyVideo" poster="/assets/about/cholesky_dmdas_poster.png" controls loop playsinline preload="metadata">
+    <video id="choleskyVideo" poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACwAAAAAAQABAAACAkQBADs=" controls loop playsinline preload="metadata">
       <source src="/assets/about/cholesky_dmdas.mp4" type='video/mp4; codecs="avc1.64001F"'>
       <source src="/assets/about/cholesky_dmdas.webm" type='video/webm; codecs="vp9"'>
       <span class="italic-text">Your browser does not support this video :(</span>
@@ -501,6 +501,8 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
   // that way the two are compared at the same point of the execution.
   // Each run exists as H.264 MP4 and VP9 WebM: some browsers (e.g. Opera on
   // Linux) ship without H.264, so fall back to WebM when MP4 can't be decoded.
+  // Both share a black 1×1 GIF poster, so the frame is plain black before
+  // playback and while a swapped source loads.
   (function () {
     var video = document.getElementById('choleskyVideo');
     if (!video) return;
@@ -519,11 +521,12 @@ I was part of <a href="https://labs.globus.org/">Globus Labs</a> and worked with
 
         video.addEventListener('loadedmetadata', function restore() {
           video.removeEventListener('loadedmetadata', restore);
-          video.currentTime = Math.min(time, video.duration || time);
+          // Seeking hides the poster, so skip it when there is no position to
+          // carry over: switching before playback stays black.
+          if (time > 0) { video.currentTime = Math.min(time, video.duration || time); }
           if (wasPlaying) { video.play(); }
         });
 
-        video.setAttribute('poster', btn.getAttribute('data-cholesky-poster'));
         video.setAttribute('src', btn.getAttribute(useWebm ? 'data-cholesky-webm' : 'data-cholesky-mp4'));
         video.load();
 

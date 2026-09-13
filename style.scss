@@ -1496,7 +1496,7 @@ footer {
   aspect-ratio: 1 / 1;
   border-radius: 8px;
   overflow: hidden;
-  background: var(--surface-alt);
+  background: #000; /* matches the black poster */
   box-shadow: 0 4px 18px var(--shadow);
 
   video {
@@ -1513,6 +1513,159 @@ footer {
   font-size: 14px;
   color: var(--muted);
   text-align: center;
+}
+
+/*****************/
+/* TEACHING PAGE */
+/*****************/
+
+/* The course project is about cardiac arrest and defibrillators, so the page
+   title carries a small heart beating at a resting pace. */
+.teaching-title {
+  text-align: left; // body text is justified, which spreads a wrapped title apart
+}
+
+// Inline so it stays next to the last word when the title wraps
+.heartbeat {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-left: 8px;
+  vertical-align: -2px;
+  color: var(--accent);
+  transform-origin: 50% 60%;
+  // Two beats then a rest, like a real "lub-dub", about 70 bpm
+  animation: heartbeat 0.85s ease-in-out infinite;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 45%, 100% { transform: scale(1); }
+  12%           { transform: scale(1.22); }
+  24%           { transform: scale(1); }
+  34%           { transform: scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heartbeat { animation: none; }
+}
+
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 0;
+}
+
+.course-tag {
+  font-family: $helveticaNeue;
+  font-size: 14px;
+  padding: 3px 11px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 20px;
+}
+
+/* Heart-monitor trace used as the underline of a section heading: a flat line,
+   one heartbeat, then a flat line to the end, drawn from left to right.
+   The beat is a fixed-size SVG so it never stretches; only the flat parts grow.
+   Every part runs on the same 30s cycle: draw in ~2.25s, hold, fade out over
+   the last ~0.9s, then redraw. Percentages below are times / 30s
+   (0.45s = 1.5%, 1.05s = 3.5%, 2.25s = 7.5%, 29.1s = 97%).
+   The drawn state is the default, so reduced motion shows the finished trace. */
+// Doubled class: .section-heading is defined further down and would win otherwise
+.section-heading.section-heading--ecg {
+  margin-bottom: 2px;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.ecg-divider {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 16px;
+  animation: ecg-fade 30s linear infinite;
+}
+
+.ecg-line {
+  height: 2px;
+  margin-top: 19px; // centred on the SVG baseline (y = 20)
+  background: var(--accent);
+  transform-origin: left center;
+}
+
+.ecg-line--before {
+  flex: 1 1 0;
+  animation: ecg-before 30s linear infinite;
+}
+
+.ecg-line--after {
+  flex: 3 1 0;
+  animation: ecg-after 30s linear infinite;
+}
+
+.ecg-beat {
+  flex: none;
+  display: block;
+  overflow: visible;
+
+  path {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: ecg-beat 30s linear infinite;
+  }
+}
+
+@keyframes ecg-before {
+  0%         { transform: scaleX(0); }
+  1.5%, 100% { transform: scaleX(1); }
+}
+
+@keyframes ecg-beat {
+  0%, 1.5%   { stroke-dashoffset: 1; }
+  3.5%, 100% { stroke-dashoffset: 0; }
+}
+
+@keyframes ecg-after {
+  0%, 3.5%   { transform: scaleX(0); }
+  7.5%, 100% { transform: scaleX(1); }
+}
+
+@keyframes ecg-fade {
+  0%, 97% { opacity: 1; }
+  100%    { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecg-divider,
+  .ecg-line,
+  .ecg-beat path { animation: none; }
+}
+
+/* Kramdown footnotes ([^name] in Markdown) */
+.footnotes {
+  margin-top: 40px;
+  padding-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+a.footnote {
+  padding: 0 2px;
+  font-weight: 700;
 }
 
 /*******************/
