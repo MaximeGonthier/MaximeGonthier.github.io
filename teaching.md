@@ -128,9 +128,11 @@ Fournissez un petit rapport expliquant :
 
 - La construction du graphe : quels sont les sommets ? les arêtes ? Expliquez la réduction vers ensemble dominant.
 - L'énoncé formel du problème. Vous devez définir toutes les notions utilisées.
+- Description brève des choix fais pour le nettoyage des données
 - Expliquez et justifiez vos choix (algorithmiques et de programmation) en quelques mots. Vous pouvez insérer un peu de code si nécessaire.
 - Décrivez le vérificateur.
 <!-- - Comment vous passez d'une solution de votre problème de graphe à la vérification ? -->
+- Le diagnostic cartographié
 - Toute information jugée utile est la bienvenue.
 
 ### 1.6. Bonus
