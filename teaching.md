@@ -50,7 +50,7 @@ On pourra commencer par un quartier avant de passer à une commune entière puis
 </div>
 
 - **Groupes** : le projet se fait en groupes de 3 à 4 étudiants. Il est divisé en 3 jalons, chacun associé au rendu d'un court rapport, du code source et d'une démonstration. Le dernier rendu est aussi associé à une soutenance.
-- **Rendus** : chaque rendu est à envoyer la veille du TP, à minuit, par mail à maxime.gonthier@inria.fr : envoyez le hash du commit correspondant de votre dépôt GitHub (privé), auquel vous aurez donné accès à `MaximeGonthier`. Un rendu contient un rapport de 2 ou 3 pages et le code.
+- **Rendus** : chaque rendu est à envoyer la veille du TP, à minuit : envoyez le hash du commit correspondant de votre dépôt GitHub (privé), auquel vous aurez donné accès à `MaximeGonthier`. Un rendu contient un rapport de 2 ou 3 pages et le code.
 - **Démonstration** : le lendemain, en TP, chaque groupe fait une démo (pas de slides nécessaire) à partir de ce commit et répond aux questions.
 - **Soutenance** : le XX/01 au XX (salle XX), XX à XX minutes par groupe + XX minutes de questions. Démonstration du code découpé en étapes lancées séparément (scripts, commandes bash) et slides présentant résultats, performances, comparaisons avec des baselines et justification des choix.
 - **Visualisations** : indispensables, pour les rendus comme pour la soutenance (cartes des DAE choisis et des zones couvertes/non couvertes, courbes de performance, ...).
@@ -120,10 +120,11 @@ Ce premier rendu ne place aucun nouveau DAE : il s'agit de constituer vos donné
 - Réduction vers Ensemble Dominant : graphe carreaux / DAE. La question devient : les DAE existants forment-ils un ensemble dominant ?
 - Un vérificateur : étant donné un ensemble de DAE, tout carreau est-il couvert ? Sinon, lesquels ne le sont pas ? Il resservira dans tous les algorithmes des rendus suivants.
 - Un diagnostic cartographié : proportion de la population à moins de X minutes d'un DAE pour X = 3, 5, 8, ... etc.. minutes, et plus petite valeur de X pour laquelle tous les carreaux sont couverts.
+- Préparer une démo, constituée de plusieurs commandes qui lancent différentes parties du code.
 
 ### 1.5. Rapport
 
-Fournissez un petit rapport (PDF) expliquant :
+Fournissez un petit rapport expliquant :
 
 - La construction du graphe : quels sont les sommets ? les arêtes ? Expliquez la réduction vers ensemble dominant.
 - L'énoncé formel du problème. Vous devez définir toutes les notions utilisées.
