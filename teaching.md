@@ -191,7 +191,7 @@ You can start with a neighborhood, then move on to a whole municipality and poss
 </div>
 
 - **Groups**: the project is done in groups of 3 to 4 students. It is split into 3 milestones, each with a short report, the source code and a demo. The last milestone also includes a final presentation.
-- **Submissions**: each submission is due at midnight on the day before the lab session. Send the hash of the matching commit, by mail to maxime.gonthier@inria.fr, in your (private) GitHub repository, to which you will have given access to `MaximeGonthier`. A submission contains a 2 to 3 page report and the code.
+- **Submissions**: each submission is due at midnight on the day before the lab session. Send the hash of the matching commit, by e-mail to maxime.gonthier@inria.fr, in your (private) GitHub repository, to which you will have given access to `MaximeGonthier`. A submission contains a 2 to 3 page report and the code.
 - **Demo**: the next day, during the lab session, each group gives a demo (no slides needed) from that commit and answers questions.
 - **Final presentation**: on XX/01 at XX (room XX), XX to XX minutes per group + XX minutes of questions. A demo of the code split into steps run separately (scripts, bash commands), and slides presenting results, performance, comparisons with baselines and the reasons for your choices.
 - **Visualizations**: essential, for the submissions as well as the final presentation (maps of the chosen AEDs and of covered/uncovered areas, performance curves, etc.).
