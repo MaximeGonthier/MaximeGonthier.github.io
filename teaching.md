@@ -69,7 +69,7 @@ On pourra commencer par un quartier avant de passer à une commune entière puis
 </div>
 
 - **Groupes** : le projet se fait en groupes de 3 à 4 étudiants. Il est divisé en 3 jalons, chacun associé au rendu d'un court rapport, du code source et d'une démonstration. Le dernier rendu est aussi associé à une soutenance.
-- **Rendus** : chaque rendu est à envoyer la veille du TP, à minuit : envoyez le hash du commit correspondant de votre dépôt GitHub (privé), auquel vous aurez donné accès à `MaximeGonthier`. Un rendu contient un rapport de 2 ou 3 pages et le code.
+- **Rendus** : chaque rendu est à envoyer la veille du TP, à minuit : envoyez le hash du commit, par mail à maxime.gonthier@inria.fr, correspondant de votre dépôt GitHub (privé), auquel vous aurez donné accès à `MaximeGonthier`. Un rendu contient un rapport de 2 ou 3 pages et le code.
 - **Démonstration** : le lendemain, en TP, chaque groupe fait une démo (pas de slides nécessaire) à partir de ce commit et répond aux questions.
 - **Soutenance** : le XX/01 au XX (salle XX), XX à XX minutes par groupe + XX minutes de questions. Démonstration du code découpé en étapes lancées séparément (scripts, commandes bash) et slides présentant résultats, performances, comparaisons avec des baselines et justification des choix.
 - **Visualisations** : indispensables, pour les rendus comme pour la soutenance (cartes des DAE choisis et des zones couvertes/non couvertes, courbes de performance, ...).
@@ -191,7 +191,7 @@ You can start with a neighborhood, then move on to a whole municipality and poss
 </div>
 
 - **Groups**: the project is done in groups of 3 to 4 students. It is split into 3 milestones, each with a short report, the source code and a demo. The last milestone also includes a final presentation.
-- **Submissions**: each submission is due at midnight on the day before the lab session. Send the hash of the matching commit in your (private) GitHub repository, to which you will have given access to `MaximeGonthier`. A submission contains a 2 to 3 page report and the code.
+- **Submissions**: each submission is due at midnight on the day before the lab session. Send the hash of the matching commit, by mail to maxime.gonthier@inria.fr, in your (private) GitHub repository, to which you will have given access to `MaximeGonthier`. A submission contains a 2 to 3 page report and the code.
 - **Demo**: the next day, during the lab session, each group gives a demo (no slides needed) from that commit and answers questions.
 - **Final presentation**: on XX/01 at XX (room XX), XX to XX minutes per group + XX minutes of questions. A demo of the code split into steps run separately (scripts, bash commands), and slides presenting results, performance, comparisons with baselines and the reasons for your choices.
 - **Visualizations**: essential, for the submissions as well as the final presentation (maps of the chosen AEDs and of covered/uncovered areas, performance curves, etc.).
