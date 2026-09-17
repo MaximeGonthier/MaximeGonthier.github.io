@@ -1633,9 +1633,9 @@ footer {
 /* Heart-monitor trace used as the underline of a section heading: a flat line,
    one heartbeat, then a flat line to the end, drawn from left to right.
    The beat is a fixed-size SVG so it never stretches; only the flat parts grow.
-   Every part runs on the same 30s cycle: draw in ~2.25s, hold, fade out over
-   the last ~0.9s, then redraw. Percentages below are times / 30s
-   (0.45s = 1.5%, 1.05s = 3.5%, 2.25s = 7.5%, 29.1s = 97%).
+   Every part runs on the same 2-minute cycle: draw in ~2.25s, hold, fade out
+   over the last ~0.9s, then redraw. Percentages below are times / 120s
+   (0.45s = 0.375%, 1.05s = 0.875%, 2.25s = 1.875%, 119.1s = 99.25%).
    The drawn state is the default, so reduced motion shows the finished trace. */
 // Doubled class: .section-heading is defined further down and would win otherwise
 .section-heading.section-heading--ecg {
@@ -1648,7 +1648,7 @@ footer {
   display: flex;
   align-items: flex-start;
   margin: 0 0 16px;
-  animation: ecg-fade 30s linear infinite;
+  animation: ecg-fade 120s linear infinite;
 }
 
 .ecg-line {
@@ -1660,12 +1660,12 @@ footer {
 
 .ecg-line--before {
   flex: 1 1 0;
-  animation: ecg-before 30s linear infinite;
+  animation: ecg-before 120s linear infinite;
 }
 
 .ecg-line--after {
   flex: 3 1 0;
-  animation: ecg-after 30s linear infinite;
+  animation: ecg-after 120s linear infinite;
 }
 
 .ecg-beat {
@@ -1680,28 +1680,28 @@ footer {
     stroke-linejoin: round;
     stroke-dasharray: 1;
     stroke-dashoffset: 0;
-    animation: ecg-beat 30s linear infinite;
+    animation: ecg-beat 120s linear infinite;
   }
 }
 
 @keyframes ecg-before {
-  0%         { transform: scaleX(0); }
-  1.5%, 100% { transform: scaleX(1); }
+  0%           { transform: scaleX(0); }
+  0.375%, 100% { transform: scaleX(1); }
 }
 
 @keyframes ecg-beat {
-  0%, 1.5%   { stroke-dashoffset: 1; }
-  3.5%, 100% { stroke-dashoffset: 0; }
+  0%, 0.375%   { stroke-dashoffset: 1; }
+  0.875%, 100% { stroke-dashoffset: 0; }
 }
 
 @keyframes ecg-after {
-  0%, 3.5%   { transform: scaleX(0); }
-  7.5%, 100% { transform: scaleX(1); }
+  0%, 0.875%   { transform: scaleX(0); }
+  1.875%, 100% { transform: scaleX(1); }
 }
 
 @keyframes ecg-fade {
-  0%, 97% { opacity: 1; }
-  100%    { opacity: 0; }
+  0%, 99.25% { opacity: 1; }
+  100%       { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
