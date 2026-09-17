@@ -6,10 +6,23 @@ excerpt: Projet Algorithmique Appliquée (4TIN915), M2 course at the University 
 does_not_need_title: true
 ---
 
-<div class="teaching-page" lang="fr" markdown="1">
+<script>
+  // French unless ?lang=en or an earlier click on the switch asked for English.
+  // Runs before the content is parsed so English readers never see French first.
+  (function () {
+    var lang = null;
+    try { lang = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+    if (lang !== 'en' && lang !== 'fr') {
+      try { lang = localStorage.getItem('mg-teaching-lang'); } catch (e) {}
+    }
+    document.documentElement.setAttribute('data-lang', lang === 'en' ? 'en' : 'fr');
+  })();
+</script>
+
+<div class="teaching-page" markdown="1">
 
 <h1 class="page-title teaching-title">
-  Projet Algorithmique Appliquée
+  <span lang="fr">Projet Algorithmique Appliquée</span><span lang="en">Applied Algorithms Project</span>
   <span class="heartbeat" aria-hidden="true">
     <svg viewBox="0 0 24 24" focusable="false"><path d="M12 21C12 21 3 15.5 1.6 10C0.6 6.2 3 3 6.5 3C9 3 10.9 4.6 12 6.4C13.1 4.6 15 3 17.5 3C21 3 23.4 6.2 22.4 10C21 15.5 12 21 12 21Z"/></svg>
   </span>
@@ -19,7 +32,13 @@ does_not_need_title: true
   <span class="course-tag">4TIN915</span>
   <span class="course-tag">M2</span>
   <span class="course-tag">2026-2027</span>
+  <span class="lang-switch" role="group" aria-label="Langue / Language">
+    <button type="button" data-set-lang="fr" title="Version française">FR</button>
+    <button type="button" data-set-lang="en" title="English version">EN</button>
+  </span>
 </p>
+
+<div lang="fr" markdown="1">
 
 ## Présentation
 {: #presentation .section-heading .section-heading--ecg}
@@ -141,5 +160,158 @@ Vous pouvez imaginer des vérifications plus poussées prenant différents param
 
 </div>
 
-[^sante]: Ministère de la Santé, maladies cardiovasculaires : <https://sante.gouv.fr/soins-et-maladies/maladies/maladies-cardiovasculaires-et-avc/article/maladies-cardiovasculaires>
-[^hekatech]: Baromètre de l'arrêt cardiaque : <https://hekatech.fr/barometre-arret-cardiaque/>
+<div lang="en" markdown="1">
+
+## Overview
+{: #overview .section-heading .section-heading--ecg}
+
+<div class="ecg-divider" aria-hidden="true">
+  <span class="ecg-line ecg-line--before"></span>
+  <svg class="ecg-beat" viewBox="0 0 72 34" width="72" height="34" focusable="false"><path pathLength="1" d="M0 20H10C12 20 13 16 16 16C19 16 20 20 22 20H27L29 23L34 3L39 31L42 20H48C51 20 52 14 56 14C60 14 61 20 64 20H72"/></svg>
+  <span class="ecg-line ecg-line--after"></span>
+</div>
+
+Every year in France, about 50,000 people suffer a sudden cardiac arrest[^sante], and fewer than 8% survive.
+Each minute without defibrillation lowers the chance of survival by about 10%: after a few minutes, the outcome is almost always fatal[^hekatech].
+Since Decree No. 2018-1186, some buildings open to the public must be equipped with an automated external defibrillator (AED, *DAE* in French), so that the public can reach one quickly.
+Yet coverage across the country remains very uneven: entire neighborhoods are far from any AED.
+We want to fix this.
+Your mission: decide where to install defibrillators so that every resident is close to an AED, while installing as few defibrillators as possible.
+
+You choose the geographic area.
+You can start with a neighborhood, then move on to a whole municipality and possibly a metropolitan area.
+
+## Organization and grading
+{: #organization .section-heading .section-heading--ecg}
+
+<div class="ecg-divider" aria-hidden="true">
+  <span class="ecg-line ecg-line--before"></span>
+  <svg class="ecg-beat" viewBox="0 0 72 34" width="72" height="34" focusable="false"><path pathLength="1" d="M0 20H10C12 20 13 16 16 16C19 16 20 20 22 20H27L29 23L34 3L39 31L42 20H48C51 20 52 14 56 14C60 14 61 20 64 20H72"/></svg>
+  <span class="ecg-line ecg-line--after"></span>
+</div>
+
+- **Groups**: the project is done in groups of 3 to 4 students. It is split into 3 milestones, each with a short report, the source code and a demo. The last milestone also includes a final presentation.
+- **Submissions**: each submission is due at midnight on the day before the lab session. Send the hash of the matching commit in your (private) GitHub repository, to which you will have given access to `MaximeGonthier`. A submission contains a 2 to 3 page report and the code.
+- **Demo**: the next day, during the lab session, each group gives a demo (no slides needed) from that commit and answers questions.
+- **Final presentation**: on XX/01 at XX (room XX), XX to XX minutes per group + XX minutes of questions. A demo of the code split into steps run separately (scripts, bash commands), and slides presenting results, performance, comparisons with baselines and the reasons for your choices.
+- **Visualizations**: essential, for the submissions as well as the final presentation (maps of the chosen AEDs and of covered/uncovered areas, performance curves, etc.).
+- **Approach**: the goal is to work scientifically. Justify your choices, look for edge cases and for the limitations of your approach, then document or study them.
+- **LLMs**: not allowed for writing the reports.
+- **Grading**: half of the project grade comes from the two submissions assessed in the lab sessions, the other half from the final submission and presentation.
+
+## Milestone 1 (Oct 8): what does the existing network cover?
+{: #milestone-1 .section-heading .section-heading--ecg}
+
+<div class="ecg-divider" aria-hidden="true">
+  <span class="ecg-line ecg-line--before"></span>
+  <svg class="ecg-beat" viewBox="0 0 72 34" width="72" height="34" focusable="false"><path pathLength="1" d="M0 20H10C12 20 13 16 16 16C19 16 20 20 22 20H27L29 23L34 3L39 31L42 20H48C51 20 52 14 56 14C60 14 61 20 64 20H72"/></svg>
+  <span class="ecg-line ecg-line--after"></span>
+</div>
+
+### 1.1. Population: INSEE 200 m grid cells
+
+INSEE (the French national statistics institute) divides the country into 200 m grid cells, each with its population and various socio-demographic variables. Every inhabited cell is a demand point that needs access to an AED.
+
+- Download the [200 m gridded data](https://www.insee.fr/fr/statistiques/8735162) in whichever format you like.
+- Field descriptions: [variable dictionary](https://www.insee.fr/fr/statistiques/8735162#dictionnaire) (in French).
+
+`ind` is the population of the cell and `idcar_200m` encodes the following information:
+
+```
+CRS4559RES200mN1592600E0728800
+└──┬──┘└──┬──┘└───┬───┘└──┬──┘
+ CRS4559  RES200m   N1592600   E0728800
+ EPSG:4559  200 m   north      east
+```
+
+CRS4559 is the coordinate reference system for Martinique, RES is the cell resolution, and N1592600 and E0728800 are the coordinates, in meters, of the south-west (SW) corner of the cell in that CRS.
+
+For example, [this site](https://epsg.io/map#srs=3035&ops=1149&x=3484546.241906&y=2469519.580036&z=6&layer=streets) shows coordinates in CRS3035 (the one used for mainland France) and converts them to latitude / longitude so you can check them.
+
+It is up to you to turn this into coordinates your model can use, and to provide a visualization of your study area.
+
+### 1.2. Existing AEDs: Géo'DAE
+
+**Géo'DAE** is the national AED database: ~185,000 devices in France, including ~4,400 in Gironde and ~540 in the city of Bordeaux.
+
+- Download the `geodae.csv` file from [data.gouv.fr](https://www.data.gouv.fr/datasets/geodae-base-nationale-des-defibrillateurs).
+
+Be careful, the database needs cleaning: it contains duplicates (the same device registered several times) and approximate locations (devices geocoded to the town hall of their municipality).
+This cleaning is part of the work and must be described in the report.
+
+Two fields deserve your attention: `c_acc` (indoor or outdoor device) and `c_disp_j` / `c_disp_h` (days and hours of availability). Check the values they actually take in your area before concluding that an AED "exists" somewhere.
+
+### 1.3. Pedestrian graph: osmnx
+
+Distances are measured on foot, along the actual street network (not as the crow flies!).
+The Python library [osmnx](https://osmnx.readthedocs.io/en/stable/) downloads the walking network of a city directly from OpenStreetMap. Distances between two points are handled as follows:
+
+- An AED has precise coordinates. If it lies inside a population cell, that cell is automatically covered.
+- A cell is 200 m by 200 m, so we assume its whole population lives at the center of the cell.
+- The distance between two points is measured on foot, along the pedestrian graph obtained with osmnx, and converted into a walking time, for example at 4.5 km/h.
+
+### 1.4. Required work
+
+This first milestone does not place any new AED: the goal is to build your dataset and answer the question "where do we stand today?" with the AEDs already installed.
+
+- Choose a geographic area (you can start with a neighborhood of a city, then a whole city).
+- Data collection and cleaning (population cells, Géo'DAE): removing duplicates, discarding doubtful locations.
+- Building the pedestrian graph and converting edge lengths into walking times.
+- Computing, for each cell, the walking time to the existing AEDs.
+- Reduction to Dominating Set: a graph of cells and AEDs. The question becomes: do the existing AEDs form a dominating set?
+- A checker: given a set of AEDs, is every cell covered? If not, which ones are not? You will reuse it in every algorithm of the following milestones.
+- A diagnostic map: share of the population within X minutes of an AED for X = 3, 5, 8, etc. minutes, and the smallest value of X for which every cell is covered.
+- Prepare a demo made of several commands, each running a different part of the code.
+
+### 1.5. Report
+
+Provide a short report explaining:
+
+- How the graph is built: what are the vertices? the edges? Explain the reduction to Dominating Set.
+- The formal statement of the problem. You must define every notion you use.
+- A brief description of the choices made to clean the data.
+- Explain and justify your choices (algorithmic and implementation) in a few words. You may include some code if needed.
+- Describe the checker.
+- The diagnostic map.
+- Any other information you find useful is welcome.
+
+### 1.6. Bonus
+
+You can design more thorough checks that take other parameters into account; it is up to you, as long as you justify them. For example: how does coverage change if you only count devices available 24/7 (fields `c_disp_j` / `c_disp_h`)?
+
+</div>
+
+</div>
+
+<script>
+  // FR / EN switch: shows the chosen version, remembers it and keeps the
+  // address shareable (?lang=en opens the English version directly).
+  (function () {
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll('.lang-switch button');
+    function sync() {
+      var lang = root.getAttribute('data-lang');
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].setAttribute('aria-pressed', buttons[i].getAttribute('data-set-lang') === lang ? 'true' : 'false');
+      }
+    }
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function () {
+        var lang = this.getAttribute('data-set-lang');
+        root.setAttribute('data-lang', lang);
+        try { localStorage.setItem('mg-teaching-lang', lang); } catch (e) {}
+        try {
+          var url = new URL(location.href);
+          if (lang === 'en') { url.searchParams.set('lang', 'en'); } else { url.searchParams.delete('lang'); }
+          history.replaceState(null, '', url);
+        } catch (e) {}
+        sync();
+      });
+    }
+    sync();
+  })();
+</script>
+
+<!-- Each note is cited once in each version and holds both languages -->
+[^sante]: <span lang="fr">Ministère de la Santé, maladies cardiovasculaires :</span><span lang="en">French Ministry of Health, cardiovascular diseases (in French):</span> <https://sante.gouv.fr/soins-et-maladies/maladies/maladies-cardiovasculaires-et-avc/article/maladies-cardiovasculaires>
+[^hekatech]: <span lang="fr">Baromètre de l'arrêt cardiaque :</span><span lang="en">Cardiac arrest barometer (in French):</span> <https://hekatech.fr/barometre-arret-cardiaque/>

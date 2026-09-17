@@ -1572,6 +1572,64 @@ footer {
   border-radius: 20px;
 }
 
+/* FR / EN versions: the page holds both and shows the one named by data-lang
+   on <html>, which the script at the top of teaching.md sets. French is the
+   fallback, so without JavaScript the page stays French and the switch,
+   which could not work, is hidden. */
+:root:not([data-lang="en"]) {
+  .teaching-page [lang="en"],
+  .footnotes [lang="en"] { display: none; }
+}
+
+:root[data-lang="en"] {
+  .teaching-page [lang="fr"],
+  .footnotes [lang="fr"] { display: none; }
+}
+
+// Each footnote is cited once per version, French first, so kramdown gives it
+// two back-links: #fnref:name for French and #fnref:name:1 (marked ↩²) for English.
+:root[data-lang="fr"] .footnotes a.reversefootnote[href$=":1"],
+:root[data-lang="en"] .footnotes a.reversefootnote:not([href$=":1"]),
+:root[data-lang] .footnotes a.reversefootnote sup { display: none; }
+
+:root:not([data-lang]) .lang-switch { display: none; }
+
+// Two-segment pill; the active language is filled like the course tags
+.lang-switch {
+  display: inline-flex;
+  margin-left: auto;
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  overflow: hidden;
+
+  button {
+    padding: 3px 11px;
+    font-family: $helveticaNeue;
+    font-size: 14px;
+    line-height: inherit;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease;
+
+    & + button { border-left: 1px solid var(--border-strong); }
+
+    &:hover { color: var(--accent); }
+
+    &[aria-pressed="true"] {
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-weight: 700;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+    }
+  }
+}
+
 /* Heart-monitor trace used as the underline of a section heading: a flat line,
    one heartbeat, then a flat line to the end, drawn from left to right.
    The beat is a fixed-size SVG so it never stretches; only the flat parts grow.
