@@ -158,7 +158,7 @@ Fournissez un petit rapport expliquant :
 
 Vous pouvez imaginer des vérifications plus poussées prenant différents paramètres, à vous de voir et de le justifier. Par exemple : que devient la couverture si l'on ne compte que les appareils disponibles 24h/24 (champs `c_disp_j` / `c_disp_h`) ?
 
-## Rendu 2 (03/12, deadline=2 December à 23h59) : sur quels carreaux placer les DAE ?
+## Rendu 2 (03/12, deadline=2 December à 23h59 - maxime.gonthier@inria.fr) : sur quels carreaux placer les DAE ?
 {: #rendu-2 .section-heading .section-heading--ecg}
 
 <div class="ecg-divider" aria-hidden="true">
@@ -325,7 +325,7 @@ Provide a short report explaining:
 
 You can design more thorough checks that take other parameters into account; it is up to you, as long as you justify them. For example: how does coverage change if you only count devices available 24/7 (fields `c_disp_j` / `c_disp_h`)?
 
-## Milestone 2 (Dec 3, deadline=December 2 at 23h59): which cells should get the AEDs?
+## Milestone 2 (Dec 3, deadline=December 2 at 23h59 - maxime.gonthier@inria.fr): which cells should get the AEDs?
 {: #milestone-2 .section-heading .section-heading--ecg}
 
 <div class="ecg-divider" aria-hidden="true">
