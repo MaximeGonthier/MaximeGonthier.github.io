@@ -158,6 +158,52 @@ Fournissez un petit rapport expliquant :
 
 Vous pouvez imaginer des vérifications plus poussées prenant différents paramètres, à vous de voir et de le justifier. Par exemple : que devient la couverture si l'on ne compte que les appareils disponibles 24h/24 (champs `c_disp_j` / `c_disp_h`) ?
 
+## Rendu 2 (03/12, deadline=2 December à 23h59) : sur quels carreaux placer les DAE ?
+{: #rendu-2 .section-heading .section-heading--ecg}
+
+<div class="ecg-divider" aria-hidden="true">
+  <span class="ecg-line ecg-line--before"></span>
+  <svg class="ecg-beat" viewBox="0 0 72 34" width="72" height="34" focusable="false"><path pathLength="1" d="M0 20H10C12 20 13 16 16 16C19 16 20 20 22 20H27L29 23L34 3L39 31L42 20H48C51 20 52 14 56 14C60 14 61 20 64 20H72"/></svg>
+  <span class="ecg-line ecg-line--after"></span>
+</div>
+
+### 2.0. Informations sur l'emploi du temps
+Les 15 oct, 22 oct et 5 nov: 2 CM à la suite (donc de 8h à 12h15).
+Les 12 nov, 3 déc et 17 déc: 2 TP à la suite (donc de 8h à 12h15).
+
+### 2.1. Problème
+
+On oublie ici les DAE existants. La question devient où les placer si l'on partait de zéro ? Les carreaux de population sont aussi les sites candidats : on commence avec 0 DAE, un DAE peut être placé au centre de n'importe quel carreau, et un carreau qui contient un DAE est couvert.
+
+La question devient:
+> Étant donné un ensemble de carreaux de population et un paramètre X, trouver le plus petit ensemble de carreaux à équiper d'un DAE de sorte que tout carreau soit à au plus X minutes de marche d'un carreau équipé.
+
+### 2.2. Travail demandé
+
+- Une réduction vers Ensemble Dominant à distance X : sommets = carreaux de population, arêtes = relie un couple de sommet à moins de X minutes à pied l'un de l'autre.
+- Un algorithme bruteforce (ensembles de taille k croissante, testés avec le vérificateur du rendu 1) : solution optimale de référence sur les petites instances.
+- L'algorithme Branch-and-Bound pour Ensemble Dominant (pseudo-code fourni en cours), adapté à votre modélisation.
+- L'algorithme progressif pour Ensemble Dominant vu en cours.
+- Une analyse de complexité et des mesures de temps de calcul selon la taille du graphe (nombre de carreaux de population) et de X et selon l'algorithme.
+- Une carte des carreaux équipés et des zones couvertes.
+- Préparer une démo, constituée de plusieurs commandes qui lancent différentes parties du code.
+
+### 2.3. Rapport
+
+Fournissez un petit rapport expliquant :
+
+- L'énoncé formel du problème. Vous devez définir toutes les notions utilisées.
+- Description brève de l'algorithme bruteforce
+- Description brève de l'algorithme Branch-and-Bound pour Ensemble Dominant
+- Description brève de l'algorithme progressif pour Ensemble Dominant
+- Analyse de complexité et mesures de temps de calcul en fonction de la taille du graphe (nombre de carreaux de population), de X et de l'algorithme
+- Comparaison des différents algorithmes en termes de qualité de solution
+- Toute information jugée utile est la bienvenue.
+
+### 2.4. Bonus
+
+Vous pouvez imaginer/tester d'autres algorithmes. Toute autre idée de bonus est la bienvenue.
+
 </div>
 
 <div lang="en" markdown="1">
@@ -278,6 +324,53 @@ Provide a short report explaining:
 ### 1.6. Bonus
 
 You can design more thorough checks that take other parameters into account; it is up to you, as long as you justify them. For example: how does coverage change if you only count devices available 24/7 (fields `c_disp_j` / `c_disp_h`)?
+
+## Milestone 2 (Dec 3, deadline=December 2 at 23h59): which cells should get the AEDs?
+{: #milestone-2 .section-heading .section-heading--ecg}
+
+<div class="ecg-divider" aria-hidden="true">
+  <span class="ecg-line ecg-line--before"></span>
+  <svg class="ecg-beat" viewBox="0 0 72 34" width="72" height="34" focusable="false"><path pathLength="1" d="M0 20H10C12 20 13 16 16 16C19 16 20 20 22 20H27L29 23L34 3L39 31L42 20H48C51 20 52 14 56 14C60 14 61 20 64 20H72"/></svg>
+  <span class="ecg-line ecg-line--after"></span>
+</div>
+
+### 2.0. Schedule
+
+- Oct 15, Oct 22 and Nov 5: two lectures back to back (so from 8:00 to 12:15).
+- Nov 12, Dec 3 and Dec 17: two lab sessions back to back (so from 8:00 to 12:15).
+
+### 2.1. Problem
+
+Here we set the existing AEDs aside: where would you place them if you were starting from scratch? The population cells are also the candidate sites: you start with 0 AEDs, an AED can be placed at the center of any cell, and a cell that contains an AED is covered.
+
+The question becomes:
+> Given a set of population cells and a parameter X, find the smallest set of cells to equip with an AED such that every cell is within X minutes' walk of an equipped cell.
+
+### 2.2. Required work
+
+- A reduction to Dominating Set at distance X: vertices = population cells, edges = pairs of vertices within X minutes' walk of each other.
+- A brute-force algorithm (sets of increasing size k, tested with the checker from milestone 1): the optimal reference solution on small instances.
+- The Branch-and-Bound algorithm for Dominating Set (pseudo-code given in class), adapted to your model.
+- The progressive algorithm for Dominating Set seen in class.
+- A complexity analysis and running-time measurements as a function of the graph size (number of population cells), of X and of the algorithm.
+- A map of the equipped cells and of the covered areas.
+- Prepare a demo made of several commands, each running a different part of the code.
+
+### 2.3. Report
+
+Provide a short report explaining:
+
+- The formal statement of the problem. You must define every notion you use.
+- A brief description of the brute-force algorithm.
+- A brief description of the Branch-and-Bound algorithm for Dominating Set.
+- A brief description of the progressive algorithm for Dominating Set.
+- The complexity analysis and running-time measurements as a function of the graph size (number of population cells), of X and of the algorithm.
+- A comparison of the solution quality of the different algorithms.
+- Any other information you find useful is welcome.
+
+### 2.4. Bonus
+
+You can design and test other algorithms. Any other bonus idea is welcome.
 
 </div>
 
