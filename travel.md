@@ -345,6 +345,10 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     { country: "Peru", city: "El Carmen", coords: [-13.497100, -76.069700], description: ""},
     { country: "Peru", city: "Puerto Maldonado", coords: [-12.593300, -69.189100], description: ""},
 
+    // Brazil
+    { country: "Brazil", city: "Rio de Janeiro", coords: [-22.906800, -43.172900], description: ""},
+    { country: "Brazil", city: "Petrópolis", coords: [-22.505000, -43.178600], description: ""},
+
     // Spain
     { country: "Spain", city: "Madrid", coords: [40.416775, -3.70379], description: ""},
     { country: "Spain", city: "Barcelona", coords: [41.3850639, 2.1734035], description: ""},
@@ -820,6 +824,7 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
   const countryPins = {
     "Austria":                  [47.6, 14.1],
     "Belgium":                  [50.6, 4.6],
+    "Brazil":                   [-10.8, -52.9],
     "Cambodia":                 [12.7, 104.9],
     "Canada":                   [56.1, -98.0],
     "China":                    [35.9, 104.2],
