@@ -35,6 +35,21 @@ does_not_need_title: true
   </li>
 
   <li class="tl-item">
+    <span class="tl-when">2026 · 1 month</span>
+    <div class="tl-card">
+      <div class="tl-logos">
+        <img class="tl-logo" src="/assets/experience/lncclogo.png" alt="LNCC" />
+      </div>
+      <div class="tl-body">
+        <h3 class="tl-role">Research stay</h3>
+        <p class="tl-where"><strong>National Laboratory for Scientific Computing (LNCC)</strong>, Petrópolis, Brazil</p>
+        <p class="tl-team">with Carla Osthoff and Hermes Senger · funded by the Inria–LNCC Initiative on AI</p>
+        <p class="tl-what">Identifying AI applications running on the Santos Dumont supercomputer and studying their I/O behavior, porting the DARTS scheduler to Dagger.jl, and co-advising students.</p>
+      </div>
+    </div>
+  </li>
+
+  <li class="tl-item">
     <span class="tl-when">2024 - 2025</span>
     <div class="tl-card">
       <div class="tl-logos">
@@ -181,12 +196,18 @@ does_not_need_title: true
 <h3 class="sub-heading">PhD students</h3>
 <ul class="people-list">
   <li><strong>Alok Kamatar</strong> <span class="people-aff">University of Chicago</span><br />Energy- and carbon-aware credit allocation for HPC: user incentives, simulation and a user study (SC'25).</li>
-  <li><strong>Haochen Pan</strong> <span class="people-aff">University of Chicago</span><br />Event-driven architectures for distributed scientific computing; Icicle metadata indexing and MCP servers for HPC.</li>
-  <li><strong>Wenyi Wang</strong> <span class="people-aff">University of Chicago</span><br />Fine-grained parallelism through dynamic load balancing on multi-socket many-core systems (IPDPS'26).</li>
+  <li><strong>Haochen Pan</strong> <span class="people-aff">University of Chicago</span><br />Event-driven architectures for distributed scientific computing; Icicle metadata indexing and MCP servers for HPC (FTXS'24, ISC'26).</li>
+  <li><strong>Wenyi Wang</strong> <span class="people-aff">University of Chicago</span><br />Fine-grained parallelism through dynamic load balancing on multi-socket many-core systems (IPDPS'25).</li>
   <li><strong>J. Gregory Pauloski</strong> <span class="people-aff">University of Chicago</span><br />TaPS, a task-based library for evaluating execution environments (best paper, eScience'24).</li>
   <li><strong>Dante D. Sanchez-Gallegos</strong> <span class="people-aff">Universidad Carlos III de Madrid</span><br />Wide-area data distribution over heterogeneous storage with erasure coding (CCGrid'25).</li>
   <li><strong>Shu Shi</strong> <span class="people-aff">University of Chicago</span><br />Multi-LLM serving for HPC: placement and reuse of models already loaded in GPU memory.</li>
   <li><strong>Haibin Lai</strong> <span class="people-aff">Southern University of Science and Technology</span><br />Task-based parallelism for LLM inference on multi-socket many-core systems.</li>
+  <li><strong>Lucas Cruz</strong> <span class="people-aff">National Laboratory for Scientific Computing (LNCC)</span><br />Identifying AI applications on the Santos Dumont supercomputer through feature clustering.</li>
+</ul>
+
+<h3 class="sub-heading">Master's students</h3>
+<ul class="people-list">
+  <li><strong>Akshat Singhania</strong> <span class="people-aff">University of Chicago</span><br />Benchmarking in-lake query pushdown on scientific datasets: climate, genomics and astronomy at scale (BPOD'26).</li>
 </ul>
 
 <h3 class="sub-heading">Undergraduate students</h3>
@@ -209,6 +230,7 @@ does_not_need_title: true
       <li><strong>SuperComputing 2026</strong>: Algorithms track</li>
       <li><strong>SuperComputing 2025</strong>: reproducibility committee</li>
       <li><strong>SuperComputing 2024</strong>: reproducibility committee</li>
+      <li><strong>eScience 2026</strong></li>
       <li><strong>ICDCS 2025</strong></li>
       <li><strong>EuroPar 2025</strong></li>
       <li><strong>HiPC 2025</strong></li>
@@ -236,11 +258,24 @@ does_not_need_title: true
       <li><strong><a href="https://repro-hpc.github.io" target="_blank" rel="noopener">REPRO-HPC workshop</a></strong>: 2025</li>
     </ul>
   </div>
+
+  <div class="service-card">
+    <h3 class="sub-heading">Outreach</h3>
+    <ul>
+      <li><strong>Scientific Circuit 2026</strong>: talks on research careers and an activity on artificial intelligence in remote schools of Nouvelle-Aquitaine, with Inria, CNRS and the Rectorat</li>
+    </ul>
+  </div>
 </div>
 
 <h2 id="awards" class="section-heading">Awards &amp; grants</h2>
 
 <ul class="award-list">
+  <li>
+    <span class="award-year">2026</span>
+    <div>
+      <strong>SIGHPC Early Career Professionals Travel Grant</strong> <span class="award-amount">$1,600 + registration</span>
+    </div>
+  </li>
   <li>
     <span class="award-year">2026</span>
     <div>

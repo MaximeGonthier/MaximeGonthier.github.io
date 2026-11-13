@@ -349,6 +349,7 @@ document.querySelectorAll("#clues .reveal").forEach(btn => {
     { country: "Brazil", city: "Rio de Janeiro", coords: [-22.906800, -43.172900], description: ""},
     { country: "Brazil", city: "Petrópolis", coords: [-22.505000, -43.178600], description: ""},
     { country: "Brazil", city: "Teresópolis", coords: [-22.412200, -42.965600], description: ""},
+    { country: "Brazil", city: "Miguel Pereira", coords: [-22.453900, -43.468900], description: ""},
 
     // Spain
     { country: "Spain", city: "Madrid", coords: [40.416775, -3.70379], description: ""},

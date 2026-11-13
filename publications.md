@@ -127,7 +127,7 @@ does_not_need_title: true
 
   <li class="pub-item">
     <p class="pub-title">An Empirical Investigation of Container Building Strategies and Warm Times to Reduce Cold Starts in Scientific Computing Serverless Functions</p>
-    <p class="pub-authors">André Bauer, <strong>Maxime Gonthier</strong>, Ryan Chard, Haochen Pan, Daniel Grzenda, Martin Straesser, J. Gregory Pauloski, Alok Kamatar, Matthew E. Baughman, Nathaniel Hudson, Ian Foster, Kyle Chard</p>
+    <p class="pub-authors">André Bauer, <strong>Maxime Gonthier</strong>, Haochen Pan, Ryan Chard, Daniel Grzenda, Martin Straesser, J. Gregory Pauloski, Alok Kamatar, Matthew E. Baughman, Nathaniel Hudson, Ian Foster, Kyle Chard</p>
     <p class="pub-venue">20th IEEE International Conference on e-Science, 2024</p>
     <div class="pub-links"><a href="https://ieeexplore.ieee.org/abstract/document/10678668" target="_blank" rel="noopener">IEEE Xplore</a></div>
   </li>
@@ -143,6 +143,12 @@ does_not_need_title: true
 <h2 id="workshops" class="section-heading">International peer-reviewed workshops</h2>
 
 <ol class="pub-list">
+  <li class="pub-item">
+    <p class="pub-title">Benchmarking In-Lake Query Pushdown on Scientific Datasets: Climate, Genomics, and Astronomy at Scale</p>
+    <p class="pub-authors">Akshat Singhania, Suman Raj, Josh Fuhs, Ernest Villafana, <strong>Maxime Gonthier</strong>, Kyle Chard, Donpaul Stephens, Ian Foster</p>
+    <p class="pub-venue">Workshop on Benchmarking, Performance Tuning and Optimization for Big Data Applications (BPOD) at IEEE International Conference on Big Data (BigData), 2026</p>
+  </li>
+
   <li class="pub-item">
     <p class="pub-title">Octopus: Experiences with a Hybrid Event-Driven Architecture for Distributed Scientific Computing</p>
     <p class="pub-authors">Haochen Pan, Ryan Chard, Sicheng Zhou, Alok Kamatar, Rafael Vescovi, Valerie Hayot-Sasson, André Bauer, <strong>Maxime Gonthier</strong>, Kyle Chard, Ian Foster</p>
@@ -193,7 +199,7 @@ does_not_need_title: true
   </li>
 
   <li class="pub-item">
-    <p class="pub-title">Exploring Fine-Grained Parallelism in Dataflow Runtime Systems on Multi-Socket Many-Core Systems</p>
+    <p class="pub-title">Exploring Fine-Grained Parallelism in Data-flow Runtime Systems on Many-Core Systems</p>
     <p class="pub-authors">Wenyi Wang, <strong>Maxime Gonthier</strong>, Haibin Lai, Poornima Nookala, Haochen Pan, Ian Foster, Ioan Raicu, Kyle Chard</p>
     <p class="pub-venue">Poster with short paper at SuperComputing, 2025</p>
     <div class="pub-links"><a href="https://sc25.supercomputing.org/proceedings/posters/poster_files/post147s2-file2.pdf" target="_blank" rel="noopener">Poster</a></div>
@@ -206,10 +212,22 @@ does_not_need_title: true
   </li>
 
   <li class="pub-item">
+    <p class="pub-title">GNU-XTask: Optimizing Fine-Grained Parallelism through Dynamic Load Balancing on Multi-Socket Many-Core Systems</p>
+    <p class="pub-authors">Wenyi Wang, <strong>Maxime Gonthier</strong>, Poornima Nookala, Haochen Pan, Ian Foster, Ioan Raicu, Kyle Chard</p>
+    <p class="pub-venue">Greater Chicago Area Systems Research Workshop (GCASR), 2025</p>
+  </li>
+
+  <li class="pub-item">
     <p class="pub-title">Memory-Aware Scheduling Of Tasks Sharing Data On Multiple GPUs</p>
     <p class="pub-authors"><strong>Maxime Gonthier</strong>, Loris Marchal, Samuel Thibault</p>
     <p class="pub-venue">Peer-reviewed poster at ISC High Performance, 2023</p>
     <div class="pub-links"><a href="https://inria.hal.science/hal-04090595v1/document" target="_blank" rel="noopener">HAL</a></div>
+  </li>
+
+  <li class="pub-item">
+    <p class="pub-title">Memory-Aware Scheduling Of Tasks Sharing Data On Multiple GPUs</p>
+    <p class="pub-authors"><strong>Maxime Gonthier</strong>, Loris Marchal, Samuel Thibault</p>
+    <p class="pub-venue">15th JLESC Workshop, 2023</p>
   </li>
 
   <li class="pub-item">
@@ -246,14 +264,14 @@ does_not_need_title: true
 
   <li class="pub-item">
     <p class="pub-title">Locality-aware batch scheduling of I/O intensive workloads</p>
-    <p class="pub-authors"><strong>Maxime Gonthier</strong>, Elisabeth Larsson, Loris Marchal, Carl Nettelblad, Samuel Thibault</p>
+    <p class="pub-authors"><strong>Maxime Gonthier</strong>, Loris Marchal, Samuel Thibault, Elisabeth Larsson, Carl Nettelblad</p>
     <p class="pub-venue">Research report, extended version of the APDCM paper, 2023</p>
     <div class="pub-links"><a href="https://inria.hal.science/hal-03993118v1/document" target="_blank" rel="noopener">HAL</a></div>
   </li>
 
   <li class="pub-item">
     <p class="pub-title">A generic scheduler to foster data locality for GPU and out-of-core task-based applications</p>
-    <p class="pub-authors"><strong>Maxime Gonthier</strong>, Loris Marchal, Samuel Thibault</p>
+    <p class="pub-authors"><strong>Maxime Gonthier</strong>, Samuel Thibault, Loris Marchal</p>
     <p class="pub-venue">Research report, 2023</p>
     <div class="pub-links"><a href="https://inria.hal.science/hal-04146714v1/document" target="_blank" rel="noopener">HAL</a></div>
   </li>
